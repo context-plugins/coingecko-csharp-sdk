@@ -1,0 +1,20 @@
+using System.Text.Json.Serialization;
+
+namespace CoinGeckoDemoApi.Models;
+
+public record Meta
+{
+    /// <summary>
+    /// Base token metadata
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("base")]
+    public Base? Base { get; init; }
+
+    /// <summary>
+    /// Quote token metadata
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("quote")]
+    public Quote? Quote { get; init; }
+}
