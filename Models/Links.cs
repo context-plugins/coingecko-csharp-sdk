@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -98,4 +99,7 @@ public record Links
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("repos_url")]
     public ReposUrl? ReposUrl { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

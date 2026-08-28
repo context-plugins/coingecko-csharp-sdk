@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -69,4 +70,7 @@ public record Exchange1
     /// </summary>
     [JsonPropertyName("trade_volume_24h_btc")]
     public required double TradeVolume24HBtc { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

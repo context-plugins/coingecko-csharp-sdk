@@ -2103,7 +2103,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;Nftdata&gt; NftsContractAddress(string assetPlatformId = "ethereum", string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;NftData&gt; NftsContractAddress(string assetPlatformId = "ethereum", string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2127,7 +2127,7 @@ To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT
 try
 {
     var response = await client.NftsContractAddress();
-    // TODO: Handle 'response' of type Nftdata
+    // TODO: Handle 'response' of type NftData
 }
 catch (SdkException<RawError> ex)
 {
@@ -2156,7 +2156,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Nftdata](Models/Nftdata.cs)</code>
+**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -2169,7 +2169,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;Nftdata&gt; NftsId(string id = "pudgy-penguins", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;NftData&gt; NftsId(string id = "pudgy-penguins", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2193,7 +2193,7 @@ To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT
 try
 {
     var response = await client.NftsId();
-    // TODO: Handle 'response' of type Nftdata
+    // TODO: Handle 'response' of type NftData
 }
 catch (SdkException<RawError> ex)
 {
@@ -2221,7 +2221,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Nftdata](Models/Nftdata.cs)</code>
+**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -2234,7 +2234,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;NftsList&gt;&gt; NftsList(Order7? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;NfTsList&gt;&gt; NftsList(Order7? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2258,7 +2258,7 @@ To query all supported NFTs with ID, contract address, name, asset platform ID a
 try
 {
     var response = await client.NftsList(order, perPage, page);
-    // TODO: Handle 'response' of type IReadOnlyList<NftsList>
+    // TODO: Handle 'response' of type IReadOnlyList<NfTsList>
 }
 catch (SdkException<RawError> ex)
 {
@@ -2288,7 +2288,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[NftsList](Models/NftsList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[NfTsList](Models/NfTsList.cs)&gt;</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 

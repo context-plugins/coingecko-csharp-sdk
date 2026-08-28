@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -18,4 +19,7 @@ public record ConvertedVolume4
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("usd")]
     public string? Usd { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

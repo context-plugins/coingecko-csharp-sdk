@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -63,4 +64,7 @@ public record Attributes10
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reserve_in_usd")]
     public string? ReserveInUsd { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

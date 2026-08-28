@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -117,4 +118,7 @@ public record Ticker4
     /// </summary>
     [JsonPropertyName("expired_at")]
     public required double? ExpiredAt { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

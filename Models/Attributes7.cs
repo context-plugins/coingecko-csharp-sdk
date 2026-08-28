@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 using CoinGeckoDemoApi.Models.AnyOf;
 
 namespace CoinGeckoDemoApi.Models;
@@ -161,4 +162,7 @@ public record Attributes7
     /// </summary>
     [JsonPropertyName("developer_holding_percentage")]
     public required string? DeveloperHoldingPercentage { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

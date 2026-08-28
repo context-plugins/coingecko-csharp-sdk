@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -45,4 +46,7 @@ public record Government
     /// </summary>
     [JsonPropertyName("percentage_of_total_supply")]
     public required double PercentageOfTotalSupply { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

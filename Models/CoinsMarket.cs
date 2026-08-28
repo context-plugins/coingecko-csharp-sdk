@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -223,4 +224,7 @@ public record CoinsMarket
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("price_change_percentage_1y_in_currency")]
     public double? PriceChangePercentage1YInCurrency { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

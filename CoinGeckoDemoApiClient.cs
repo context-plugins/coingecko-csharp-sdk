@@ -39,7 +39,13 @@ public sealed class CoinGeckoDemoApiClient
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
         var httpLogger = new HttpLogger(options.Logging, "CoinGeckoDemoApiClient");
         _rawClient =
-            new RawClient(httpClient, urlFactory, httpStatusPolicy, headersFactory, resiliencePipelineFactory, httpLogger);
+            new RawClient(httpClient,
+                urlFactory,
+                httpStatusPolicy,
+                headersFactory,
+                resiliencePipelineFactory,
+                httpLogger,
+                options.Hooks);
         _auth = new AuthSchemes(options);
     }
 
@@ -1065,12 +1071,12 @@ public sealed class CoinGeckoDemoApiClient
     /// <param name="contractAddress">Contract address of the NFT collection.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Nftdata"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="NftData"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection contract address and respective asset platform
     /// </remarks>
-    public Task<Nftdata> NftsContractAddress(string assetPlatformId = "ethereum",
+    public Task<NftData> NftsContractAddress(string assetPlatformId = "ethereum",
         string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -1081,7 +1087,7 @@ public sealed class CoinGeckoDemoApiClient
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<Nftdata>(),
+            JsonResponse.Create<NftData>(),
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
@@ -1093,12 +1099,12 @@ public sealed class CoinGeckoDemoApiClient
     /// <param name="id">NFT collection ID.  *refers to <see href="/reference/nfts-list"><c>/nfts/list</c></see>.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="Nftdata"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="NftData"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection ID
     /// </remarks>
-    public Task<Nftdata> NftsId(string id = "pudgy-penguins",
+    public Task<NftData> NftsId(string id = "pudgy-penguins",
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.Default("/nfts/{id}"),
@@ -1107,7 +1113,7 @@ public sealed class CoinGeckoDemoApiClient
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<Nftdata>(),
+            JsonResponse.Create<NftData>(),
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
@@ -1121,12 +1127,12 @@ public sealed class CoinGeckoDemoApiClient
     /// <param name="page">Page through results.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="NftsList"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="NfTsList"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko
     /// </remarks>
-    public Task<IReadOnlyList<NftsList>> NftsList(Order7? order,
+    public Task<IReadOnlyList<NfTsList>> NftsList(Order7? order,
         int? perPage,
         int? page,
         RequestOptions? requestOptions = null,
@@ -1137,7 +1143,7 @@ public sealed class CoinGeckoDemoApiClient
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<IReadOnlyList<NftsList>>(),
+            JsonResponse.Create<IReadOnlyList<NfTsList>>(),
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,

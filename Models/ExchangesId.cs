@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -148,4 +149,7 @@ public record ExchangesId
     /// </summary>
     [JsonPropertyName("status_updates")]
     public required IReadOnlyList<StatusUpdate2> StatusUpdates { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

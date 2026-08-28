@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -16,4 +17,7 @@ public record PublicTreasuryEntityChart
     /// </summary>
     [JsonPropertyName("holding_value_in_usd")]
     public required IReadOnlyList<IReadOnlyList<double>> HoldingValueInUsd { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

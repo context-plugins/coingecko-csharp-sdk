@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -131,4 +132,7 @@ public record Ticker
     /// </summary>
     [JsonPropertyName("coin_mcap_usd")]
     public required double CoinMcapUsd { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

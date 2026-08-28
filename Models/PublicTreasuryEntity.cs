@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -76,4 +77,7 @@ public record PublicTreasuryEntity
     /// </summary>
     [JsonPropertyName("holdings")]
     public required IReadOnlyList<Holding> Holdings { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

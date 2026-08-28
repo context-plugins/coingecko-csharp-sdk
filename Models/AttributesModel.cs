@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -160,4 +161,7 @@ public record AttributesModel
     /// </summary>
     [JsonPropertyName("locked_liquidity_percentage")]
     public required string LockedLiquidityPercentage { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

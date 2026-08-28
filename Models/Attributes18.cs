@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -15,4 +16,7 @@ public record Attributes18
     /// </summary>
     [JsonPropertyName("coingecko_asset_platform_id")]
     public required string CoingeckoAssetPlatformId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

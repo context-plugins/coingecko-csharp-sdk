@@ -1,8 +1,9 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
-public record NftsList
+public record NfTsList
 {
     /// <summary>
     /// NFT collection ID
@@ -33,4 +34,7 @@ public record NftsList
     /// </summary>
     [JsonPropertyName("symbol")]
     public required string Symbol { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

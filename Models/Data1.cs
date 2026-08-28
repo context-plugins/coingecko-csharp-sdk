@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
@@ -45,4 +46,7 @@ public record Data1
     /// </summary>
     [JsonPropertyName("top_coin_defi_dominance")]
     public required double TopCoinDefiDominance { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

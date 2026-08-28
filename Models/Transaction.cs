@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 using CoinGeckoDemoApi.Models.Enums;
 
 namespace CoinGeckoDemoApi.Models;
@@ -27,7 +28,7 @@ public record Transaction
     /// Transaction type
     /// </summary>
     [JsonPropertyName("type")]
-    public required TypeModel Type { get; init; }
+    public required TypeEnum Type { get; init; }
 
     /// <summary>
     /// Net change in holdings after the transaction
@@ -52,4 +53,7 @@ public record Transaction
     /// </summary>
     [JsonPropertyName("average_entry_value_usd")]
     public required double AverageEntryValueUsd { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

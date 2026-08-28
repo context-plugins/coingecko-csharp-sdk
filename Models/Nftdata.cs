@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using CoinGeckoDemoApi.Core.Models;
 
 namespace CoinGeckoDemoApi.Models;
 
-public record Nftdata
+public record NftData
 {
     /// <summary>
     /// NFT collection ID
@@ -232,4 +233,7 @@ public record Nftdata
     /// </summary>
     [JsonPropertyName("ath_date")]
     public required AthDate AthDate { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }
