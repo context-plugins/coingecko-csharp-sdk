@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using CoinGeckoDemoApi.Core.Configuration;
-using CoinGeckoDemoApi.Core.Hooks;
-using CoinGeckoDemoApi.Servers;
+using CoinGecko.Core.Configuration;
+using CoinGecko.Core.Hooks;
+using CoinGecko.Servers;
 
-namespace CoinGeckoDemoApi;
+namespace CoinGecko;
 
-public class CoinGeckoDemoApiClientOptions
+public class CoinGeckoClientOptions
 {
     public ServerEnvironment Environment { get; set; } = ServerEnvironment.Default();
     public RetryOptions Retry { get; set; } = RetryOptions.Default();

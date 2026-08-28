@@ -6,18 +6,18 @@ using System.Threading;
 using System.Threading.Tasks;
 using Polly;
 using Polly.Timeout;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Extensions;
-using CoinGeckoDemoApi.Core.Hooks;
-using CoinGeckoDemoApi.Core.Logging;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Pagination;
-using CoinGeckoDemoApi.Core.Pagination.States;
-using CoinGeckoDemoApi.Core.Request;
-using CoinGeckoDemoApi.Core.Response;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Extensions;
+using CoinGecko.Core.Hooks;
+using CoinGecko.Core.Logging;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Pagination;
+using CoinGecko.Core.Pagination.States;
+using CoinGecko.Core.Request;
+using CoinGecko.Core.Response;
 
-namespace CoinGeckoDemoApi.Core;
+namespace CoinGecko.Core;
 
 internal sealed class RawClient
 {

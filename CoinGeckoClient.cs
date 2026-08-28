@@ -2,27 +2,27 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Exceptions;
-using CoinGeckoDemoApi.Core.Logging;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Request;
-using CoinGeckoDemoApi.Core.Response;
-using CoinGeckoDemoApi.Models;
-using CoinGeckoDemoApi.Models.AnyOf;
-using CoinGeckoDemoApi.Models.Enums;
+using CoinGecko.Core;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Exceptions;
+using CoinGecko.Core.Logging;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Request;
+using CoinGecko.Core.Response;
+using CoinGecko.Models;
+using CoinGecko.Models.AnyOf;
+using CoinGecko.Models.Enums;
 
-namespace CoinGeckoDemoApi;
+namespace CoinGecko;
 
-public sealed class CoinGeckoDemoApiClient
+public sealed class CoinGeckoClient
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
     private readonly AuthSchemes _auth;
 
-    public CoinGeckoDemoApiClient(HttpClient httpClient, CoinGeckoDemoApiClientOptions options)
+    public CoinGeckoClient(HttpClient httpClient, CoinGeckoClientOptions options)
     {
         _server = new Server(options.Environment, options.Server);
         var queryParameterFactory = new QueryParameterFactory([]);
@@ -30,14 +30,14 @@ public sealed class CoinGeckoDemoApiClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory =
-            new HeadersFactory([new HeaderParam("User-Agent", "CoinGeckoDemoApiClient/3.0.0 CSharp"),
+            new HeadersFactory([new HeaderParam("User-Agent", "CoinGeckoClient/3.0.0 CSharp"),
                     new HeaderParam("X-APIMatic-Lang", "CSharp"),
                     new HeaderParam("X-APIMatic-Package-Version", "3.0.0"),
                     new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
                     new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
                     new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime)]);
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
-        var httpLogger = new HttpLogger(options.Logging, "CoinGeckoDemoApiClient");
+        var httpLogger = new HttpLogger(options.Logging, "CoinGeckoClient");
         _rawClient =
             new RawClient(httpClient,
                 urlFactory,

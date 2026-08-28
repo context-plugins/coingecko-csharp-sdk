@@ -5,9 +5,9 @@ using System.Net.ServerSentEvents;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core.Exceptions;
+using CoinGecko.Core.Exceptions;
 
-namespace CoinGeckoDemoApi.Core.Response;
+namespace CoinGecko.Core.Response;
 
 internal static class SseFrameReader
 {

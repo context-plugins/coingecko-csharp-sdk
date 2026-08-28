@@ -3,15 +3,15 @@ using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace CoinGeckoDemoApi;
+namespace CoinGecko;
 
 public static class ServiceCollectionExtensions
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddCoinGeckoDemoApiClient(Action<CoinGeckoDemoApiClientOptions>? configure = null)
+        public IServiceCollection AddCoinGeckoClient(Action<CoinGeckoClientOptions>? configure = null)
         {
-            var options = new CoinGeckoDemoApiClientOptions();
+            var options = new CoinGeckoClientOptions();
             configure?.Invoke(options);
             services.AddHttpClient();
             services.AddSingleton(sp =>
@@ -23,7 +23,7 @@ public static class ServiceCollectionExtensions
                         };
                     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
                     var httpClient = httpClientFactory.CreateClient();
-                    return new CoinGeckoDemoApiClient(httpClient, options);
+                    return new CoinGeckoClient(httpClient, options);
                 });
             return services;
         }

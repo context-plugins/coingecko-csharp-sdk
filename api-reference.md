@@ -1,6 +1,6 @@
 # Reference
 
-> Source: [CoinGeckoDemoApiClient](CoinGeckoDemoApiClient.cs)
+> Source: [CoinGeckoClient](CoinGeckoClient.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyList&lt;AssetPlatform&gt;&gt; AssetPlatformsList(Filter? filter, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>

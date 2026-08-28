@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace CoinGeckoDemoApi.Core.Webhooks;
+namespace CoinGecko.Core.Webhooks;
 
 public abstract class WebhookEventParser<TEvent>
     where TEvent : class

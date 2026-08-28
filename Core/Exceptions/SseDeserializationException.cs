@@ -1,6 +1,6 @@
 using System;
 
-namespace CoinGeckoDemoApi.Core.Exceptions;
+namespace CoinGecko.Core.Exceptions;
 
 public sealed class SseDeserializationException : SseException
 {

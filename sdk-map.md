@@ -1,20 +1,20 @@
 <!-- Generated file — do not edit; regenerated with the SDK. -->
 
-# SDK map — CoinGecko Demo API (.NET)
+# SDK map — CoinGecko (.NET)
 
 > A generated table of contents for this SDK. Consult this map and its sub-pages to learn signatures, error types, and server/auth wiring **by lookup**. Model shapes and enum values are *not* duplicated here — the map names the file declaring each type; read the shape there. The compiler is the backstop: a wrong name fails to build.
 
 |  |  |
 | --- | --- |
-| SDK display name | CoinGecko Demo API |
-| Root namespace | `CoinGeckoDemoApi` |
+| SDK display name | CoinGecko |
+| Root namespace | `CoinGecko` |
 | Target framework | `netstandard2.0` (C# `LangVersion 14`, `Nullable enable`) |
 | API spec version | `3.0.0` |
 | Generator | APIMatic |
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.
 
-All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file and `CoinGeckoDemoApi.csproj` — never to the page that carries them. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
+All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file and `CoinGecko.csproj` — never to the page that carries them. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
 
 ---
 
@@ -24,19 +24,19 @@ All `Source` paths on this map and its sub-pages are relative to the **SDK root*
 var httpClient = new HttpClient();
 // TODO: configure more client options here
 var options =
-    new CoinGeckoDemoApiClientOptions
+    new CoinGeckoClientOptions
     {
         HeaderAuth = "YOUR_API_KEY",
         QueryAuth = "YOUR_API_KEY",
         Environment = ServerEnvironment.Production,
     };
-var client = new CoinGeckoDemoApiClient(httpClient, options);
+var client = new CoinGeckoClient(httpClient, options);
 ```
 
-DI alternative (`services.AddCoinGeckoDemoApiClient`):
+DI alternative (`services.AddCoinGeckoClient`):
 
 ```csharp
-services.AddCoinGeckoDemoApiClient(options =>
+services.AddCoinGeckoClient(options =>
     {
         options.HeaderAuth = "YOUR_API_KEY";
         options.QueryAuth = "YOUR_API_KEY";
@@ -45,9 +45,9 @@ services.AddCoinGeckoDemoApiClient(options =>
     });
 ```
 
-Every operation is a method on the client. Source: `CoinGeckoDemoApiClient.cs`. The only constructor is `CoinGeckoDemoApiClient(HttpClient httpClient, CoinGeckoDemoApiClientOptions options)`.
+Every operation is a method on the client. Source: `CoinGeckoClient.cs`. The only constructor is `CoinGeckoClient(HttpClient httpClient, CoinGeckoClientOptions options)`.
 
-All `CoinGeckoDemoApiClientOptions` properties (source: `CoinGeckoDemoApiClientOptions.cs`):
+All `CoinGeckoClientOptions` properties (source: `CoinGeckoClientOptions.cs`):
 
 | Property | Type |
 | --- | --- |
@@ -59,7 +59,7 @@ All `CoinGeckoDemoApiClientOptions` properties (source: `CoinGeckoDemoApiClientO
 | `HeaderAuth` | `string?` |
 | `QueryAuth` | `string?` |
 
-`RetryOptions` members (namespace `CoinGeckoDemoApi.Core.Configuration` — add `using CoinGeckoDemoApi.Core.Configuration;`; source: `Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
+`RetryOptions` members (namespace `CoinGecko.Core.Configuration` — add `using CoinGecko.Core.Configuration;`; source: `Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
 
 | Member | Type |
 | --- | --- |
@@ -127,7 +127,7 @@ Each links to a sub-page with one row per operation: signature with must-pass-ex
 
 | Controller (`client.X`) | Ops | Page |
 | --- | --- | --- |
-| `client` (root) | 61 | [map/operations/CoinGeckoDemoApiClient.md](map/operations/CoinGeckoDemoApiClient.md) |
+| `client` (root) | 61 | [map/operations/CoinGeckoClient.md](map/operations/CoinGeckoClient.md) |
 
 ---
 
@@ -147,10 +147,10 @@ Namespaces by content type (add `using` accordingly):
 
 | Contents | Namespace |
 | --- | --- |
-| Client & options (root) | `CoinGeckoDemoApi` |
-| Records (`Models/`) | `CoinGeckoDemoApi.Models` |
-| Enums (`Models/Enums/`) | `CoinGeckoDemoApi.Models.Enums` |
-| AnyOf unions (`Models/AnyOf/`) | `CoinGeckoDemoApi.Models.AnyOf` |
+| Client & options (root) | `CoinGecko` |
+| Records (`Models/`) | `CoinGecko.Models` |
+| Enums (`Models/Enums/`) | `CoinGecko.Models.Enums` |
+| AnyOf unions (`Models/AnyOf/`) | `CoinGecko.Models.AnyOf` |
 
 ---
 

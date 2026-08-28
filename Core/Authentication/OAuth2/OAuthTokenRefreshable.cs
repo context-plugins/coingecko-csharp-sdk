@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace CoinGeckoDemoApi.Core.Authentication.OAuth2;
+namespace CoinGecko.Core.Authentication.OAuth2;
 
 /// <summary>
 /// Extends <see cref="OAuthToken"/> with an optional refresh token for grant types that may

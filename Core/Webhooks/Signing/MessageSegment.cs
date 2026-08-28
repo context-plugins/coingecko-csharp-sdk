@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoinGeckoDemoApi.Core.Webhooks.Signing;
+namespace CoinGecko.Core.Webhooks.Signing;
 
 internal abstract record MessageSegment
 {

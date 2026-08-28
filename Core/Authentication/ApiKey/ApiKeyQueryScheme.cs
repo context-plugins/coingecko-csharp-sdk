@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CoinGeckoDemoApi.Core.Authentication.ApiKey;
+namespace CoinGecko.Core.Authentication.ApiKey;
 
 internal sealed class ApiKeyQueryScheme : IAuthScheme
 {

@@ -1,10 +1,10 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Extensions;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Extensions;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Models.AnyOf;
+namespace CoinGecko.Models.AnyOf;
 
 [JsonConverter(typeof(ExchangeVolumeChartConverter))]
 public record ExchangeVolumeChart

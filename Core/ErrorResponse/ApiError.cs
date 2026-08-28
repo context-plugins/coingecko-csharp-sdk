@@ -2,10 +2,10 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Response;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Response;
 
-namespace CoinGeckoDemoApi.Core.ErrorResponse;
+namespace CoinGecko.Core.ErrorResponse;
 
 public abstract class ApiError
 {

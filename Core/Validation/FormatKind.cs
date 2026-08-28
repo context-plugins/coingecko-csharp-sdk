@@ -1,4 +1,4 @@
-namespace CoinGeckoDemoApi.Core.Validation;
+namespace CoinGecko.Core.Validation;
 
 public enum FormatKind
 {

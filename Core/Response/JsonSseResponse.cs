@@ -7,10 +7,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core.Exceptions;
-using CoinGeckoDemoApi.Core.Extensions;
+using CoinGecko.Core.Exceptions;
+using CoinGecko.Core.Extensions;
 
-namespace CoinGeckoDemoApi.Core.Response;
+namespace CoinGecko.Core.Response;
 
 internal sealed class JsonSseResponse<TResponse> : IResponse<IAsyncEnumerable<TResponse>>
 {

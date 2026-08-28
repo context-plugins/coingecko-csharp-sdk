@@ -1,8 +1,8 @@
 <!-- Generated file — do not edit; regenerated with the SDK. -->
 
-# CoinGeckoDemoApiClient — operations
+# CoinGeckoClient — operations
 
-Accessor: `client` · Source: `CoinGeckoDemoApiClient.cs` · 61 operations
+Accessor: `client` · Source: `CoinGeckoClient.cs` · 61 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 

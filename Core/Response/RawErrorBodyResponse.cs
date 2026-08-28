@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core.ErrorResponse;
+using CoinGecko.Core.ErrorResponse;
 
-namespace CoinGeckoDemoApi.Core.Response;
+namespace CoinGecko.Core.Response;
 
 internal sealed class RawErrorBodyResponse : IResponse<RawError>
 {

@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using CoinGeckoDemoApi.Core.Configuration;
+using CoinGecko.Core.Configuration;
 
-namespace CoinGeckoDemoApi.Core.Logging;
+namespace CoinGecko.Core.Logging;
 
 internal sealed class HttpLogger
 {

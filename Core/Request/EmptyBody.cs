@@ -1,7 +1,7 @@
 using System.Net.Http;
-using CoinGeckoDemoApi.Core.Extensions;
+using CoinGecko.Core.Extensions;
 
-namespace CoinGeckoDemoApi.Core.Request;
+namespace CoinGecko.Core.Request;
 
 internal sealed class EmptyBody : IRequest
 {

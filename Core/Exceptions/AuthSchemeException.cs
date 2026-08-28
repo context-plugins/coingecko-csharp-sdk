@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace CoinGeckoDemoApi.Core.Exceptions;
+namespace CoinGecko.Core.Exceptions;
 
 public sealed class AuthSchemeException : Exception
 {
