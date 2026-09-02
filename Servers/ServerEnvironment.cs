@@ -1,8 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Enum;
+using CoinGeckoDemoApi.Core.Enum;
 
-namespace CoinGecko.Servers;
+namespace CoinGeckoDemoApi.Servers;
 
 [JsonConverter(typeof(StringEnumConverter<ServerEnvironment>))]
 public record ServerEnvironment : StringEnum<ServerEnvironment>

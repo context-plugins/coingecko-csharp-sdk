@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using Polly;
 using Polly.Retry;
 using Polly.Timeout;
-using CoinGecko.Core.Configuration;
-using CoinGecko.Core.Logging;
-using CoinGecko.Core.Request;
+using CoinGeckoDemoApi.Core.Configuration;
+using CoinGeckoDemoApi.Core.Logging;
+using CoinGeckoDemoApi.Core.Request;
 
-namespace CoinGecko.Core;
+namespace CoinGeckoDemoApi.Core;
 
 internal sealed class ResiliencePipelineFactory
 {

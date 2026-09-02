@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace CoinGecko.Core.Pagination.States;
+namespace CoinGeckoDemoApi.Core.Pagination.States;
 
 internal sealed record KeysetState<TResponse> : IPageState<TResponse, KeysetState<TResponse>>
 {

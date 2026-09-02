@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Models;
+using CoinGeckoDemoApi.Core.Models;
 
-namespace CoinGecko.Models;
+namespace CoinGeckoDemoApi.Models;
 
 /// <summary>
 /// Sparkline price data for the last 7 days

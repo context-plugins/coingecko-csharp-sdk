@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CoinGecko.Core.Extensions;
+namespace CoinGeckoDemoApi.Core.Extensions;
 
 internal static class CollectionExtensions
 {

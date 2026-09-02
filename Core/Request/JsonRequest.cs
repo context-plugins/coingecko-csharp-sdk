@@ -2,9 +2,9 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Extensions;
+using CoinGeckoDemoApi.Core.Extensions;
 
-namespace CoinGecko.Core.Request;
+namespace CoinGeckoDemoApi.Core.Request;
 
 internal sealed class JsonRequest<TData>(TData data, JsonSerializerOptions options) : IRequest
 {

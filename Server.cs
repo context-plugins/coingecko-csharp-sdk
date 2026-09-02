@@ -1,7 +1,7 @@
-using CoinGecko.Core.Models;
-using CoinGecko.Servers;
+using CoinGeckoDemoApi.Core.Models;
+using CoinGeckoDemoApi.Servers;
 
-namespace CoinGecko;
+namespace CoinGeckoDemoApi;
 
 public class Server
 {

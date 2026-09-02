@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace CoinGecko.Core.Models;
+namespace CoinGeckoDemoApi.Core.Models;
 
 public sealed class ErrorByteContent
 {

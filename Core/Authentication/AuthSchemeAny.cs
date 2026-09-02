@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGecko.Core.Exceptions;
+using CoinGeckoDemoApi.Core.Exceptions;
 
-namespace CoinGecko.Core.Authentication;
+namespace CoinGeckoDemoApi.Core.Authentication;
 
 /// <summary>
 /// Represents multiple alternative schemes (OR logic).

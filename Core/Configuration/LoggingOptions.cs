@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 
-namespace CoinGecko.Core.Configuration;
+namespace CoinGeckoDemoApi.Core.Configuration;
 
 public record LoggingOptions
 {

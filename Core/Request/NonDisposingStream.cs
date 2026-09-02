@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CoinGecko.Core.Request;
+namespace CoinGeckoDemoApi.Core.Request;
 
 internal sealed class NonDisposingStream : Stream
 {

@@ -1,71 +1,10 @@
 # Reference
 
-> Source: [CoinGeckoClient](CoinGeckoClient.cs)
+> Source: [CoinGeckoDemoApiClient](CoinGeckoDemoApiClient.cs)
 
-<details>
-<summary><code>Task&lt;IReadOnlyList&lt;AssetPlatform&gt;&gt; AssetPlatformsList(Filter? filter, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+## Coins
 
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all the supported asset platforms (blockchain networks) on CoinGecko
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.AssetPlatformsList(filter);
-    // TODO: Handle 'response' of type IReadOnlyList<AssetPlatform>
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>filter</code> | <code>[Filter?](Models/Enums/Filter.cs)</code> | Apply relevant filters to results. |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>IReadOnlyList&lt;[AssetPlatform](Models/AssetPlatform.cs)&gt;</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
+> Source: [Coins](Api/Coins.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyList&lt;Category1&gt;&gt; CoinsCategories(Order2? order, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
@@ -91,7 +30,7 @@ To query all the coins categories with market data (market cap, volume, etc.) on
 ```csharp
 try
 {
-    var response = await client.CoinsCategories(order);
+    var response = await client.Coins.CoinsCategories(order);
     // TODO: Handle 'response' of type IReadOnlyList<Category1>
 }
 catch (SdkException<RawError> ex)
@@ -156,7 +95,7 @@ To query all the supported coins categories on CoinGecko
 ```csharp
 try
 {
-    var response = await client.CoinsCategoriesList();
+    var response = await client.Coins.CoinsCategoriesList();
     // TODO: Handle 'response' of type IReadOnlyList<CategoriesList>
 }
 catch (SdkException<RawError> ex)
@@ -209,7 +148,7 @@ To query all the metadata (image, websites, socials, description, contract addre
 ```csharp
 try
 {
-    var response = await client.CoinsContractAddress();
+    var response = await client.Coins.CoinsContractAddress();
     // TODO: Handle 'response' of type CoinsContractAddress
 }
 catch (SdkException<RawError> ex)
@@ -275,7 +214,7 @@ To query all the metadata (image, websites, socials, description, contract addre
 ```csharp
 try
 {
-    var response = await client.CoinsId(localization,
+    var response = await client.Coins.CoinsId(localization,
         tickers,
         marketData,
         communityData,
@@ -355,7 +294,7 @@ To query the historical data (price, market cap, 24hrs volume, etc.) at a given 
 ```csharp
 try
 {
-    var response = await client.CoinsIdHistory(localization);
+    var response = await client.Coins.CoinsIdHistory(localization);
     // TODO: Handle 'response' of type CoinsIdHistory
 }
 catch (SdkException<RawError> ex)
@@ -422,7 +361,7 @@ To get the historical chart data of a coin including time in UNIX, price, market
 ```csharp
 try
 {
-    var response = await client.CoinsIdMarketChart(interval, precision);
+    var response = await client.Coins.CoinsIdMarketChart(interval, precision);
     // TODO: Handle 'response' of type CoinsMarketChart
 }
 catch (SdkException<RawError> ex)
@@ -491,7 +430,7 @@ To get the historical chart data of a coin within certain time range in UNIX alo
 ```csharp
 try
 {
-    var response = await client.CoinsIdMarketChartRange(precision);
+    var response = await client.Coins.CoinsIdMarketChartRange(precision);
     // TODO: Handle 'response' of type CoinsMarketChart
 }
 catch (SdkException<RawError> ex)
@@ -560,7 +499,7 @@ To get the OHLC chart (Open, High, Low, Close) of a coin based on particular coi
 ```csharp
 try
 {
-    var response = await client.CoinsIdOhlc(days, precision);
+    var response = await client.Coins.CoinsIdOhlc(days, precision);
     // TODO: Handle 'response' of type IReadOnlyList<IReadOnlyList<double>>
 }
 catch (SdkException<RawError> ex)
@@ -628,7 +567,12 @@ To query the coin tickers on both centralized exchange (CEX) and decentralized e
 ```csharp
 try
 {
-    var response = await client.CoinsIdTickers(exchangeIds, includeExchangeLogo, page, order, depth, dexPairFormat);
+    var response = await client.Coins.CoinsIdTickers(exchangeIds,
+        includeExchangeLogo,
+        page,
+        order,
+        depth,
+        dexPairFormat);
     // TODO: Handle 'response' of type CoinsIdTickers
 }
 catch (SdkException<RawError> ex)
@@ -699,7 +643,7 @@ To query all the supported coins on CoinGecko with coin ID, name and symbol
 ```csharp
 try
 {
-    var response = await client.CoinsList(includePlatform, status);
+    var response = await client.Coins.CoinsList(includePlatform, status);
     // TODO: Handle 'response' of type IReadOnlyList<CoinsList>
 }
 catch (SdkException<RawError> ex)
@@ -765,7 +709,7 @@ To query all the supported coins with price, market cap, volume and market relat
 ```csharp
 try
 {
-    var response = await client.CoinsMarkets(includeTokens,
+    var response = await client.Coins.CoinsMarkets(includeTokens,
         category,
         order,
         perPage,
@@ -829,75 +773,6 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PublicTreasury&gt; CompaniesPublicTreasury(Entity entity, int? perPage, int? page, Order5? order, string coinId = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query public companies' and governments' cryptocurrency holdings by coin ID
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.CompaniesPublicTreasury(entity, perPage, page, order);
-    // TODO: Handle 'response' of type PublicTreasury
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>entity</code> | <code>[Entity](Models/Enums/Entity.cs)</code> | Public company or government entity. |
-| <code>perPage</code> | <code>int?</code> | Total results per page. <br>Default value: 250 <br>Valid values: 1...250 |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>order</code> | <code>[Order5?](Models/Enums/Order5.cs)</code> | Sort order for results. <br>Default: `total_holdings_usd_desc` |
-| <code>coinId</code> | <code>string</code> | Coin ID. <br>e.g. `bitcoin`, `ethereum`, `solana`, `binancecoin`<br>**Default**: "bitcoin" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[PublicTreasury](Models/AnyOf/PublicTreasury.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
 <summary><code>Task&lt;CoinsMarketChart&gt; ContractAddressMarketChart(Interval? interval, Precision? precision, string id = "ethereum", string contractAddress = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", string vsCurrency = "usd", string days = "1", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
@@ -921,7 +796,7 @@ To get the historical chart data including time in UNIX, price, market cap and 2
 ```csharp
 try
 {
-    var response = await client.ContractAddressMarketChart(interval, precision);
+    var response = await client.Coins.ContractAddressMarketChart(interval, precision);
     // TODO: Handle 'response' of type CoinsMarketChart
 }
 catch (SdkException<RawError> ex)
@@ -991,7 +866,7 @@ To get the historical chart data within certain time range in UNIX along with pr
 ```csharp
 try
 {
-    var response = await client.ContractAddressMarketChartRange(precision);
+    var response = await client.Coins.ContractAddressMarketChartRange(precision);
     // TODO: Handle 'response' of type CoinsMarketChart
 }
 catch (SdkException<RawError> ex)
@@ -1037,58 +912,9 @@ catch (SdkException<RawError> ex)
 
 </details>
 
-<details>
-<summary><code>Task&lt;Global&gt; CryptoGlobal(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+## Derivatives
 
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query cryptocurrency global data including active cryptocurrencies, markets, total crypto market cap and etc
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.CryptoGlobal();
-    // TODO: Handle 'response' of type Global
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[Global](Models/Global.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
+> Source: [Derivatives](Api/Derivatives.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyList&lt;DerivativesExchange&gt;&gt; DerivativesExchanges(Order4? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
@@ -1114,7 +940,7 @@ To query all the derivatives exchanges with related data (ID, name, open interes
 ```csharp
 try
 {
-    var response = await client.DerivativesExchanges(order, perPage, page);
+    var response = await client.Derivatives.DerivativesExchanges(order, perPage, page);
     // TODO: Handle 'response' of type IReadOnlyList<DerivativesExchange>
 }
 catch (SdkException<RawError> ex)
@@ -1181,7 +1007,7 @@ To query the derivatives exchange's related data (name, open interest, trade vol
 ```csharp
 try
 {
-    var response = await client.DerivativesExchangesId(includeTickers);
+    var response = await client.Derivatives.DerivativesExchangesId(includeTickers);
     // TODO: Handle 'response' of type DerivativesExchangesId
 }
 catch (SdkException<RawError> ex)
@@ -1247,7 +1073,7 @@ To query all the supported derivatives exchanges with ID and name on CoinGecko
 ```csharp
 try
 {
-    var response = await client.DerivativesExchangesList();
+    var response = await client.Derivatives.DerivativesExchangesList();
     // TODO: Handle 'response' of type IReadOnlyList<DerivativesExchangesList>
 }
 catch (SdkException<RawError> ex)
@@ -1300,7 +1126,7 @@ To query all the tickers from derivatives exchanges on CoinGecko
 ```csharp
 try
 {
-    var response = await client.DerivativesTickers();
+    var response = await client.Derivatives.DerivativesTickers();
     // TODO: Handle 'response' of type IReadOnlyList<DerivativesTicker>
 }
 catch (SdkException<RawError> ex)
@@ -1329,8 +1155,12 @@ catch (SdkException<RawError> ex)
 
 </details>
 
+## Entities
+
+> Source: [Entities](Api/Entities.cs)
+
 <details>
-<summary><code>Task&lt;DexesList&gt; DexesList(int? page, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PublicTreasury&gt; CompaniesPublicTreasury(Entity entity, int? perPage, int? page, Order5? order, string coinId = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1340,7 +1170,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-To query all the supported decentralized exchanges (DEXs) based on the provided network on GeckoTerminal
+To query public companies' and governments' cryptocurrency holdings by coin ID
 
 </dd>
 </dl>
@@ -1353,8 +1183,8 @@ To query all the supported decentralized exchanges (DEXs) based on the provided 
 ```csharp
 try
 {
-    var response = await client.DexesList(page);
-    // TODO: Handle 'response' of type DexesList
+    var response = await client.Entities.CompaniesPublicTreasury(entity, perPage, page, order);
+    // TODO: Handle 'response' of type PublicTreasury
 }
 catch (SdkException<RawError> ex)
 {
@@ -1372,8 +1202,11 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
+| <code>entity</code> | <code>[Entity](Models/Enums/Entity.cs)</code> | Public company or government entity. |
+| <code>perPage</code> | <code>int?</code> | Total results per page. <br>Default value: 250 <br>Valid values: 1...250 |
 | <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+| <code>order</code> | <code>[Order5?](Models/Enums/Order5.cs)</code> | Sort order for results. <br>Default: `total_holdings_usd_desc` |
+| <code>coinId</code> | <code>string</code> | Coin ID. <br>e.g. `bitcoin`, `ethereum`, `solana`, `binancecoin`<br>**Default**: "bitcoin" |
 
 </dd>
 </dl>
@@ -1383,7 +1216,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DexesList](Models/DexesList.cs)</code>
+**OnSuccess**: <code>[PublicTreasury](Models/AnyOf/PublicTreasury.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -1419,7 +1252,7 @@ To query all the supported entities on CoinGecko with entity ID, name, symbol, a
 ```csharp
 try
 {
-    var response = await client.EntitiesList(entityType, perPage, page);
+    var response = await client.Entities.EntitiesList(entityType, perPage, page);
     // TODO: Handle 'response' of type IReadOnlyList<EntitiesList>
 }
 catch (SdkException<RawError> ex)
@@ -1462,6 +1295,10 @@ catch (SdkException<RawError> ex)
 
 </details>
 
+## Exchanges
+
+> Source: [Exchanges](Api/Exchanges.cs)
+
 <details>
 <summary><code>Task&lt;ExchangeRates&gt; ExchangeRates(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
@@ -1486,7 +1323,7 @@ To query BTC exchange rates with other currencies
 ```csharp
 try
 {
-    var response = await client.ExchangeRates();
+    var response = await client.Exchanges.ExchangeRates();
     // TODO: Handle 'response' of type ExchangeRates
 }
 catch (SdkException<RawError> ex)
@@ -1516,7 +1353,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;Exchange1&gt;&gt; Exchanges(double? perPage, double? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;Exchange1&gt;&gt; ExchangesInvoke(double? perPage, double? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -1539,7 +1376,7 @@ To query all the supported exchanges with exchanges' data (ID, name, country, et
 ```csharp
 try
 {
-    var response = await client.Exchanges(perPage, page);
+    var response = await client.Exchanges.ExchangesInvoke(perPage, page);
     // TODO: Handle 'response' of type IReadOnlyList<Exchange1>
 }
 catch (SdkException<RawError> ex)
@@ -1605,7 +1442,7 @@ To query exchange's data (name, year established, country, etc.), exchange volum
 ```csharp
 try
 {
-    var response = await client.ExchangesId(dexPairFormat);
+    var response = await client.Exchanges.ExchangesId(dexPairFormat);
     // TODO: Handle 'response' of type ExchangesId
 }
 catch (SdkException<RawError> ex)
@@ -1671,7 +1508,12 @@ To query exchange's tickers based on exchange's ID
 ```csharp
 try
 {
-    var response = await client.ExchangesIdTickers(coinIds, includeExchangeLogo, page, depth, order, dexPairFormat);
+    var response = await client.Exchanges.ExchangesIdTickers(coinIds,
+        includeExchangeLogo,
+        page,
+        depth,
+        order,
+        dexPairFormat);
     // TODO: Handle 'response' of type CoinsIdTickers
 }
 catch (SdkException<RawError> ex)
@@ -1742,7 +1584,7 @@ To query the historical volume chart data with time in UNIX and trading volume d
 ```csharp
 try
 {
-    var response = await client.ExchangesIdVolumeChart(days);
+    var response = await client.Exchanges.ExchangesIdVolumeChart(days);
     // TODO: Handle 'response' of type IReadOnlyList<IReadOnlyList<ExchangeVolumeChart>>
 }
 catch (SdkException<RawError> ex)
@@ -1808,7 +1650,7 @@ To query all the supported exchanges with ID and name
 ```csharp
 try
 {
-    var response = await client.ExchangesList(status);
+    var response = await client.Exchanges.ExchangesList(status);
     // TODO: Handle 'response' of type IReadOnlyList<ExchangesList>
 }
 catch (SdkException<RawError> ex)
@@ -1849,6 +1691,63 @@ catch (SdkException<RawError> ex)
 
 </details>
 
+## GlobalApi
+
+> Source: [GlobalApi](Api/GlobalApi.cs)
+
+<details>
+<summary><code>Task&lt;Global&gt; CryptoGlobal(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query cryptocurrency global data including active cryptocurrencies, markets, total crypto market cap and etc
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.GlobalApi.CryptoGlobal();
+    // TODO: Handle 'response' of type Global
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Global](Models/Global.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
 <details>
 <summary><code>Task&lt;GlobalDeFi&gt; GlobalDefi(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
@@ -1873,7 +1772,7 @@ To query top 100 cryptocurrency global decentralized finance (DeFi) data includi
 ```csharp
 try
 {
-    var response = await client.GlobalDefi();
+    var response = await client.GlobalApi.GlobalDefi();
     // TODO: Handle 'response' of type GlobalDeFi
 }
 catch (SdkException<RawError> ex)
@@ -1891,6 +1790,465 @@ catch (SdkException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[GlobalDeFi](Models/GlobalDeFi.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+## Misc
+
+> Source: [Misc](Api/Misc.cs)
+
+<details>
+<summary><code>Task&lt;IReadOnlyList&lt;AssetPlatform&gt;&gt; AssetPlatformsList(Filter? filter, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the supported asset platforms (blockchain networks) on CoinGecko
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Misc.AssetPlatformsList(filter);
+    // TODO: Handle 'response' of type IReadOnlyList<AssetPlatform>
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>filter</code> | <code>[Filter?](Models/Enums/Filter.cs)</code> | Apply relevant filters to results. |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>IReadOnlyList&lt;[AssetPlatform](Models/AssetPlatform.cs)&gt;</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;PingServer&gt; PingServer(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To check the API server status
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Misc.PingServer();
+    // TODO: Handle 'response' of type PingServer
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[PingServer](Models/PingServer.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;TokenLists&gt; TokenLists(string assetPlatformId = "ethereum", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To get full list of tokens of a blockchain network (asset platform) that is supported by [Ethereum token list standard](https://tokenlists.org/)
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Misc.TokenLists();
+    // TODO: Handle 'response' of type TokenLists
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>assetPlatformId</code> | <code>string</code> | Asset platform ID. <br>*refers to [`/asset_platforms`](/reference/asset-platforms-list).<br>**Default**: "ethereum" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[TokenLists](Models/TokenLists.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+## Nfts
+
+> Source: [Nfts](Api/Nfts.cs)
+
+<details>
+<summary><code>Task&lt;NftData&gt; NftsContractAddress(string assetPlatformId = "ethereum", string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection contract address and respective asset platform
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Nfts.NftsContractAddress();
+    // TODO: Handle 'response' of type NftData
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>assetPlatformId</code> | <code>string</code> | Asset platform ID. <br>*refers to [`/asset_platforms`](/reference/asset-platforms-list).<br>**Default**: "ethereum" |
+| <code>contractAddress</code> | <code>string</code> | Contract address of the NFT collection.<br>**Default**: "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;NftData&gt; NftsId(string id = "pudgy-penguins", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection ID
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Nfts.NftsId();
+    // TODO: Handle 'response' of type NftData
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>id</code> | <code>string</code> | NFT collection ID. <br>*refers to [`/nfts/list`](/reference/nfts-list).<br>**Default**: "pudgy-penguins" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;IReadOnlyList&lt;NfTsList&gt;&gt; NftsList(Order7? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Nfts.NftsList(order, perPage, page);
+    // TODO: Handle 'response' of type IReadOnlyList<NfTsList>
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>order</code> | <code>[Order7?](Models/Enums/Order7.cs)</code> | Sort order of responses. |
+| <code>perPage</code> | <code>int?</code> | Total results per page. <br>Valid values: 1...250 |
+| <code>page</code> | <code>int?</code> | Page through results. |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>IReadOnlyList&lt;[NfTsList](Models/NfTsList.cs)&gt;</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+## Onchain
+
+> Source: [Onchain](Api/Onchain.cs)
+
+<details>
+<summary><code>Task&lt;DexesList&gt; DexesList(int? page, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the supported decentralized exchanges (DEXs) based on the provided network on GeckoTerminal
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.DexesList(page);
+    // TODO: Handle 'response' of type DexesList
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[DexesList](Models/DexesList.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -1926,7 +2284,7 @@ To query all the latest pools across all networks on GeckoTerminal
 ```csharp
 try
 {
-    var response = await client.LatestPoolsList(include, page, includeGtCommunityData);
+    var response = await client.Onchain.LatestPoolsList(include, page, includeGtCommunityData);
     // TODO: Handle 'response' of type Pool
 }
 catch (SdkException<RawError> ex)
@@ -1993,7 +2351,7 @@ To query all the latest pools based on the provided network
 ```csharp
 try
 {
-    var response = await client.LatestPoolsNetwork(include, page, includeGtCommunityData);
+    var response = await client.Onchain.LatestPoolsNetwork(include, page, includeGtCommunityData);
     // TODO: Handle 'response' of type Pool
 }
 catch (SdkException<RawError> ex)
@@ -2061,7 +2419,7 @@ To retrieve a list of all supported networks on GeckoTerminal
 ```csharp
 try
 {
-    var response = await client.NetworksList(page);
+    var response = await client.Onchain.NetworksList(page);
     // TODO: Handle 'response' of type NetworksList
 }
 catch (SdkException<RawError> ex)
@@ -2103,204 +2461,6 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;NftData&gt; NftsContractAddress(string assetPlatformId = "ethereum", string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection contract address and respective asset platform
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.NftsContractAddress();
-    // TODO: Handle 'response' of type NftData
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>assetPlatformId</code> | <code>string</code> | Asset platform ID. <br>*refers to [`/asset_platforms`](/reference/asset-platforms-list).<br>**Default**: "ethereum" |
-| <code>contractAddress</code> | <code>string</code> | Contract address of the NFT collection.<br>**Default**: "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;NftData&gt; NftsId(string id = "pudgy-penguins", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection ID
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.NftsId();
-    // TODO: Handle 'response' of type NftData
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>id</code> | <code>string</code> | NFT collection ID. <br>*refers to [`/nfts/list`](/reference/nfts-list).<br>**Default**: "pudgy-penguins" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;IReadOnlyList&lt;NfTsList&gt;&gt; NftsList(Order7? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.NftsList(order, perPage, page);
-    // TODO: Handle 'response' of type IReadOnlyList<NfTsList>
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>order</code> | <code>[Order7?](Models/Enums/Order7.cs)</code> | Sort order of responses. |
-| <code>perPage</code> | <code>int?</code> | Total results per page. <br>Valid values: 1...250 |
-| <code>page</code> | <code>int?</code> | Page through results. |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>IReadOnlyList&lt;[NfTsList](Models/NfTsList.cs)&gt;</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
 <summary><code>Task&lt;OnchainSimplePrice&gt; OnchainSimplePrice(bool? includeMarketCap, bool? mcapFdvFallback, bool? include24HrVol, bool? include24HrPriceChange, bool? includeTotalReserveInUsd, bool? includeInactiveSource, string network = "eth", string addresses = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
@@ -2324,7 +2484,7 @@ To get token price based on the provided token contract address on a network
 ```csharp
 try
 {
-    var response = await client.OnchainSimplePrice(includeMarketCap,
+    var response = await client.Onchain.OnchainSimplePrice(includeMarketCap,
         mcapFdvFallback,
         include24HrVol,
         include24HrPriceChange,
@@ -2378,59 +2538,6 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PingServer&gt; PingServer(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To check the API server status
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.PingServer();
-    // TODO: Handle 'response' of type PingServer
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[PingServer](Models/PingServer.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
 <summary><code>Task&lt;PoolAddressData&gt; PoolAddress(string? include, bool? includeVolumeBreakdown, bool? includeComposition, string network = "eth", string address = "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
@@ -2454,7 +2561,7 @@ To query the specific pool based on the provided network and pool address
 ```csharp
 try
 {
-    var response = await client.PoolAddress(include, includeVolumeBreakdown, includeComposition);
+    var response = await client.Onchain.PoolAddress(include, includeVolumeBreakdown, includeComposition);
     // TODO: Handle 'response' of type PoolAddressData
 }
 catch (SdkException<RawError> ex)
@@ -2523,7 +2630,7 @@ To get the OHLCV chart (Open, High, Low, Close, Volume) of a pool based on the p
 ```csharp
 try
 {
-    var response = await client.PoolOhlcvContractAddress(timeframe,
+    var response = await client.Onchain.PoolOhlcvContractAddress(timeframe,
         aggregate,
         beforeTimestamp,
         limit,
@@ -2602,7 +2709,7 @@ To query pool metadata (base and quote token details, image, socials, websites, 
 ```csharp
 try
 {
-    var response = await client.PoolTokenInfoContractAddress(include);
+    var response = await client.Onchain.PoolTokenInfoContractAddress(include);
     // TODO: Handle 'response' of type PoolTokensInfo
 }
 catch (SdkException<RawError> ex)
@@ -2669,7 +2776,7 @@ To query the last 300 trades in the past 24 hours based on the provided pool add
 ```csharp
 try
 {
-    var response = await client.PoolTradesContractAddress(tradeVolumeInUsdGreaterThan, token);
+    var response = await client.Onchain.PoolTradesContractAddress(tradeVolumeInUsdGreaterThan, token);
     // TODO: Handle 'response' of type Trades
 }
 catch (SdkException<RawError> ex)
@@ -2737,7 +2844,7 @@ To query multiple pools based on the provided network and pool addresses
 ```csharp
 try
 {
-    var response = await client.PoolsAddresses(include, includeVolumeBreakdown, includeComposition);
+    var response = await client.Onchain.PoolsAddresses(include, includeVolumeBreakdown, includeComposition);
     // TODO: Handle 'response' of type MultiPoolAddressData
 }
 catch (SdkException<RawError> ex)
@@ -2783,6 +2890,699 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;PoolSearch&gt; SearchPools(string? network, string? include, int? page, string? query = "weth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To search for pools across all networks by pool address, token name, token symbol, or token contract address
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.SearchPools(network, include, page);
+    // TODO: Handle 'response' of type PoolSearch
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>network</code> | <code>string?</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list). |
+| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>query</code> | <code>string?</code> | Search query: pool contract address, token name, token symbol, or token contract address.<br>**Default**: "weth" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[PoolSearch](Models/PoolSearch.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;TokenData&gt; TokenDataContractAddress(Include? include, bool? includeComposition, bool? includeInactiveSource, string network = "eth", string address = "0xdac17f958d2ee523a2206206994597c13d831ec7", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query specific token data based on the provided token contract address on a network
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TokenDataContractAddress(include, includeComposition, includeInactiveSource);
+    // TODO: Handle 'response' of type TokenData
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>[Include?](Models/Enums/Include.cs)</code> | Attributes to include. |
+| <code>includeComposition</code> | <code>bool?</code> | Include pool composition. <br>Default: `false` |
+| <code>includeInactiveSource</code> | <code>bool?</code> | Include token data from inactive pools using the most recent swap. <br>Default: `false` |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+| <code>address</code> | <code>string</code> | Token contract address.<br>**Default**: "0xdac17f958d2ee523a2206206994597c13d831ec7" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[TokenData](Models/TokenData.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;TokenInfo&gt; TokenInfoContractAddress(string network = "solana", string address = "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query token metadata (name, symbol, CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TokenInfoContractAddress();
+    // TODO: Handle 'response' of type TokenInfo
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "solana" |
+| <code>address</code> | <code>string</code> | Token contract address.<br>**Default**: "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[TokenInfo](Models/TokenInfo.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;MultiTokenData&gt; TokensDataContractAddresses(Include? include, bool? includeComposition, bool? includeInactiveSource, string network = "solana", string addresses = "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query multiple tokens data based on the provided token contract addresses on a network
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TokensDataContractAddresses(include, includeComposition, includeInactiveSource);
+    // TODO: Handle 'response' of type MultiTokenData
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>[Include?](Models/Enums/Include.cs)</code> | Attributes to include. |
+| <code>includeComposition</code> | <code>bool?</code> | Include pool composition. <br>Default: `false` |
+| <code>includeInactiveSource</code> | <code>bool?</code> | Include tokens from inactive pools using the most recent swap. <br>Default: `false` |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "solana" |
+| <code>addresses</code> | <code>string</code> | Token contract address, comma-separated if more than one token contract address.<br>**Default**: "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[MultiTokenData](Models/MultiTokenData.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;TokenInfoRecentlyUpdated&gt; TokensInfoRecentUpdated(Include3? include, string? network, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query 100 most recently updated tokens info of a specific network or across all networks on GeckoTerminal
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TokensInfoRecentUpdated(include, network);
+    // TODO: Handle 'response' of type TokenInfoRecentlyUpdated
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>[Include3?](Models/Enums/Include3.cs)</code> | Attributes for related resources to include. |
+| <code>network</code> | <code>string?</code> | Filter tokens by provided network. <br>*refers to [`/onchain/networks`](/reference/networks-list). |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[TokenInfoRecentlyUpdated](Models/TokenInfoRecentlyUpdated.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;Pool&gt; TopPoolsContractAddress(string? include, bool? includeInactiveSource, int? page, Sort2? sort, bool? includeGtCommunityData, string network = "eth", string tokenAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query top pools based on the provided token contract address on a network
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TopPoolsContractAddress(include,
+        includeInactiveSource,
+        page,
+        sort,
+        includeGtCommunityData);
+    // TODO: Handle 'response' of type Pool
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
+| <code>includeInactiveSource</code> | <code>bool?</code> | Include tokens from inactive pools using the most recent swap. <br>Default: `false` |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>sort</code> | <code>[Sort2?](Models/Enums/Sort2.cs)</code> | Sort the pools by field. <br>Default: `h24_volume_usd_liquidity_desc` |
+| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+| <code>tokenAddress</code> | <code>string</code> | Token contract address.<br>**Default**: "0xdac17f958d2ee523a2206206994597c13d831ec7" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;Pool&gt; TopPoolsDex(string? include, int? page, Sort? sort, bool? includeGtCommunityData, string network = "eth", string dex = "sushiswap", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the top pools based on the provided network and decentralized exchange (DEX)
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TopPoolsDex(include, page, sort, includeGtCommunityData);
+    // TODO: Handle 'response' of type Pool
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>sort</code> | <code>[Sort?](Models/Enums/Sort.cs)</code> | Sort the pools by field. <br>Default: `h24_tx_count_desc` |
+| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+| <code>dex</code> | <code>string</code> | DEX ID. <br>*refers to [`/onchain/networks/{network}/dexes`](/reference/dexes-list).<br>**Default**: "sushiswap" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;Pool&gt; TopPoolsNetwork(string? include, int? page, Sort? sort, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the top pools based on the provided network
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TopPoolsNetwork(include, page, sort, includeGtCommunityData);
+    // TODO: Handle 'response' of type Pool
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>sort</code> | <code>[Sort?](Models/Enums/Sort.cs)</code> | Sort the pools by field. <br>Default: `h24_tx_count_desc` |
+| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;Pool&gt; TrendingPoolsList(string? include, int? page, Duration? duration, bool? includeGtCommunityData, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query all the trending pools across all networks on GeckoTerminal
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TrendingPoolsList(include, page, duration, includeGtCommunityData);
+    // TODO: Handle 'response' of type Pool
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex`, `network` |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>duration</code> | <code>[Duration?](Models/Enums/Duration.cs)</code> | Duration to sort trending list by. <br>Default: `24h` |
+| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;Pool&gt; TrendingPoolsNetwork(string? include, int? page, Duration? duration, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+To query the trending pools based on the provided network
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Onchain.TrendingPoolsNetwork(include, page, duration, includeGtCommunityData);
+    // TODO: Handle 'response' of type Pool
+}
+catch (SdkException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Parameters
+
+<dl>
+<dd>
+
+| Name | Type | Description |
+| --- | --- | --- |
+| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
+| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
+| <code>duration</code> | <code>[Duration?](Models/Enums/Duration.cs)</code> | Duration to sort trending list by. <br>Default: `24h` |
+| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
+| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+## PublicTreasuryApi
+
+> Source: [PublicTreasuryApi](Api/PublicTreasuryApi.cs)
+
+<details>
 <summary><code>Task&lt;PublicTreasuryEntity&gt; PublicTreasuryEntity(string? holdingAmountChange, string? holdingChangePercentage, string entityId = "strategy", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
@@ -2806,7 +3606,7 @@ To query public companies' and governments' cryptocurrency holdings by entity ID
 ```csharp
 try
 {
-    var response = await client.PublicTreasuryEntity(holdingAmountChange, holdingChangePercentage);
+    var response = await client.PublicTreasuryApi.PublicTreasuryEntity(holdingAmountChange, holdingChangePercentage);
     // TODO: Handle 'response' of type PublicTreasuryEntity
 }
 catch (SdkException<RawError> ex)
@@ -2873,7 +3673,7 @@ To query historical cryptocurrency holdings chart of public companies and govern
 ```csharp
 try
 {
-    var response = await client.PublicTreasuryEntityChart(includeEmptyIntervals);
+    var response = await client.PublicTreasuryApi.PublicTreasuryEntityChart(includeEmptyIntervals);
     // TODO: Handle 'response' of type PublicTreasuryEntityChart
 }
 catch (SdkException<RawError> ex)
@@ -2941,7 +3741,7 @@ To query public companies' and governments' cryptocurrency transaction history b
 ```csharp
 try
 {
-    var response = await client.PublicTreasuryTransactionHistory(perPage, page, order, coinIds);
+    var response = await client.PublicTreasuryApi.PublicTreasuryTransactionHistory(perPage, page, order, coinIds);
     // TODO: Handle 'response' of type PublicTreasuryTransactionHistory
 }
 catch (SdkException<RawError> ex)
@@ -2986,6 +3786,10 @@ catch (SdkException<RawError> ex)
 
 </details>
 
+## SearchApi
+
+> Source: [SearchApi](Api/SearchApi.cs)
+
 <details>
 <summary><code>Task&lt;Search&gt; SearchData(string query, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
@@ -3010,7 +3814,7 @@ To search for coins, categories and markets listed on CoinGecko
 ```csharp
 try
 {
-    var response = await client.SearchData(query);
+    var response = await client.SearchApi.SearchData(query);
     // TODO: Handle 'response' of type Search
 }
 catch (SdkException<RawError> ex)
@@ -3052,7 +3856,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PoolSearch&gt; SearchPools(string? network, string? include, int? page, string? query = "weth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;TrendingSearch&gt; TrendingSearch(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -3062,7 +3866,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-To search for pools across all networks by pool address, token name, token symbol, or token contract address
+To query trending search coins, NFTs and categories on CoinGecko in the last 24 hours
 
 </dd>
 </dl>
@@ -3075,8 +3879,8 @@ To search for pools across all networks by pool address, token name, token symbo
 ```csharp
 try
 {
-    var response = await client.SearchPools(network, include, page);
-    // TODO: Handle 'response' of type PoolSearch
+    var response = await client.SearchApi.TrendingSearch();
+    // TODO: Handle 'response' of type TrendingSearch
 }
 catch (SdkException<RawError> ex)
 {
@@ -3087,27 +3891,12 @@ catch (SdkException<RawError> ex)
 </dd>
 </dl>
 
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>network</code> | <code>string?</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list). |
-| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>query</code> | <code>string?</code> | Search query: pool contract address, token name, token symbol, or token contract address.<br>**Default**: "weth" |
-
-</dd>
-</dl>
-
 ### Response
 
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PoolSearch](Models/PoolSearch.cs)</code>
+**OnSuccess**: <code>[TrendingSearch](Models/TrendingSearch.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -3118,6 +3907,10 @@ catch (SdkException<RawError> ex)
 </dl>
 
 </details>
+
+## Simple
+
+> Source: [Simple](Api/Simple.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyDictionary&lt;string, SimplePrice&gt;&gt; SimplePrice(IncludeTokens? includeTokens, bool? includeMarketCap, bool? include24HrVol, bool? include24HrChange, bool? includeLastUpdatedAt, Precision? precision, string vsCurrencies = "usd", string? ids = "bitcoin", string? names = "Bitcoin", string? symbols = "btc", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
@@ -3143,7 +3936,7 @@ To query the prices of one or more coins by using their unique Coin API IDs, sym
 ```csharp
 try
 {
-    var response = await client.SimplePrice(includeTokens,
+    var response = await client.Simple.SimplePrice(includeTokens,
         includeMarketCap,
         include24HrVol,
         include24HrChange,
@@ -3222,7 +4015,7 @@ To query all the supported currencies on CoinGecko
 ```csharp
 try
 {
-    var response = await client.SimpleSupportedCurrencies();
+    var response = await client.Simple.SimpleSupportedCurrencies();
     // TODO: Handle 'response' of type IReadOnlyList<string>
 }
 catch (SdkException<RawError> ex)
@@ -3275,7 +4068,7 @@ To query one or more token prices by using their token contract addresses
 ```csharp
 try
 {
-    var response = await client.SimpleTokenPrice(includeMarketCap,
+    var response = await client.Simple.SimpleTokenPrice(includeMarketCap,
         include24HrVol,
         include24HrChange,
         includeLastUpdatedAt,
@@ -3316,745 +4109,6 @@ catch (SdkException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>IReadOnlyDictionary&lt;string, [SimplePrice](Models/SimplePrice.cs)&gt;</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;TokenData&gt; TokenDataContractAddress(Include? include, bool? includeComposition, bool? includeInactiveSource, string network = "eth", string address = "0xdac17f958d2ee523a2206206994597c13d831ec7", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query specific token data based on the provided token contract address on a network
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TokenDataContractAddress(include, includeComposition, includeInactiveSource);
-    // TODO: Handle 'response' of type TokenData
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>[Include?](Models/Enums/Include.cs)</code> | Attributes to include. |
-| <code>includeComposition</code> | <code>bool?</code> | Include pool composition. <br>Default: `false` |
-| <code>includeInactiveSource</code> | <code>bool?</code> | Include token data from inactive pools using the most recent swap. <br>Default: `false` |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
-| <code>address</code> | <code>string</code> | Token contract address.<br>**Default**: "0xdac17f958d2ee523a2206206994597c13d831ec7" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[TokenData](Models/TokenData.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;TokenInfo&gt; TokenInfoContractAddress(string network = "solana", string address = "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query token metadata (name, symbol, CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TokenInfoContractAddress();
-    // TODO: Handle 'response' of type TokenInfo
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "solana" |
-| <code>address</code> | <code>string</code> | Token contract address.<br>**Default**: "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[TokenInfo](Models/TokenInfo.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;TokenLists&gt; TokenLists(string assetPlatformId = "ethereum", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To get full list of tokens of a blockchain network (asset platform) that is supported by [Ethereum token list standard](https://tokenlists.org/)
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TokenLists();
-    // TODO: Handle 'response' of type TokenLists
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>assetPlatformId</code> | <code>string</code> | Asset platform ID. <br>*refers to [`/asset_platforms`](/reference/asset-platforms-list).<br>**Default**: "ethereum" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[TokenLists](Models/TokenLists.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;MultiTokenData&gt; TokensDataContractAddresses(Include? include, bool? includeComposition, bool? includeInactiveSource, string network = "solana", string addresses = "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query multiple tokens data based on the provided token contract addresses on a network
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TokensDataContractAddresses(include, includeComposition, includeInactiveSource);
-    // TODO: Handle 'response' of type MultiTokenData
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>[Include?](Models/Enums/Include.cs)</code> | Attributes to include. |
-| <code>includeComposition</code> | <code>bool?</code> | Include pool composition. <br>Default: `false` |
-| <code>includeInactiveSource</code> | <code>bool?</code> | Include tokens from inactive pools using the most recent swap. <br>Default: `false` |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "solana" |
-| <code>addresses</code> | <code>string</code> | Token contract address, comma-separated if more than one token contract address.<br>**Default**: "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[MultiTokenData](Models/MultiTokenData.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;TokenInfoRecentlyUpdated&gt; TokensInfoRecentUpdated(Include3? include, string? network, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query 100 most recently updated tokens info of a specific network or across all networks on GeckoTerminal
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TokensInfoRecentUpdated(include, network);
-    // TODO: Handle 'response' of type TokenInfoRecentlyUpdated
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>[Include3?](Models/Enums/Include3.cs)</code> | Attributes for related resources to include. |
-| <code>network</code> | <code>string?</code> | Filter tokens by provided network. <br>*refers to [`/onchain/networks`](/reference/networks-list). |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[TokenInfoRecentlyUpdated](Models/TokenInfoRecentlyUpdated.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;Pool&gt; TopPoolsContractAddress(string? include, bool? includeInactiveSource, int? page, Sort2? sort, bool? includeGtCommunityData, string network = "eth", string tokenAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query top pools based on the provided token contract address on a network
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TopPoolsContractAddress(include,
-        includeInactiveSource,
-        page,
-        sort,
-        includeGtCommunityData);
-    // TODO: Handle 'response' of type Pool
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
-| <code>includeInactiveSource</code> | <code>bool?</code> | Include tokens from inactive pools using the most recent swap. <br>Default: `false` |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>sort</code> | <code>[Sort2?](Models/Enums/Sort2.cs)</code> | Sort the pools by field. <br>Default: `h24_volume_usd_liquidity_desc` |
-| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
-| <code>tokenAddress</code> | <code>string</code> | Token contract address.<br>**Default**: "0xdac17f958d2ee523a2206206994597c13d831ec7" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;Pool&gt; TopPoolsDex(string? include, int? page, Sort? sort, bool? includeGtCommunityData, string network = "eth", string dex = "sushiswap", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all the top pools based on the provided network and decentralized exchange (DEX)
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TopPoolsDex(include, page, sort, includeGtCommunityData);
-    // TODO: Handle 'response' of type Pool
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>sort</code> | <code>[Sort?](Models/Enums/Sort.cs)</code> | Sort the pools by field. <br>Default: `h24_tx_count_desc` |
-| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
-| <code>dex</code> | <code>string</code> | DEX ID. <br>*refers to [`/onchain/networks/{network}/dexes`](/reference/dexes-list).<br>**Default**: "sushiswap" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;Pool&gt; TopPoolsNetwork(string? include, int? page, Sort? sort, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all the top pools based on the provided network
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TopPoolsNetwork(include, page, sort, includeGtCommunityData);
-    // TODO: Handle 'response' of type Pool
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>sort</code> | <code>[Sort?](Models/Enums/Sort.cs)</code> | Sort the pools by field. <br>Default: `h24_tx_count_desc` |
-| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;Pool&gt; TrendingPoolsList(string? include, int? page, Duration? duration, bool? includeGtCommunityData, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query all the trending pools across all networks on GeckoTerminal
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TrendingPoolsList(include, page, duration, includeGtCommunityData);
-    // TODO: Handle 'response' of type Pool
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex`, `network` |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>duration</code> | <code>[Duration?](Models/Enums/Duration.cs)</code> | Duration to sort trending list by. <br>Default: `24h` |
-| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;Pool&gt; TrendingPoolsNetwork(string? include, int? page, Duration? duration, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query the trending pools based on the provided network
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TrendingPoolsNetwork(include, page, duration, includeGtCommunityData);
-    // TODO: Handle 'response' of type Pool
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Parameters
-
-<dl>
-<dd>
-
-| Name | Type | Description |
-| --- | --- | --- |
-| <code>include</code> | <code>string?</code> | Attributes to include, comma-separated if more than one. <br>Available values: `base_token`, `quote_token`, `dex` |
-| <code>page</code> | <code>int?</code> | Page through results. <br>Default value: 1 |
-| <code>duration</code> | <code>[Duration?](Models/Enums/Duration.cs)</code> | Duration to sort trending list by. <br>Default: `24h` |
-| <code>includeGtCommunityData</code> | <code>bool?</code> | Include GeckoTerminal community data (sentiment votes, suspicious reports). <br>Default: `false` |
-| <code>network</code> | <code>string</code> | Network ID. <br>*refers to [`/onchain/networks`](/reference/networks-list).<br>**Default**: "eth" |
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
-
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;TrendingSearch&gt; TrendingSearch(RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-To query trending search coins, NFTs and categories on CoinGecko in the last 24 hours
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.TrendingSearch();
-    // TODO: Handle 'response' of type TrendingSearch
-}
-catch (SdkException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[TrendingSearch](Models/TrendingSearch.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 

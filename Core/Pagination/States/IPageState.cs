@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
 
-namespace CoinGecko.Core.Pagination.States;
+namespace CoinGeckoDemoApi.Core.Pagination.States;
 
 internal interface IPageState<in TResponse, out TState>
 {

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Models;
-using CoinGecko.Models.AnyOf;
+using CoinGeckoDemoApi.Core.Models;
+using CoinGeckoDemoApi.Models.AnyOf;
 
-namespace CoinGecko.Models;
+namespace CoinGeckoDemoApi.Models;
 
 public record Attributes7
 {

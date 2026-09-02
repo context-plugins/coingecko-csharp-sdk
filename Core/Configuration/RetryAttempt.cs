@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace CoinGecko.Core.Configuration;
+namespace CoinGeckoDemoApi.Core.Configuration;
 
 public sealed record RetryAttempt
 {

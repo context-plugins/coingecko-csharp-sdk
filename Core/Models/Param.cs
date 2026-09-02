@@ -1,4 +1,4 @@
-namespace CoinGecko.Core.Models;
+namespace CoinGeckoDemoApi.Core.Models;
 
 internal readonly record struct Param(
     string? Key,

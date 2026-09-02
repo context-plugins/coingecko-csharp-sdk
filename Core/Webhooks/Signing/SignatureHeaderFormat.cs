@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CoinGecko.Core.Webhooks.Signing;
+namespace CoinGeckoDemoApi.Core.Webhooks.Signing;
 
 internal abstract record SignatureHeaderFormat
 {

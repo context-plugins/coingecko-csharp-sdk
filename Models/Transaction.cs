@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Models;
-using CoinGecko.Models.Enums;
+using CoinGeckoDemoApi.Core.Models;
+using CoinGeckoDemoApi.Models.Enums;
 
-namespace CoinGecko.Models;
+namespace CoinGeckoDemoApi.Models;
 
 public record Transaction
 {

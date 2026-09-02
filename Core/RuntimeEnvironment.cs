@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace CoinGecko.Core;
+namespace CoinGeckoDemoApi.Core;
 
 internal static class RuntimeEnvironment
 {

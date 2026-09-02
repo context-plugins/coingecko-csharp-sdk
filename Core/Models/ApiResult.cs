@@ -2,9 +2,9 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http.Headers;
-using CoinGecko.Core.Exceptions;
+using CoinGeckoDemoApi.Core.Exceptions;
 
-namespace CoinGecko.Core.Models;
+namespace CoinGeckoDemoApi.Core.Models;
 
 /// <summary>
 ///     Represents either a successful response of type <typeparamref name="TResponse" />

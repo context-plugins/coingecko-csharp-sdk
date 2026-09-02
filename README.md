@@ -1,8 +1,8 @@
-# CoinGecko
+# CoinGecko Demo API
 
 [![Built with APIMatic][apimatic-badge]][apimatic-url] [![License: MIT][license-badge]][license-url]
 
-The CoinGecko SDK for .NET provides access to the CoinGecko REST APIs from .NET applications.
+The CoinGecko Demo API SDK for .NET provides access to the CoinGecko Demo API REST APIs from .NET applications.
 
 > [!TIP]
 > **Looking for a specific signature, model, enum, or error type?** This SDK ships a generated,
@@ -17,7 +17,7 @@ The CoinGecko SDK for .NET provides access to the CoinGecko REST APIs from .NET 
 Add the .NET SDK as a project reference into your solution:
 
 ```bash
-dotnet add reference <path-to-sdk>/CoinGecko.csproj
+dotnet add reference <path-to-sdk>/CoinGeckoDemoApi.csproj
 ```
 
 ---
@@ -26,10 +26,10 @@ dotnet add reference <path-to-sdk>/CoinGecko.csproj
 
 ### Dependency Injection
 
-Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [CoinGeckoClientOptions](CoinGeckoClientOptions.cs).
+Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [CoinGeckoDemoApiClientOptions](CoinGeckoDemoApiClientOptions.cs).
 
 ```csharp
-services.AddCoinGeckoClient(options =>
+services.AddCoinGeckoDemoApiClient(options =>
     {
         options.HeaderAuth = "YOUR_API_KEY";
         options.QueryAuth = "YOUR_API_KEY";
@@ -40,19 +40,19 @@ services.AddCoinGeckoClient(options =>
 
 ### Direct Instantiation
 
-Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [CoinGeckoClientOptions](CoinGeckoClientOptions.cs).
+Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [CoinGeckoDemoApiClientOptions](CoinGeckoDemoApiClientOptions.cs).
 
 ```csharp
 var httpClient = new HttpClient();
 // TODO: configure more client options here
 var options =
-    new CoinGeckoClientOptions
+    new CoinGeckoDemoApiClientOptions
     {
         HeaderAuth = "YOUR_API_KEY",
         QueryAuth = "YOUR_API_KEY",
         Environment = ServerEnvironment.Production,
     };
-var client = new CoinGeckoClient(httpClient, options);
+var client = new CoinGeckoDemoApiClient(httpClient, options);
 ```
 
 ---
@@ -90,7 +90,7 @@ The map and the [API Reference](api-reference.md) answer different questions, an
 ## Best Practices
 
 > [!TIP]
-> Use a **single `CoinGeckoClient` instance** for the lifetime of your application and
+> Use a **single `CoinGeckoDemoApiClient` instance** for the lifetime of your application and
 > reuse it across all requests. Creating a new instance per request might exhaust the
 > connection pool.
 

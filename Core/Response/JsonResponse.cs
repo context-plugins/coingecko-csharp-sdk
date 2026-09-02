@@ -3,9 +3,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGecko.Core.Extensions;
+using CoinGeckoDemoApi.Core.Extensions;
 
-namespace CoinGecko.Core.Response;
+namespace CoinGeckoDemoApi.Core.Response;
 
 internal sealed class JsonResponse<TResponse> : IResponse<TResponse>
 {

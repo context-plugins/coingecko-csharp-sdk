@@ -1,6 +1,6 @@
 using System;
 
-namespace CoinGecko.Core.Exceptions;
+namespace CoinGeckoDemoApi.Core.Exceptions;
 
 public sealed class SdkException<TError> : Exception
 {

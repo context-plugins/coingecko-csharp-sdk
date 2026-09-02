@@ -2,9 +2,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGecko.Core.Models;
+using CoinGeckoDemoApi.Core.Models;
 
-namespace CoinGecko.Core.Response;
+namespace CoinGeckoDemoApi.Core.Response;
 
 internal sealed class BinaryResponse : IResponse<BinaryContent>
 {

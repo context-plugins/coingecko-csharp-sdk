@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CoinGecko.Core.Webhooks;
+namespace CoinGeckoDemoApi.Core.Webhooks;
 
 public sealed class WebhookRequest
 {
