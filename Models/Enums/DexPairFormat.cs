@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<DexPairFormat>))]
 public sealed record DexPairFormat : StringEnum<DexPairFormat>

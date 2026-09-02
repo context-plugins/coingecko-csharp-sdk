@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace CoinGeckoDemoApi.Core.Extensions;
+namespace CoinGecko.Core.Extensions;
 
 internal static class HttpContentExtension
 {

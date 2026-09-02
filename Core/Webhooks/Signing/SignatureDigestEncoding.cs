@@ -1,6 +1,6 @@
 using System;
 
-namespace CoinGeckoDemoApi.Core.Webhooks.Signing;
+namespace CoinGecko.Core.Webhooks.Signing;
 
 internal abstract record SignatureDigestEncoding
 {

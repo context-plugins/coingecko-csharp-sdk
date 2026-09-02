@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace CoinGeckoDemoApi.Core.Authentication.Basic;
+namespace CoinGecko.Core.Authentication.Basic;
 
 public sealed class BasicAuthCredentials
 {

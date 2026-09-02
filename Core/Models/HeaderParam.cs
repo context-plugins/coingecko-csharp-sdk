@@ -1,3 +1,3 @@
-namespace CoinGeckoDemoApi.Core.Models;
+namespace CoinGecko.Core.Models;
 
 public readonly record struct HeaderParam(string Key, object? Value);

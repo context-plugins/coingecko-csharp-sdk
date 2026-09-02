@@ -1,8 +1,8 @@
 using System;
 using Microsoft.Extensions.Logging;
-using CoinGeckoDemoApi.Core.Configuration;
+using CoinGecko.Core.Configuration;
 
-namespace CoinGeckoDemoApi.Core.Logging;
+namespace CoinGecko.Core.Logging;
 
 internal static class LoggingEnvironment
 {

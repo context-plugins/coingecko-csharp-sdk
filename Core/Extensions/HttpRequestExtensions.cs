@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Core.Extensions;
+namespace CoinGecko.Core.Extensions;
 
 internal static class HttpRequestExtensions
 {

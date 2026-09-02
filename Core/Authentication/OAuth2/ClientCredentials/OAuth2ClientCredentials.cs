@@ -1,4 +1,4 @@
-namespace CoinGeckoDemoApi.Core.Authentication.OAuth2.ClientCredentials;
+namespace CoinGecko.Core.Authentication.OAuth2.ClientCredentials;
 
 public sealed class OAuth2ClientCredentials
 {

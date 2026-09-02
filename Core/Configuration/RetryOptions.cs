@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
-namespace CoinGeckoDemoApi.Core.Configuration;
+namespace CoinGecko.Core.Configuration;
 
 public record RetryOptions
 {

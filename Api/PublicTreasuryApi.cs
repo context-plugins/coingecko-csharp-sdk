@@ -1,17 +1,17 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Exceptions;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Request;
-using CoinGeckoDemoApi.Core.Response;
-using CoinGeckoDemoApi.Models;
-using CoinGeckoDemoApi.Models.Enums;
+using CoinGecko.Core;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Exceptions;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Request;
+using CoinGecko.Core.Response;
+using CoinGecko.Models;
+using CoinGecko.Models.Enums;
 
-namespace CoinGeckoDemoApi.Api;
+namespace CoinGecko.Api;
 
 /// <summary>
 /// Public companies and entities holding crypto treasuries

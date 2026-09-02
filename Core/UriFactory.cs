@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Core;
+namespace CoinGecko.Core;
 
 internal sealed class UriFactory
 {

@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Models;
+namespace CoinGecko.Models;
 
 /// <summary>
 /// NFT collection volume in 24 hours percentage change

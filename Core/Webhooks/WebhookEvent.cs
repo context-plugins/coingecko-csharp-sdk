@@ -1,6 +1,6 @@
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Core.Webhooks;
+namespace CoinGecko.Core.Webhooks;
 
 public abstract record WebhookEvent<TPayload>
 {

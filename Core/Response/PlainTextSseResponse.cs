@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CoinGeckoDemoApi.Core.Response;
+namespace CoinGecko.Core.Response;
 
 internal sealed class PlainTextSseResponse<TResponse> : IResponse<IAsyncEnumerable<TResponse>>
 {
