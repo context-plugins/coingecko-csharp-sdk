@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
-using CoinGecko.Core.Hooks;
+using CoinGeckoDemoApi.Core.Hooks;
 
-namespace CoinGecko.Core;
+namespace CoinGeckoDemoApi.Core;
 
 public sealed record RequestOptions
 {

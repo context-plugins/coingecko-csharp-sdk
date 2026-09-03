@@ -8,6 +8,7 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 
 ### AssetPlatformsList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `AssetPlatformsList(Filter? filter, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `filter` — nullable, no default → **must pass explicitly**
 - **Query params (wire ← C#)**: `filter` ← `filter`
@@ -21,6 +22,7 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 
 ### PingServer
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PingServer(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `PingServer`
 - **Error**: `SdkException<RawError>` — **Case B**
@@ -31,6 +33,7 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 
 ### TokenLists
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TokenLists(string assetPlatformId = "ethereum", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - defaults: `assetPlatformId` = `"ethereum"`
 - **Returns**: `TokenLists`

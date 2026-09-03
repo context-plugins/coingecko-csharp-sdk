@@ -1,4 +1,4 @@
-namespace CoinGecko.Core.Authentication.OAuth2.Password;
+namespace CoinGeckoDemoApi.Core.Authentication.OAuth2.Password;
 
 public sealed class OAuth2PasswordCredentials
 {

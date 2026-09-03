@@ -1,20 +1,20 @@
 <!-- Generated file — do not edit; regenerated with the SDK. -->
 
-# SDK map — CoinGecko (.NET)
+# SDK map — CoinGecko Demo API (.NET)
 
 > A generated table of contents for this SDK. Consult this map and its sub-pages to learn signatures, error types, and server/auth wiring **by lookup**. Model shapes and enum values are *not* duplicated here — the map names the file declaring each type; read the shape there. The compiler is the backstop: a wrong name fails to build.
 
 |  |  |
 | --- | --- |
-| SDK display name | CoinGecko |
-| Root namespace | `CoinGecko` |
+| SDK display name | CoinGecko Demo API |
+| Root namespace | `CoinGeckoDemoApi` |
 | Target framework | `netstandard2.0` (C# `LangVersion 14`, `Nullable enable`) |
 | API spec version | `3.0.0` |
 | Generator | APIMatic |
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.
 
-All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file and `CoinGecko.csproj` — never to the page that carries them. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
+All `Source` paths on this map and its sub-pages are relative to the **SDK root** — the directory holding this file and `CoinGeckoDemoApi.csproj` — never to the page that carries them. Open them as-is from the SDK root, from any page; if the SDK sits under a subdirectory of a larger repo, prefix that subdirectory.
 
 ---
 
@@ -24,19 +24,19 @@ All `Source` paths on this map and its sub-pages are relative to the **SDK root*
 var httpClient = new HttpClient();
 // TODO: configure more client options here
 var options =
-    new CoinGeckoClientOptions
+    new CoinGeckoDemoApiClientOptions
     {
         HeaderAuth = "YOUR_API_KEY",
         QueryAuth = "YOUR_API_KEY",
         Environment = ServerEnvironment.Production,
     };
-var client = new CoinGeckoClient(httpClient, options);
+var client = new CoinGeckoDemoApiClient(httpClient, options);
 ```
 
-DI alternative (`services.AddCoinGeckoClient`):
+DI alternative (`services.AddCoinGeckoDemoApiClient`):
 
 ```csharp
-services.AddCoinGeckoClient(options =>
+services.AddCoinGeckoDemoApiClient(options =>
     {
         options.HeaderAuth = "YOUR_API_KEY";
         options.QueryAuth = "YOUR_API_KEY";
@@ -45,9 +45,9 @@ services.AddCoinGeckoClient(options =>
     });
 ```
 
-Every API group is a property on the client (e.g. `client.Coins`). Source: `CoinGeckoClient.cs`. The only constructor is `CoinGeckoClient(HttpClient httpClient, CoinGeckoClientOptions options)`.
+Every API group is a property on the client (e.g. `client.Coins`). Source: `CoinGeckoDemoApiClient.cs`. The only constructor is `CoinGeckoDemoApiClient(HttpClient httpClient, CoinGeckoDemoApiClientOptions options)`.
 
-All `CoinGeckoClientOptions` properties (source: `CoinGeckoClientOptions.cs`):
+All `CoinGeckoDemoApiClientOptions` properties (source: `CoinGeckoDemoApiClientOptions.cs`):
 
 | Property | Type |
 | --- | --- |
@@ -59,7 +59,7 @@ All `CoinGeckoClientOptions` properties (source: `CoinGeckoClientOptions.cs`):
 | `HeaderAuth` | `string?` |
 | `QueryAuth` | `string?` |
 
-`RetryOptions` members (namespace `CoinGecko.Core.Configuration` — add `using CoinGecko.Core.Configuration;`; source: `Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
+`RetryOptions` members (namespace `CoinGeckoDemoApi.Core.Configuration` — add `using CoinGeckoDemoApi.Core.Configuration;`; source: `Core/Configuration/RetryOptions.cs`; all members are `required`, so build a full instance or start from `RetryOptions.Default()`):
 
 | Member | Type |
 | --- | --- |
@@ -157,11 +157,11 @@ Namespaces by content type (add `using` accordingly):
 
 | Contents | Namespace |
 | --- | --- |
-| Client & options (root) | `CoinGecko` |
-| Operation controllers (`Api/`) | `CoinGecko.Api` |
-| Records (`Models/`) | `CoinGecko.Models` |
-| Enums (`Models/Enums/`) | `CoinGecko.Models.Enums` |
-| AnyOf unions (`Models/AnyOf/`) | `CoinGecko.Models.AnyOf` |
+| Client & options (root) | `CoinGeckoDemoApi` |
+| Operation controllers (`Api/`) | `CoinGeckoDemoApi.Api` |
+| Records (`Models/`) | `CoinGeckoDemoApi.Models` |
+| Enums (`Models/Enums/`) | `CoinGeckoDemoApi.Models.Enums` |
+| AnyOf unions (`Models/AnyOf/`) | `CoinGeckoDemoApi.Models.AnyOf` |
 
 ---
 
@@ -170,6 +170,13 @@ Namespaces by content type (add `using` accordingly):
 **API key (header `x-cg-demo-api-key`).** Set `options.HeaderAuth = "<api_key>"`; sent as the `x-cg-demo-api-key` request header. Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)
 
 **API key (query `x_cg_demo_api_key`).** Set `options.QueryAuth = "<api_key>"`; sent as the `x_cg_demo_api_key` query parameter. Learn how to [set up your API key](https://docs.coingecko.com/docs/setting-up-your-api-key)
+
+Operation blocks name their credential in an **Auth** bullet; an operation whose spec declares no scheme carries no such bullet.
+
+- `AND` — every credential listed must be set for the call to be fully authenticated.
+- `OR` — the first credential you set that applies successfully is the one sent, in the order listed.
+
+A credential you never set is skipped rather than throwing, and the request is sent anyway — so an authentication failure can mean no credential was sent rather than a bad one. Under `OR`, if every credential you did set fails to apply, `AuthSchemeException` is thrown.
 
 **Environments.** `options.Environment` selects the target environment (`Servers/ServerEnvironment.cs`):
 

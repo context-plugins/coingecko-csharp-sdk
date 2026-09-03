@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace CoinGecko.Core.Extensions;
+namespace CoinGeckoDemoApi.Core.Extensions;
 
 internal static class DateTimeOffsetExtensions
 {

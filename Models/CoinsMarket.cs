@@ -1,8 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Models;
+using CoinGeckoDemoApi.Core.Models;
 
-namespace CoinGecko.Models;
+namespace CoinGeckoDemoApi.Models;
 
 public record CoinsMarket
 {

@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json;
 
-namespace CoinGecko.Core.Webhooks;
+namespace CoinGeckoDemoApi.Core.Webhooks;
 
 internal abstract record WebhookTypeSource
 {

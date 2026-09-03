@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using CoinGecko.Core.Models;
+using CoinGeckoDemoApi.Core.Models;
 
-namespace CoinGecko.Core.Request;
+namespace CoinGeckoDemoApi.Core.Request;
 
 internal sealed class FormUrlEncodedRequest : IRequest
 {

@@ -1,6 +1,6 @@
-using CoinGecko.Core.Models;
+using CoinGeckoDemoApi.Core.Models;
 
-namespace CoinGecko.Servers;
+namespace CoinGeckoDemoApi.Servers;
 
 public class DefaultOptions
 {

@@ -8,6 +8,7 @@ Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
 
 ### CompaniesPublicTreasury
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CompaniesPublicTreasury(Entity entity, int? perPage, int? page, Order5? order, string coinId = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `perPage` — nullable, no default → **must pass explicitly**
   - `page` — nullable, no default → **must pass explicitly**
@@ -25,6 +26,7 @@ Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
 
 ### EntitiesList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `EntitiesList(EntityType? entityType, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `entityType` — nullable, no default → **must pass explicitly**
   - `perPage` — nullable, no default → **must pass explicitly**

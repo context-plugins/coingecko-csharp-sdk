@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CoinGecko.Core.ErrorResponse;
+namespace CoinGeckoDemoApi.Core.ErrorResponse;
 
 public sealed class RawError
 {

@@ -8,6 +8,7 @@ Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
 
 ### NftsContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `NftsContractAddress(string assetPlatformId = "ethereum", string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - defaults: `assetPlatformId` = `"ethereum"`, `contractAddress` = `"0xBd3531dA5CF5857e7CfAA92426877b022e612cf8"`
 - **Returns**: `NftData`
@@ -19,6 +20,7 @@ Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
 
 ### NftsId
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `NftsId(string id = "pudgy-penguins", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - defaults: `id` = `"pudgy-penguins"`
 - **Returns**: `NftData`
@@ -30,6 +32,7 @@ Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
 
 ### NftsList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `NftsList(Order7? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `order` — nullable, no default → **must pass explicitly**
   - `perPage` — nullable, no default → **must pass explicitly**

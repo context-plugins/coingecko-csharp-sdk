@@ -4,12 +4,12 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGecko.Core.ErrorResponse;
-using CoinGecko.Core.Models;
-using CoinGecko.Core.Request;
-using CoinGecko.Core.Response;
+using CoinGeckoDemoApi.Core.ErrorResponse;
+using CoinGeckoDemoApi.Core.Models;
+using CoinGeckoDemoApi.Core.Request;
+using CoinGeckoDemoApi.Core.Response;
 
-namespace CoinGecko.Core.Authentication.OAuth2.Password;
+namespace CoinGeckoDemoApi.Core.Authentication.OAuth2.Password;
 
 internal sealed class OAuth2PasswordCredentialsStrategy : IOAuth2TokenStrategy<OAuth2PasswordCredentials>
 {

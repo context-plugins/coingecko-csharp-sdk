@@ -8,6 +8,7 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 ### DerivativesExchanges
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `DerivativesExchanges(Order4? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `order` — nullable, no default → **must pass explicitly**
   - `perPage` — nullable, no default → **must pass explicitly**
@@ -23,6 +24,7 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 ### DerivativesExchangesId
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `DerivativesExchangesId(IncludeTickers? includeTickers, string id = "binance_futures", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `includeTickers` — nullable, no default → **must pass explicitly**
   - defaults: `id` = `"binance_futures"`
@@ -37,6 +39,7 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 ### DerivativesExchangesList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `DerivativesExchangesList(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `IReadOnlyList<DerivativesExchangesList>`
 - **Error**: `SdkException<RawError>` — **Case B**
@@ -47,6 +50,7 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 ### DerivativesTickers
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `DerivativesTickers(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `IReadOnlyList<DerivativesTicker>`
 - **Error**: `SdkException<RawError>` — **Case B**

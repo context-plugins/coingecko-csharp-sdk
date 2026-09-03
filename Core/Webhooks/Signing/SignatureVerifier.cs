@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace CoinGecko.Core.Webhooks.Signing;
+namespace CoinGeckoDemoApi.Core.Webhooks.Signing;
 
 internal sealed class SignatureVerifier
 {

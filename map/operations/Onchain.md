@@ -8,6 +8,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### DexesList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `DexesList(int? page, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `page` — nullable, no default → **must pass explicitly**
   - defaults: `network` = `"eth"`
@@ -21,6 +22,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### LatestPoolsList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `LatestPoolsList(string? include, int? page, bool? includeGtCommunityData, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `page` — nullable, no default → **must pass explicitly**
@@ -35,6 +37,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### LatestPoolsNetwork
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `LatestPoolsNetwork(string? include, int? page, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `page` — nullable, no default → **must pass explicitly**
@@ -50,6 +53,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### NetworksList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `NetworksList(int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `page` — nullable, no default → **must pass explicitly**
 - **Query params (wire ← C#)**: `page` ← `page`
@@ -62,6 +66,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### OnchainSimplePrice
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `OnchainSimplePrice(bool? includeMarketCap, bool? mcapFdvFallback, bool? include24HrVol, bool? include24HrPriceChange, bool? includeTotalReserveInUsd, bool? includeInactiveSource, string network = "eth", string addresses = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 6 params (`includeMarketCap` … `includeInactiveSource`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `network` = `"eth"`, `addresses` = `"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"`
@@ -75,6 +80,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### PoolAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PoolAddress(string? include, bool? includeVolumeBreakdown, bool? includeComposition, string network = "eth", string address = "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `includeVolumeBreakdown` — nullable, no default → **must pass explicitly**
@@ -90,6 +96,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### PoolOhlcvContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PoolOhlcvContractAddress(Timeframe timeframe, string? aggregate, int? beforeTimestamp, int? limit, Currency? currency, string? token, bool? includeEmptyIntervals, string network = "eth", string poolAddress = "0x06da0fd433c1a5d7a4faa01111c044910a184553", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 6 params (`aggregate` … `includeEmptyIntervals`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `network` = `"eth"`, `poolAddress` = `"0x06da0fd433c1a5d7a4faa01111c044910a184553"`
@@ -105,6 +112,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### PoolTokenInfoContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PoolTokenInfoContractAddress(Include2? include, string network = "solana", string poolAddress = "8WwcNqdZjCY5Pt7AkhupAFknV2txca9sq6YBkGzLbvdt", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - defaults: `network` = `"solana"`, `poolAddress` = `"8WwcNqdZjCY5Pt7AkhupAFknV2txca9sq6YBkGzLbvdt"`
@@ -119,6 +127,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### PoolTradesContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PoolTradesContractAddress(double? tradeVolumeInUsdGreaterThan, string? token, string network = "eth", string poolAddress = "0x06da0fd433c1a5d7a4faa01111c044910a184553", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `tradeVolumeInUsdGreaterThan` — nullable, no default → **must pass explicitly**
   - `token` — nullable, no default → **must pass explicitly**
@@ -133,6 +142,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### PoolsAddresses
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PoolsAddresses(string? include, bool? includeVolumeBreakdown, bool? includeComposition, string network = "eth", string addresses = "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `includeVolumeBreakdown` — nullable, no default → **must pass explicitly**
@@ -148,6 +158,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### SearchPools
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `SearchPools(string? network, string? include, int? page, string? query = "weth", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `network` — nullable, no default → **must pass explicitly**
   - `include` — nullable, no default → **must pass explicitly**
@@ -163,6 +174,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TokenDataContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TokenDataContractAddress(Include? include, bool? includeComposition, bool? includeInactiveSource, string network = "eth", string address = "0xdac17f958d2ee523a2206206994597c13d831ec7", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `includeComposition` — nullable, no default → **must pass explicitly**
@@ -179,6 +191,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TokenInfoContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TokenInfoContractAddress(string network = "solana", string address = "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - defaults: `network` = `"solana"`, `address` = `"Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump"`
 - **Returns**: `TokenInfo`
@@ -190,6 +203,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TokensDataContractAddresses
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TokensDataContractAddresses(Include? include, bool? includeComposition, bool? includeInactiveSource, string network = "solana", string addresses = "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,2g4LS3y2myPe6vj9wTvoBE1wKqxvhnZPoZA9QU9upump", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `includeComposition` — nullable, no default → **must pass explicitly**
@@ -206,6 +220,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TokensInfoRecentUpdated
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TokensInfoRecentUpdated(Include3? include, string? network, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `include` — nullable, no default → **must pass explicitly**
   - `network` — nullable, no default → **must pass explicitly**
@@ -220,6 +235,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TopPoolsContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TopPoolsContractAddress(string? include, bool? includeInactiveSource, int? page, Sort2? sort, bool? includeGtCommunityData, string network = "eth", string tokenAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 5 params (`include` … `includeGtCommunityData`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `network` = `"eth"`, `tokenAddress` = `"0xdac17f958d2ee523a2206206994597c13d831ec7"`
@@ -234,6 +250,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TopPoolsDex
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TopPoolsDex(string? include, int? page, Sort? sort, bool? includeGtCommunityData, string network = "eth", string dex = "sushiswap", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 4 params (`include` … `includeGtCommunityData`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `network` = `"eth"`, `dex` = `"sushiswap"`
@@ -248,6 +265,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TopPoolsNetwork
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TopPoolsNetwork(string? include, int? page, Sort? sort, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 4 params (`include` … `includeGtCommunityData`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `network` = `"eth"`
@@ -262,6 +280,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TrendingPoolsList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TrendingPoolsList(string? include, int? page, Duration? duration, bool? includeGtCommunityData, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 4 params (`include` … `includeGtCommunityData`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
 - **Query params (wire ← C#)**: `include` ← `include`, `page` ← `page`, `duration` ← `duration`, `include_gt_community_data` ← `includeGtCommunityData`
@@ -275,6 +294,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 ### TrendingPoolsNetwork
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TrendingPoolsNetwork(string? include, int? page, Duration? duration, bool? includeGtCommunityData, string network = "eth", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 4 params (`include` … `includeGtCommunityData`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `network` = `"eth"`

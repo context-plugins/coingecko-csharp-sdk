@@ -8,6 +8,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 ### ExchangeRates
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ExchangeRates(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `ExchangeRates`
 - **Error**: `SdkException<RawError>` — **Case B**
@@ -18,6 +19,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 ### ExchangesId
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ExchangesId(DexPairFormat? dexPairFormat, string id = "binance", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `dexPairFormat` — nullable, no default → **must pass explicitly**
   - defaults: `id` = `"binance"`
@@ -32,6 +34,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 ### ExchangesIdTickers
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ExchangesIdTickers(string? coinIds, bool? includeExchangeLogo, double? page, bool? depth, Order3? order, DexPairFormat? dexPairFormat, string id = "binance", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 6 params (`coinIds` … `dexPairFormat`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `id` = `"binance"`
@@ -47,6 +50,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 ### ExchangesIdVolumeChart
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ExchangesIdVolumeChart(Days days, string id = "binance", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - defaults: `id` = `"binance"`
 - **Query params (wire ← C#)**: `days` ← `days`
@@ -60,6 +64,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 ### ExchangesInvoke
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ExchangesInvoke(double? perPage, double? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `perPage` — nullable, no default → **must pass explicitly**
   - `page` — nullable, no default → **must pass explicitly**
@@ -73,6 +78,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 ### ExchangesList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ExchangesList(Status? status, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `status` — nullable, no default → **must pass explicitly**
 - **Query params (wire ← C#)**: `status` ← `status`

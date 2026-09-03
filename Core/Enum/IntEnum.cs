@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace CoinGecko.Core.Enum;
+namespace CoinGeckoDemoApi.Core.Enum;
 
 public abstract record IntEnum<TEnum> : TypedEnum<int, TEnum>
     where TEnum : IntEnum<TEnum>

@@ -8,6 +8,7 @@ Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
 
 ### SimplePrice
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `SimplePrice(IncludeTokens? includeTokens, bool? includeMarketCap, bool? include24HrVol, bool? include24HrChange, bool? includeLastUpdatedAt, Precision? precision, string vsCurrencies = "usd", string? ids = "bitcoin", string? names = "Bitcoin", string? symbols = "btc", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 6 params (`includeTokens` … `precision`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `vsCurrencies` = `"usd"`, `ids` = `"bitcoin"`, `names` = `"Bitcoin"`, `symbols` = `"btc"`
@@ -23,12 +24,14 @@ Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
 
 ### SimpleSupportedCurrencies
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `SimpleSupportedCurrencies(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `IReadOnlyList<string>`
 - **Error**: `SdkException<RawError>` — **Case B**
 
 ### SimpleTokenPrice
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `SimpleTokenPrice(bool? includeMarketCap, bool? include24HrVol, bool? include24HrChange, bool? includeLastUpdatedAt, Precision? precision, string id = "ethereum", string contractAddresses = "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599", string vsCurrencies = "usd", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 5 params (`includeMarketCap` … `precision`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `id` = `"ethereum"`, `contractAddresses` = `"0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"`, `vsCurrencies` = `"usd"`

@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Enum;
+using CoinGeckoDemoApi.Core.Enum;
 
-namespace CoinGecko.Models.Enums;
+namespace CoinGeckoDemoApi.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Order4>))]
 public sealed record Order4 : StringEnum<Order4>

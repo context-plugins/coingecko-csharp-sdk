@@ -8,6 +8,7 @@ Accessor: `client.GlobalApi` · Source: `Api/GlobalApi.cs` · 2 operations
 
 ### CryptoGlobal
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CryptoGlobal(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `Global`
 - **Error**: `SdkException<RawError>` — **Case B**
@@ -18,6 +19,7 @@ Accessor: `client.GlobalApi` · Source: `Api/GlobalApi.cs` · 2 operations
 
 ### GlobalDefi
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `GlobalDefi(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `GlobalDeFi`
 - **Error**: `SdkException<RawError>` — **Case B**

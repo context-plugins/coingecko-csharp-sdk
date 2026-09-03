@@ -8,6 +8,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsCategories
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsCategories(Order2? order, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `order` — nullable, no default → **must pass explicitly**
 - **Query params (wire ← C#)**: `order` ← `order`
@@ -21,6 +22,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsCategoriesList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsCategoriesList(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `IReadOnlyList<CategoriesList>`
 - **Error**: `SdkException<RawError>` — **Case B**
@@ -31,6 +33,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsContractAddress
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsContractAddress(string id = "ethereum", string contractAddress = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - defaults: `id` = `"ethereum"`, `contractAddress` = `"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"`
 - **Returns**: `CoinsContractAddress`
@@ -42,6 +45,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsId
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsId(bool? localization, bool? tickers, bool? marketData, bool? communityData, bool? developerData, bool? sparkline, bool? includeCategoriesDetails, DexPairFormat? dexPairFormat, string id = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 8 params (`localization` … `dexPairFormat`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `id` = `"bitcoin"`
@@ -56,6 +60,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsIdHistory
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsIdHistory(bool? localization, string id = "bitcoin", string date = "30-12-2025", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `localization` — nullable, no default → **must pass explicitly**
   - defaults: `id` = `"bitcoin"`, `date` = `"30-12-2025"`
@@ -69,6 +74,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsIdMarketChart
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsIdMarketChart(Interval? interval, Precision? precision, string id = "bitcoin", string vsCurrency = "usd", string days = "1", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `interval` — nullable, no default → **must pass explicitly**
   - `precision` — nullable, no default → **must pass explicitly**
@@ -85,6 +91,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsIdMarketChartRange
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsIdMarketChartRange(Precision? precision, string id = "bitcoin", string vsCurrency = "usd", int from = 1767024000, int to = 1777564800, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `precision` — nullable, no default → **must pass explicitly**
   - defaults: `id` = `"bitcoin"`, `vsCurrency` = `"usd"`, `from` = `1767024000`, `to` = `1777564800`
@@ -99,6 +106,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsIdOhlc
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsIdOhlc(Days days, Precision? precision, string id = "bitcoin", string vsCurrency = "usd", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `precision` — nullable, no default → **must pass explicitly**
   - defaults: `id` = `"bitcoin"`, `vsCurrency` = `"usd"`
@@ -113,6 +121,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsIdTickers
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsIdTickers(string? exchangeIds, bool? includeExchangeLogo, int? page, Order1? order, bool? depth, DexPairFormat? dexPairFormat, string id = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 6 params (`exchangeIds` … `dexPairFormat`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `id` = `"bitcoin"`
@@ -128,6 +137,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsList
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsList(bool? includePlatform, Status? status, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `includePlatform` — nullable, no default → **must pass explicitly**
   - `status` — nullable, no default → **must pass explicitly**
@@ -142,6 +152,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### CoinsMarkets
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `CoinsMarkets(IncludeTokens? includeTokens, string? category, Order? order, int? perPage, int? page, bool? sparkline, string? priceChangePercentage, Locale? locale, Precision? precision, bool? includeRehypothecated, string vsCurrency = "usd", string? ids = "bitcoin", string? names = "Bitcoin", string? symbols = "btc", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 10 params (`includeTokens` … `includeRehypothecated`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `vsCurrency` = `"usd"`, `ids` = `"bitcoin"`, `names` = `"Bitcoin"`, `symbols` = `"btc"`
@@ -159,6 +170,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### ContractAddressMarketChart
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ContractAddressMarketChart(Interval? interval, Precision? precision, string id = "ethereum", string contractAddress = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", string vsCurrency = "usd", string days = "1", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `interval` — nullable, no default → **must pass explicitly**
   - `precision` — nullable, no default → **must pass explicitly**
@@ -175,6 +187,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 ### ContractAddressMarketChartRange
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `ContractAddressMarketChartRange(Precision? precision, string id = "ethereum", string contractAddress = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", string vsCurrency = "usd", int from = 1767024000, int to = 1777564800, RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `precision` — nullable, no default → **must pass explicitly**
   - defaults: `id` = `"ethereum"`, `contractAddress` = `"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"`, `vsCurrency` = `"usd"`, `from` = `1767024000`, `to` = `1777564800`

@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using CoinGecko.Core.Models;
+using CoinGeckoDemoApi.Core.Models;
 
-namespace CoinGecko.Models;
+namespace CoinGeckoDemoApi.Models;
 
 /// <summary>
 /// NFT collection floor price 7 days percentage change

@@ -1,6 +1,6 @@
 # Reference
 
-> Source: [CoinGeckoClient](CoinGeckoClient.cs)
+> Source: [CoinGeckoDemoApiClient](CoinGeckoDemoApiClient.cs)
 
 ## Coins
 

@@ -8,6 +8,7 @@ Accessor: `client.SearchApi` · Source: `Api/SearchApi.cs` · 2 operations
 
 ### SearchData
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `SearchData(string query, RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Query params (wire ← C#)**: `query` ← `query`
 - **Returns**: `Search`
@@ -19,6 +20,7 @@ Accessor: `client.SearchApi` · Source: `Api/SearchApi.cs` · 2 operations
 
 ### TrendingSearch
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `TrendingSearch(RequestOptions? requestOptions = null, CancellationToken ct = default)`
 - **Returns**: `TrendingSearch`
 - **Error**: `SdkException<RawError>` — **Case B**

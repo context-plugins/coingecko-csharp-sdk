@@ -8,6 +8,7 @@ Accessor: `client.PublicTreasuryApi` · Source: `Api/PublicTreasuryApi.cs` · 3 
 
 ### PublicTreasuryEntity
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PublicTreasuryEntity(string? holdingAmountChange, string? holdingChangePercentage, string entityId = "strategy", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `holdingAmountChange` — nullable, no default → **must pass explicitly**
   - `holdingChangePercentage` — nullable, no default → **must pass explicitly**
@@ -22,6 +23,7 @@ Accessor: `client.PublicTreasuryApi` · Source: `Api/PublicTreasuryApi.cs` · 3 
 
 ### PublicTreasuryEntityChart
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PublicTreasuryEntityChart(bool? includeEmptyIntervals, string entityId = "strategy", string coinId = "bitcoin", string days = "365", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - `includeEmptyIntervals` — nullable, no default → **must pass explicitly**
   - defaults: `entityId` = `"strategy"`, `coinId` = `"bitcoin"`, `days` = `"365"`
@@ -35,6 +37,7 @@ Accessor: `client.PublicTreasuryApi` · Source: `Api/PublicTreasuryApi.cs` · 3 
 
 ### PublicTreasuryTransactionHistory
 
+- **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
 - **Signature**: `PublicTreasuryTransactionHistory(int? perPage, int? page, Order6? order, string? coinIds, string entityId = "strategy", RequestOptions? requestOptions = null, CancellationToken ct = default)`
   - 4 params (`perPage` … `coinIds`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
   - defaults: `entityId` = `"strategy"`
