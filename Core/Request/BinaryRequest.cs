@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
-using CoinGeckoDemoApi.Core.Extensions;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Extensions;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Core.Request;
+namespace CoinGecko.Core.Request;
 
 internal sealed class BinaryRequest : IRequest
 {

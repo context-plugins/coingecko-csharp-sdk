@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CoinGeckoDemoApi.Core;
+namespace CoinGecko.Core;
 
 internal sealed class AsyncLock
 {

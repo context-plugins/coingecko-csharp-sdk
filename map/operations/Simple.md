@@ -9,15 +9,14 @@ Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
 ### SimplePrice
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `SimplePrice(IncludeTokens? includeTokens, bool? includeMarketCap, bool? include24HrVol, bool? include24HrChange, bool? includeLastUpdatedAt, Precision? precision, string vsCurrencies = "usd", string? ids = "bitcoin", string? names = "Bitcoin", string? symbols = "btc", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 6 params (`includeTokens` … `precision`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `vsCurrencies` = `"usd"`, `ids` = `"bitcoin"`, `names` = `"Bitcoin"`, `symbols` = `"btc"`
-- **Query params (wire ← C#)**: `vs_currencies` ← `vsCurrencies`, `ids` ← `ids`, `names` ← `names`, `symbols` ← `symbols`, `include_tokens` ← `includeTokens`, `include_market_cap` ← `includeMarketCap`, `include_24hr_vol` ← `include24HrVol`, `include_24hr_change` ← `include24HrChange`, `include_last_updated_at` ← `includeLastUpdatedAt`, `precision` ← `precision`
+- **Signature**: `SimplePrice(SimplePriceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currencies` ← `VsCurrencies`, `ids` ← `Ids`, `names` ← `Names`, `symbols` ← `Symbols`, `include_tokens` ← `IncludeTokens`, `include_market_cap` ← `IncludeMarketCap`, `include_24hr_vol` ← `Include24HrVol`, `include_24hr_change` ← `Include24HrChange`, `include_last_updated_at` ← `IncludeLastUpdatedAt`, `precision` ← `Precision`
 - **Returns**: `IReadOnlyDictionary<string, SimplePrice>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `SimplePriceRequest` | `Requests/Simple/SimplePriceRequest.cs` |
 | `IncludeTokens` | `Models/Enums/IncludeTokens.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 | `SimplePrice` | `Models/SimplePrice.cs` |
@@ -25,22 +24,21 @@ Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
 ### SimpleSupportedCurrencies
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `SimpleSupportedCurrencies(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `SimpleSupportedCurrencies(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `IReadOnlyList<string>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 ### SimpleTokenPrice
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `SimpleTokenPrice(bool? includeMarketCap, bool? include24HrVol, bool? include24HrChange, bool? includeLastUpdatedAt, Precision? precision, string id = "ethereum", string contractAddresses = "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599", string vsCurrencies = "usd", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 5 params (`includeMarketCap` … `precision`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `id` = `"ethereum"`, `contractAddresses` = `"0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"`, `vsCurrencies` = `"usd"`
-- **Query params (wire ← C#)**: `contract_addresses` ← `contractAddresses`, `vs_currencies` ← `vsCurrencies`, `include_market_cap` ← `includeMarketCap`, `include_24hr_vol` ← `include24HrVol`, `include_24hr_change` ← `include24HrChange`, `include_last_updated_at` ← `includeLastUpdatedAt`, `precision` ← `precision`
+- **Signature**: `SimpleTokenPrice(SimpleTokenPriceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `contract_addresses` ← `ContractAddresses`, `vs_currencies` ← `VsCurrencies`, `include_market_cap` ← `IncludeMarketCap`, `include_24hr_vol` ← `Include24HrVol`, `include_24hr_change` ← `Include24HrChange`, `include_last_updated_at` ← `IncludeLastUpdatedAt`, `precision` ← `Precision`
 - **Returns**: `IReadOnlyDictionary<string, SimplePrice>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `SimpleTokenPriceRequest` | `Requests/Simple/SimpleTokenPriceRequest.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 | `SimplePrice` | `Models/SimplePrice.cs` |
 

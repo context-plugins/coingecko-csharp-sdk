@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Currency>))]
-public sealed record Currency : StringEnum<Currency>
+public sealed record Currency : OpenStringEnum<Currency>
 {
     private Currency(string value) : base(value)
     {
@@ -14,5 +15,18 @@ public sealed record Currency : StringEnum<Currency>
 
     public static readonly Currency Token = new("token");
 
-    public static Currency FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onUsd, Func<TResult> onToken, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Usd => onUsd(),
+            _ when this == Token => onToken(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onUsd, Action onToken, Action<string> otherwise)
+    {
+        if (this == Usd) onUsd();
+        else if (this == Token) onToken();
+        else otherwise(Value);
+    }
 }

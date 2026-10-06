@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
-namespace CoinGeckoDemoApi.Core.Validation;
+namespace CoinGecko.Core.Validation;
 
 internal static class SchemaConstraintExtensions
 {

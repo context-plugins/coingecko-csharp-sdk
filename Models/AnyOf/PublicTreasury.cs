@@ -1,10 +1,10 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Extensions;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Extensions;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Models.AnyOf;
+namespace CoinGecko.Models.AnyOf;
 
 [JsonConverter(typeof(PublicTreasuryConverter))]
 public record PublicTreasury
@@ -26,8 +26,7 @@ public record PublicTreasury
     public static PublicTreasury GovernmentTreasury(GovernmentTreasury value) =>
         new(default, Optional<GovernmentTreasury>.Some(value));
 
-    public bool TryGetCompanyTreasury(out CompanyTreasury value) =>
-        _companyTreasuryValue.TryGetValue(out value);
+    public bool TryGetCompanyTreasury(out CompanyTreasury value) => _companyTreasuryValue.TryGetValue(out value);
 
     public bool TryGetGovernmentTreasury(out GovernmentTreasury value) =>
         _governmentTreasuryValue.TryGetValue(out value);
@@ -39,9 +38,7 @@ public record PublicTreasury
 
 file sealed class PublicTreasuryConverter : JsonConverter<PublicTreasury>
 {
-    public override PublicTreasury Read(ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options)
+    public override PublicTreasury Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
@@ -53,7 +50,8 @@ file sealed class PublicTreasuryConverter : JsonConverter<PublicTreasury>
         {
             return PublicTreasury.GovernmentTreasury(governmentTreasuryValue);
         }
-        throw new JsonException($"JSON does not match CompanyTreasury or GovernmentTreasury schemas: {root.ToString()}");
+        throw new JsonException(
+            $"JSON does not match CompanyTreasury or GovernmentTreasury schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, PublicTreasury value, JsonSerializerOptions options)

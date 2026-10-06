@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Timeframe>))]
-public sealed record Timeframe : StringEnum<Timeframe>
+public sealed record Timeframe : OpenStringEnum<Timeframe>
 {
     private Timeframe(string value) : base(value)
     {
@@ -16,5 +17,23 @@ public sealed record Timeframe : StringEnum<Timeframe>
 
     public static readonly Timeframe Minute = new("minute");
 
-    public static Timeframe FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onDay,
+        Func<TResult> onHour,
+        Func<TResult> onMinute,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Day => onDay(),
+            _ when this == Hour => onHour(),
+            _ when this == Minute => onMinute(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onDay, Action onHour, Action onMinute, Action<string> otherwise)
+    {
+        if (this == Day) onDay();
+        else if (this == Hour) onHour();
+        else if (this == Minute) onMinute();
+        else otherwise(Value);
+    }
 }

@@ -9,40 +9,37 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 ### DerivativesExchanges
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `DerivativesExchanges(Order4? order, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `order` — nullable, no default → **must pass explicitly**
-  - `perPage` — nullable, no default → **must pass explicitly**
-  - `page` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `order` ← `order`, `per_page` ← `perPage`, `page` ← `page`
+- **Signature**: `DerivativesExchanges(DerivativesExchangesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `order` ← `Order`, `per_page` ← `PerPage`, `page` ← `Page`
 - **Returns**: `IReadOnlyList<DerivativesExchange>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `DerivativesExchangesRequest` | `Requests/Derivatives/DerivativesExchangesRequest.cs` |
 | `Order4` | `Models/Enums/Order4.cs` |
 | `DerivativesExchange` | `Models/DerivativesExchange.cs` |
 
 ### DerivativesExchangesId
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `DerivativesExchangesId(IncludeTickers? includeTickers, string id = "binance_futures", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `includeTickers` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"binance_futures"`
-- **Query params (wire ← C#)**: `include_tickers` ← `includeTickers`
+- **Signature**: `DerivativesExchangesId(DerivativesExchangesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `include_tickers` ← `IncludeTickers`
 - **Returns**: `DerivativesExchangesId`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `DerivativesExchangesIdRequest` | `Requests/Derivatives/DerivativesExchangesIdRequest.cs` |
 | `IncludeTickers` | `Models/Enums/IncludeTickers.cs` |
 | `DerivativesExchangesId` | `Models/DerivativesExchangesId.cs` |
 
 ### DerivativesExchangesList
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `DerivativesExchangesList(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DerivativesExchangesList(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `IReadOnlyList<DerivativesExchangesList>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -51,9 +48,9 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 ### DerivativesTickers
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `DerivativesTickers(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `DerivativesTickers(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `IReadOnlyList<DerivativesTicker>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |

@@ -1,9 +1,9 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Extensions;
+using CoinGecko.Core.Extensions;
 
-namespace CoinGeckoDemoApi.Core.Converters;
+namespace CoinGecko.Core.Converters;
 
 internal sealed class Rfc1123DateTimeOffsetConverter : JsonConverter<DateTimeOffset>
 {

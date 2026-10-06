@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<IncludeTokens>))]
-public sealed record IncludeTokens : StringEnum<IncludeTokens>
+public sealed record IncludeTokens : OpenStringEnum<IncludeTokens>
 {
     private IncludeTokens(string value) : base(value)
     {
@@ -14,5 +15,18 @@ public sealed record IncludeTokens : StringEnum<IncludeTokens>
 
     public static readonly IncludeTokens All = new("all");
 
-    public static IncludeTokens FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onTop, Func<TResult> onAll, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Top => onTop(),
+            _ when this == All => onAll(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onTop, Action onAll, Action<string> otherwise)
+    {
+        if (this == Top) onTop();
+        else if (this == All) onAll();
+        else otherwise(Value);
+    }
 }

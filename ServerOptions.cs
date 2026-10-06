@@ -1,6 +1,6 @@
-using CoinGeckoDemoApi.Servers;
+using CoinGecko.Servers;
 
-namespace CoinGeckoDemoApi;
+namespace CoinGecko;
 
 public class ServerOptions
 {

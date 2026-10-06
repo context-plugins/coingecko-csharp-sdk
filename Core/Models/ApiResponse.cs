@@ -1,7 +1,7 @@
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Response;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Response;
 
-namespace CoinGeckoDemoApi.Core.Models;
+namespace CoinGecko.Core.Models;
 
 internal sealed class ApiResponse<TResponse, TError>
 {

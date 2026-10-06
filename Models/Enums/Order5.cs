@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Order5>))]
-public sealed record Order5 : StringEnum<Order5>
+public sealed record Order5 : OpenStringEnum<Order5>
 {
     private Order5(string value) : base(value)
     {
@@ -14,5 +15,20 @@ public sealed record Order5 : StringEnum<Order5>
 
     public static readonly Order5 TotalHoldingsUsdAsc = new("total_holdings_usd_asc");
 
-    public static Order5 FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onTotalHoldingsUsdDesc,
+        Func<TResult> onTotalHoldingsUsdAsc,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == TotalHoldingsUsdDesc => onTotalHoldingsUsdDesc(),
+            _ when this == TotalHoldingsUsdAsc => onTotalHoldingsUsdAsc(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onTotalHoldingsUsdDesc, Action onTotalHoldingsUsdAsc, Action<string> otherwise)
+    {
+        if (this == TotalHoldingsUsdDesc) onTotalHoldingsUsdDesc();
+        else if (this == TotalHoldingsUsdAsc) onTotalHoldingsUsdAsc();
+        else otherwise(Value);
+    }
 }

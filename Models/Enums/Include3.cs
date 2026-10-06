@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Include3>))]
-public sealed record Include3 : StringEnum<Include3>
+public sealed record Include3 : OpenStringEnum<Include3>
 {
     private Include3(string value) : base(value)
     {
@@ -12,5 +13,16 @@ public sealed record Include3 : StringEnum<Include3>
 
     public static readonly Include3 Network = new("network");
 
-    public static Include3 FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onNetwork, Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Network => onNetwork(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onNetwork, Action<string> otherwise)
+    {
+        if (this == Network) onNetwork();
+        else otherwise(Value);
+    }
 }

@@ -3,28 +3,31 @@ using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace CoinGeckoDemoApi;
+namespace CoinGecko;
 
 public static class ServiceCollectionExtensions
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddCoinGeckoDemoApiClient(Action<CoinGeckoDemoApiClientOptions>? configure = null)
+        public IServiceCollection AddCoinGeckoClient(Action<CoinGeckoClientOptions>? configure = null)
         {
-            var options = new CoinGeckoDemoApiClientOptions();
-            configure?.Invoke(options);
             services.AddHttpClient();
             services.AddSingleton(sp =>
+            {
+                var options = new CoinGeckoClientOptions
                 {
-                    options.Logging =
-                        options.Logging with
-                        {
-                            LoggerFactory = options.Logging.LoggerFactory ?? sp.GetService<ILoggerFactory>()
-                        };
-                    var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
-                    var httpClient = httpClientFactory.CreateClient();
-                    return new CoinGeckoDemoApiClient(httpClient, options);
-                });
+                    TimeProvider = sp.GetService<TimeProvider>() ?? TimeProvider.System,
+                };
+                configure?.Invoke(options);
+                options.Logging =
+                    options.Logging with
+                    {
+                        LoggerFactory = options.Logging.LoggerFactory ?? sp.GetService<ILoggerFactory>()
+                    };
+                var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
+                var httpClient = httpClientFactory.CreateClient();
+                return new CoinGeckoClient(httpClient, options);
+            });
             return services;
         }
     }

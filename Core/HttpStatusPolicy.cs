@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace CoinGeckoDemoApi.Core;
+namespace CoinGecko.Core;
 
 internal sealed class HttpStatusPolicy
 {

@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Exceptions;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Request;
-using CoinGeckoDemoApi.Core.Response;
-using CoinGeckoDemoApi.Models;
-using CoinGeckoDemoApi.Models.Enums;
+using CoinGecko.Core;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Exceptions;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Request;
+using CoinGecko.Core.Response;
+using CoinGecko.Models;
+using CoinGecko.Requests.Derivatives;
 
-namespace CoinGeckoDemoApi.Api;
+namespace CoinGecko.Api;
 
 /// <summary>
 /// Derivatives exchanges and tickers
@@ -33,24 +33,25 @@ public sealed class Derivatives
     /// <summary>
     /// Derivatives Exchanges List with Data
     /// </summary>
-    /// <param name="order">Sort order of responses.  Default: <c>open_interest_btc_desc</c></param>
-    /// <param name="perPage">Total results per page.</param>
-    /// <param name="page">Page through results.  Default value: 1</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DerivativesExchange"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the derivatives exchanges with related data (ID, name, open interest, ...) on CoinGecko
     /// </remarks>
-    public Task<IReadOnlyList<DerivativesExchange>> DerivativesExchanges(Order4? order,
-        int? perPage,
-        int? page,
+    public Task<IReadOnlyList<DerivativesExchange>> DerivativesExchanges(DerivativesExchangesRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/derivatives/exchanges"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/derivatives/exchanges"),
             [],
-            [new Param("order", order), new Param("per_page", perPage), new Param("page", page)],
+            [
+                new Param("order", request.Order),
+                new Param("per_page", request.PerPage),
+                new Param("page", request.Page),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -58,27 +59,26 @@ public sealed class Derivatives
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Derivatives Exchange Data by ID
     /// </summary>
-    /// <param name="includeTickers">Include tickers data.  Default: tickers data is not included.</param>
-    /// <param name="id">Derivative exchange ID.  *refers to <see href="/reference/derivatives-exchanges-list"><c>/derivatives/exchanges/list</c></see>.</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DerivativesExchangesId"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query the derivatives exchange's related data (name, open interest, trade volume, ...) based on the exchange's ID
     /// </remarks>
-    public Task<DerivativesExchangesId> DerivativesExchangesId(IncludeTickers? includeTickers,
-        string id = "binance_futures",
+    public Task<DerivativesExchangesId> DerivativesExchangesId(DerivativesExchangesIdRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/derivatives/exchanges/{id}"),
-            [new TemplateParam("id", id)],
-            [new Param("include_tickers", includeTickers)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/derivatives/exchanges/{id}"),
+            [new TemplateParam("id", request.Id)],
+            [new Param("include_tickers", request.IncludeTickers)],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -86,21 +86,22 @@ public sealed class Derivatives
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Derivatives Exchanges List
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DerivativesExchangesList"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the supported derivatives exchanges with ID and name on CoinGecko
     /// </remarks>
     public Task<IReadOnlyList<DerivativesExchangesList>> DerivativesExchangesList(RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/derivatives/exchanges/list"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/derivatives/exchanges/list"),
             [],
             [],
             [],
@@ -110,21 +111,22 @@ public sealed class Derivatives
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Derivatives Tickers List
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DerivativesTicker"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the tickers from derivatives exchanges on CoinGecko
     /// </remarks>
     public Task<IReadOnlyList<DerivativesTicker>> DerivativesTickers(RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/derivatives"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/derivatives"),
             [],
             [],
             [],
@@ -134,5 +136,5 @@ public sealed class Derivatives
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 }

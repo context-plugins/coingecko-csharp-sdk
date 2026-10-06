@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Models;
+namespace CoinGecko.Models;
 
 public record TokenLists
 {

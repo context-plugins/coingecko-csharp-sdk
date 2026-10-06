@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.Request;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.Request;
 
-namespace CoinGeckoDemoApi.Core.Models;
+namespace CoinGecko.Core.Models;
 
 internal sealed class ApiRequest
 {

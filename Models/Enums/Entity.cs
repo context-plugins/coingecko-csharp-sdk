@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Entity>))]
-public sealed record Entity : StringEnum<Entity>
+public sealed record Entity : OpenStringEnum<Entity>
 {
     private Entity(string value) : base(value)
     {
@@ -14,5 +15,20 @@ public sealed record Entity : StringEnum<Entity>
 
     public static readonly Entity Governments = new("governments");
 
-    public static Entity FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onCompanies,
+        Func<TResult> onGovernments,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == Companies => onCompanies(),
+            _ when this == Governments => onGovernments(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onCompanies, Action onGovernments, Action<string> otherwise)
+    {
+        if (this == Companies) onCompanies();
+        else if (this == Governments) onGovernments();
+        else otherwise(Value);
+    }
 }

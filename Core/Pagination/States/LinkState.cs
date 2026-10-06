@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Core.Pagination.States;
+namespace CoinGecko.Core.Pagination.States;
 
 internal sealed record LinkState<TResponse> : IPageState<TResponse, LinkState<TResponse>>
 {

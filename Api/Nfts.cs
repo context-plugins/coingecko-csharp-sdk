@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Exceptions;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Request;
-using CoinGeckoDemoApi.Core.Response;
-using CoinGeckoDemoApi.Models;
-using CoinGeckoDemoApi.Models.Enums;
+using CoinGecko.Core;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Exceptions;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Request;
+using CoinGecko.Core.Response;
+using CoinGecko.Models;
+using CoinGecko.Requests.Nfts;
 
-namespace CoinGeckoDemoApi.Api;
+namespace CoinGecko.Api;
 
 /// <summary>
 /// NFT collection lists and details
@@ -33,22 +33,23 @@ public sealed class Nfts
     /// <summary>
     /// NFTs Collection Data by Contract Address
     /// </summary>
-    /// <param name="assetPlatformId">Asset platform ID.  *refers to <see href="/reference/asset-platforms-list"><c>/asset_platforms</c></see>.</param>
-    /// <param name="contractAddress">Contract address of the NFT collection.</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="NftData"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection contract address and respective asset platform
     /// </remarks>
-    public Task<NftData> NftsContractAddress(string assetPlatformId = "ethereum",
-        string contractAddress = "0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",
+    public Task<NftData> NftsContractAddress(NftsContractAddressRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/nfts/{asset_platform_id}/contract/{contract_address}"),
-            [new TemplateParam("asset_platform_id", assetPlatformId),
-                new TemplateParam("contract_address", contractAddress)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/nfts/{asset_platform_id}/contract/{contract_address}"),
+            [
+                new TemplateParam("asset_platform_id", request.AssetPlatformId),
+                new TemplateParam("contract_address", request.ContractAddress),
+            ],
             [],
             [],
             HttpMethod.Get,
@@ -57,24 +58,25 @@ public sealed class Nfts
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// NFTs Collection Data by ID
     /// </summary>
-    /// <param name="id">NFT collection ID.  *refers to <see href="/reference/nfts-list"><c>/nfts/list</c></see>.</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="NftData"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT collection ID
     /// </remarks>
-    public Task<NftData> NftsId(string id = "pudgy-penguins",
+    public Task<NftData> NftsId(NftsIdRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/nfts/{id}"),
-            [new TemplateParam("id", id)],
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/nfts/{id}"),
+            [new TemplateParam("id", request.Id)],
             [],
             [],
             HttpMethod.Get,
@@ -83,29 +85,30 @@ public sealed class Nfts
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// NFTs List
     /// </summary>
-    /// <param name="order">Sort order of responses.</param>
-    /// <param name="perPage">Total results per page.  Valid values: 1...250</param>
-    /// <param name="page">Page through results.</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="NfTsList"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko
     /// </remarks>
-    public Task<IReadOnlyList<NfTsList>> NftsList(Order7? order,
-        int? perPage,
-        int? page,
+    public Task<IReadOnlyList<NfTsList>> NftsList(NftsListRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/nfts/list"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/nfts/list"),
             [],
-            [new Param("order", order), new Param("per_page", perPage), new Param("page", page)],
+            [
+                new Param("order", request.Order),
+                new Param("per_page", request.PerPage),
+                new Param("page", request.Page),
+            ],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -113,5 +116,5 @@ public sealed class Nfts
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 }

@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace CoinGeckoDemoApi.Core.Models;
+namespace CoinGecko.Core.Models;
 
 [DebuggerDisplay("{GetDebuggerDisplay(),nq}")]
 internal readonly record struct Optional<TValue>

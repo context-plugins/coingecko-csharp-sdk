@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Core;
+namespace CoinGecko.Core;
 
 internal static class ParameterFlattener
 {

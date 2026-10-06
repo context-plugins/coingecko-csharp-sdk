@@ -9,23 +9,23 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 ### CoinsCategories
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsCategories(Order2? order, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `order` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `order` ← `order`
+- **Signature**: `CoinsCategories(CoinsCategoriesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `order` ← `Order`
 - **Returns**: `IReadOnlyList<Category1>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsCategoriesRequest` | `Requests/Coins/CoinsCategoriesRequest.cs` |
 | `Order2` | `Models/Enums/Order2.cs` |
 | `Category1` | `Models/Category1.cs` |
 
 ### CoinsCategoriesList
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsCategoriesList(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `CoinsCategoriesList(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `IReadOnlyList<CategoriesList>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -34,57 +34,53 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 ### CoinsContractAddress
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsContractAddress(string id = "ethereum", string contractAddress = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - defaults: `id` = `"ethereum"`, `contractAddress` = `"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"`
+- **Signature**: `CoinsContractAddress(CoinsContractAddressRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `CoinsContractAddress`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsContractAddressRequest` | `Requests/Coins/CoinsContractAddressRequest.cs` |
 | `CoinsContractAddress` | `Models/CoinsContractAddress.cs` |
 
 ### CoinsId
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsId(bool? localization, bool? tickers, bool? marketData, bool? communityData, bool? developerData, bool? sparkline, bool? includeCategoriesDetails, DexPairFormat? dexPairFormat, string id = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 8 params (`localization` … `dexPairFormat`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `id` = `"bitcoin"`
-- **Query params (wire ← C#)**: `localization` ← `localization`, `tickers` ← `tickers`, `market_data` ← `marketData`, `community_data` ← `communityData`, `developer_data` ← `developerData`, `sparkline` ← `sparkline`, `include_categories_details` ← `includeCategoriesDetails`, `dex_pair_format` ← `dexPairFormat`
+- **Signature**: `CoinsId(CoinsIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `localization` ← `Localization`, `tickers` ← `Tickers`, `market_data` ← `MarketData`, `community_data` ← `CommunityData`, `developer_data` ← `DeveloperData`, `sparkline` ← `Sparkline`, `include_categories_details` ← `IncludeCategoriesDetails`, `dex_pair_format` ← `DexPairFormat`
 - **Returns**: `CoinsId`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsIdRequest` | `Requests/Coins/CoinsIdRequest.cs` |
 | `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
 | `CoinsId` | `Models/CoinsId.cs` |
 
 ### CoinsIdHistory
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsIdHistory(bool? localization, string id = "bitcoin", string date = "30-12-2025", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `localization` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"bitcoin"`, `date` = `"30-12-2025"`
-- **Query params (wire ← C#)**: `date` ← `date`, `localization` ← `localization`
+- **Signature**: `CoinsIdHistory(CoinsIdHistoryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `date` ← `Date`, `localization` ← `Localization`
 - **Returns**: `CoinsIdHistory`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsIdHistoryRequest` | `Requests/Coins/CoinsIdHistoryRequest.cs` |
 | `CoinsIdHistory` | `Models/CoinsIdHistory.cs` |
 
 ### CoinsIdMarketChart
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsIdMarketChart(Interval? interval, Precision? precision, string id = "bitcoin", string vsCurrency = "usd", string days = "1", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `interval` — nullable, no default → **must pass explicitly**
-  - `precision` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"bitcoin"`, `vsCurrency` = `"usd"`, `days` = `"1"`
-- **Query params (wire ← C#)**: `vs_currency` ← `vsCurrency`, `days` ← `days`, `interval` ← `interval`, `precision` ← `precision`
+- **Signature**: `CoinsIdMarketChart(CoinsIdMarketChartRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currency` ← `VsCurrency`, `days` ← `Days`, `interval` ← `Interval`, `precision` ← `Precision`
 - **Returns**: `CoinsMarketChart`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsIdMarketChartRequest` | `Requests/Coins/CoinsIdMarketChartRequest.cs` |
 | `Interval` | `Models/Enums/Interval.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 | `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
@@ -92,45 +88,42 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 ### CoinsIdMarketChartRange
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsIdMarketChartRange(Precision? precision, string id = "bitcoin", string vsCurrency = "usd", int from = 1767024000, int to = 1777564800, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `precision` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"bitcoin"`, `vsCurrency` = `"usd"`, `from` = `1767024000`, `to` = `1777564800`
-- **Query params (wire ← C#)**: `vs_currency` ← `vsCurrency`, `from` ← `from`, `to` ← `to`, `precision` ← `precision`
+- **Signature**: `CoinsIdMarketChartRange(CoinsIdMarketChartRangeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currency` ← `VsCurrency`, `from` ← `From`, `to` ← `To`, `precision` ← `Precision`
 - **Returns**: `CoinsMarketChart`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsIdMarketChartRangeRequest` | `Requests/Coins/CoinsIdMarketChartRangeRequest.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 | `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
 
 ### CoinsIdOhlc
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsIdOhlc(Days days, Precision? precision, string id = "bitcoin", string vsCurrency = "usd", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `precision` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"bitcoin"`, `vsCurrency` = `"usd"`
-- **Query params (wire ← C#)**: `vs_currency` ← `vsCurrency`, `days` ← `days`, `precision` ← `precision`
+- **Signature**: `CoinsIdOhlc(CoinsIdOhlcRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currency` ← `VsCurrency`, `days` ← `Days`, `precision` ← `Precision`
 - **Returns**: `IReadOnlyList<IReadOnlyList<double>>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsIdOhlcRequest` | `Requests/Coins/CoinsIdOhlcRequest.cs` |
 | `Days` | `Models/Enums/Days.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 
 ### CoinsIdTickers
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsIdTickers(string? exchangeIds, bool? includeExchangeLogo, int? page, Order1? order, bool? depth, DexPairFormat? dexPairFormat, string id = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 6 params (`exchangeIds` … `dexPairFormat`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `id` = `"bitcoin"`
-- **Query params (wire ← C#)**: `exchange_ids` ← `exchangeIds`, `include_exchange_logo` ← `includeExchangeLogo`, `page` ← `page`, `order` ← `order`, `depth` ← `depth`, `dex_pair_format` ← `dexPairFormat`
+- **Signature**: `CoinsIdTickers(CoinsIdTickersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `exchange_ids` ← `ExchangeIds`, `include_exchange_logo` ← `IncludeExchangeLogo`, `page` ← `Page`, `order` ← `Order`, `depth` ← `Depth`, `dex_pair_format` ← `DexPairFormat`
 - **Returns**: `CoinsIdTickers`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsIdTickersRequest` | `Requests/Coins/CoinsIdTickersRequest.cs` |
 | `Order1` | `Models/Enums/Order1.cs` |
 | `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
 | `CoinsIdTickers` | `Models/CoinsIdTickers.cs` |
@@ -138,30 +131,28 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 ### CoinsList
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsList(bool? includePlatform, Status? status, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `includePlatform` — nullable, no default → **must pass explicitly**
-  - `status` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `include_platform` ← `includePlatform`, `status` ← `status`
+- **Signature**: `CoinsList(CoinsListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `include_platform` ← `IncludePlatform`, `status` ← `Status`
 - **Returns**: `IReadOnlyList<CoinsList>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsListRequest` | `Requests/Coins/CoinsListRequest.cs` |
 | `Status` | `Models/Enums/Status.cs` |
 | `CoinsList` | `Models/CoinsList.cs` |
 
 ### CoinsMarkets
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CoinsMarkets(IncludeTokens? includeTokens, string? category, Order? order, int? perPage, int? page, bool? sparkline, string? priceChangePercentage, Locale? locale, Precision? precision, bool? includeRehypothecated, string vsCurrency = "usd", string? ids = "bitcoin", string? names = "Bitcoin", string? symbols = "btc", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 10 params (`includeTokens` … `includeRehypothecated`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `vsCurrency` = `"usd"`, `ids` = `"bitcoin"`, `names` = `"Bitcoin"`, `symbols` = `"btc"`
-- **Query params (wire ← C#)**: `vs_currency` ← `vsCurrency`, `ids` ← `ids`, `names` ← `names`, `symbols` ← `symbols`, `include_tokens` ← `includeTokens`, `category` ← `category`, `order` ← `order`, `per_page` ← `perPage`, `page` ← `page`, `sparkline` ← `sparkline`, `price_change_percentage` ← `priceChangePercentage`, `locale` ← `locale`, `precision` ← `precision`, `include_rehypothecated` ← `includeRehypothecated`
+- **Signature**: `CoinsMarkets(CoinsMarketsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currency` ← `VsCurrency`, `ids` ← `Ids`, `names` ← `Names`, `symbols` ← `Symbols`, `include_tokens` ← `IncludeTokens`, `category` ← `Category`, `order` ← `Order`, `per_page` ← `PerPage`, `page` ← `Page`, `sparkline` ← `Sparkline`, `price_change_percentage` ← `PriceChangePercentage`, `locale` ← `Locale`, `precision` ← `Precision`, `include_rehypothecated` ← `IncludeRehypothecated`
 - **Returns**: `IReadOnlyList<CoinsMarket>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CoinsMarketsRequest` | `Requests/Coins/CoinsMarketsRequest.cs` |
 | `IncludeTokens` | `Models/Enums/IncludeTokens.cs` |
 | `Order` | `Models/Enums/Order.cs` |
 | `Locale` | `Models/Enums/Locale.cs` |
@@ -171,16 +162,14 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 ### ContractAddressMarketChart
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ContractAddressMarketChart(Interval? interval, Precision? precision, string id = "ethereum", string contractAddress = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", string vsCurrency = "usd", string days = "1", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `interval` — nullable, no default → **must pass explicitly**
-  - `precision` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"ethereum"`, `contractAddress` = `"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"`, `vsCurrency` = `"usd"`, `days` = `"1"`
-- **Query params (wire ← C#)**: `vs_currency` ← `vsCurrency`, `days` ← `days`, `interval` ← `interval`, `precision` ← `precision`
+- **Signature**: `ContractAddressMarketChart(ContractAddressMarketChartRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currency` ← `VsCurrency`, `days` ← `Days`, `interval` ← `Interval`, `precision` ← `Precision`
 - **Returns**: `CoinsMarketChart`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ContractAddressMarketChartRequest` | `Requests/Coins/ContractAddressMarketChartRequest.cs` |
 | `Interval` | `Models/Enums/Interval.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 | `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
@@ -188,15 +177,14 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 ### ContractAddressMarketChartRange
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ContractAddressMarketChartRange(Precision? precision, string id = "ethereum", string contractAddress = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", string vsCurrency = "usd", int from = 1767024000, int to = 1777564800, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `precision` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"ethereum"`, `contractAddress` = `"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"`, `vsCurrency` = `"usd"`, `from` = `1767024000`, `to` = `1777564800`
-- **Query params (wire ← C#)**: `vs_currency` ← `vsCurrency`, `from` ← `from`, `to` ← `to`, `precision` ← `precision`
+- **Signature**: `ContractAddressMarketChartRange(ContractAddressMarketChartRangeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `vs_currency` ← `VsCurrency`, `from` ← `From`, `to` ← `To`, `precision` ← `Precision`
 - **Returns**: `CoinsMarketChart`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ContractAddressMarketChartRangeRequest` | `Requests/Coins/ContractAddressMarketChartRangeRequest.cs` |
 | `Precision` | `Models/Enums/Precision.cs` |
 | `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
 

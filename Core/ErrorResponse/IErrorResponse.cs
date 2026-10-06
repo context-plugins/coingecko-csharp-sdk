@@ -1,10 +1,10 @@
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Core.ErrorResponse;
+namespace CoinGecko.Core.ErrorResponse;
 
-public interface IErrorResponse<TError>
+internal interface IErrorResponse<TError>
 {
-    Task<TError> Map(HttpResponseMessage response, CancellationToken ct);
+    Task<TError> Map(ResponseContext context, CancellationToken cancellationToken);
 }

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace CoinGeckoDemoApi.Core.Converters;
+namespace CoinGecko.Core.Converters;
 
 internal sealed class UnixDateTimeOffsetConverter : JsonConverter<DateTimeOffset>
 {

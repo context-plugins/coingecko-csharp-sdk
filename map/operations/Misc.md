@@ -9,23 +9,23 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 ### AssetPlatformsList
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `AssetPlatformsList(Filter? filter, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `filter` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `filter` ← `filter`
+- **Signature**: `AssetPlatformsList(AssetPlatformsListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `filter` ← `Filter`
 - **Returns**: `IReadOnlyList<AssetPlatform>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `AssetPlatformsListRequest` | `Requests/Misc/AssetPlatformsListRequest.cs` |
 | `Filter` | `Models/Enums/Filter.cs` |
 | `AssetPlatform` | `Models/AssetPlatform.cs` |
 
 ### PingServer
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `PingServer(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `PingServer(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `PingServer`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -34,12 +34,12 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 ### TokenLists
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `TokenLists(string assetPlatformId = "ethereum", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - defaults: `assetPlatformId` = `"ethereum"`
+- **Signature**: `TokenLists(TokenListsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TokenLists`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `TokenListsRequest` | `Requests/Misc/TokenListsRequest.cs` |
 | `TokenLists` | `Models/TokenLists.cs` |
 

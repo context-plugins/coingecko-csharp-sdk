@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 
-namespace CoinGeckoDemoApi.Core.Extensions;
+namespace CoinGecko.Core.Extensions;
 
 internal static class HeaderValueExtensions
 {

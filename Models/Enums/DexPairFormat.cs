@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<DexPairFormat>))]
-public sealed record DexPairFormat : StringEnum<DexPairFormat>
+public sealed record DexPairFormat : OpenStringEnum<DexPairFormat>
 {
     private DexPairFormat(string value) : base(value)
     {
@@ -14,5 +15,20 @@ public sealed record DexPairFormat : StringEnum<DexPairFormat>
 
     public static readonly DexPairFormat Symbol = new("symbol");
 
-    public static DexPairFormat FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onContractAddress,
+        Func<TResult> onSymbol,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == ContractAddress => onContractAddress(),
+            _ when this == Symbol => onSymbol(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onContractAddress, Action onSymbol, Action<string> otherwise)
+    {
+        if (this == ContractAddress) onContractAddress();
+        else if (this == Symbol) onSymbol();
+        else otherwise(Value);
+    }
 }

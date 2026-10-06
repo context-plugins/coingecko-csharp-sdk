@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Models;
+using CoinGecko.Core.Models;
 
-namespace CoinGeckoDemoApi.Models;
+namespace CoinGecko.Models;
 
 public record CoinsList
 {
@@ -29,7 +29,7 @@ public record CoinsList
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("platforms")]
-    public IReadOnlyDictionary<string, string>? Platforms { get; init; }
+    public IReadOnlyDictionary<string, string?>? Platforms { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

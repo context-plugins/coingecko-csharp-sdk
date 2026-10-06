@@ -1,16 +1,17 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CoinGeckoDemoApi.Core;
-using CoinGeckoDemoApi.Core.Authentication;
-using CoinGeckoDemoApi.Core.ErrorResponse;
-using CoinGeckoDemoApi.Core.Exceptions;
-using CoinGeckoDemoApi.Core.Models;
-using CoinGeckoDemoApi.Core.Request;
-using CoinGeckoDemoApi.Core.Response;
-using CoinGeckoDemoApi.Models;
+using CoinGecko.Core;
+using CoinGecko.Core.Authentication;
+using CoinGecko.Core.ErrorResponse;
+using CoinGecko.Core.Exceptions;
+using CoinGecko.Core.Models;
+using CoinGecko.Core.Request;
+using CoinGecko.Core.Response;
+using CoinGecko.Models;
+using CoinGecko.Requests.SearchApi;
 
-namespace CoinGeckoDemoApi.Api;
+namespace CoinGecko.Api;
 
 /// <summary>
 /// Search and trending
@@ -31,20 +32,21 @@ public sealed class SearchApi
     /// <summary>
     /// Search Queries
     /// </summary>
-    /// <param name="query">Search query</param>
+    /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="Search"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To search for coins, categories and markets listed on CoinGecko
     /// </remarks>
-    public Task<Search> SearchData(string query,
+    public Task<Search> SearchData(SearchDataRequest request,
         RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/search"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/search"),
             [],
-            [new Param("query", query)],
+            [new Param("query", request.Query)],
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
@@ -52,21 +54,22 @@ public sealed class SearchApi
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 
     /// <summary>
     /// Trending Search List
     /// </summary>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="ct">Cancellation token</param>
+    /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="TrendingSearch"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// To query trending search coins, NFTs and categories on CoinGecko in the last 24 hours
     /// </remarks>
     public Task<TrendingSearch> TrendingSearch(RequestOptions? requestOptions = null,
-        CancellationToken ct = default) =>
-        _rawClient.Execute(_server.Default("/search/trending"),
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/search/trending"),
             [],
             [],
             [],
@@ -76,5 +79,5 @@ public sealed class SearchApi
             RawErrorResponse.Instance,
             [new AuthSchemeAny(_auth.HeaderAuth, _auth.QueryAuth)],
             requestOptions,
-            ct);
+            cancellationToken);
 }

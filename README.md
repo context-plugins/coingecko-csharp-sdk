@@ -1,8 +1,8 @@
-# CoinGecko Demo API
+# Coin Gecko
 
 [![Built with APIMatic][apimatic-badge]][apimatic-url] [![License: MIT][license-badge]][license-url]
 
-The CoinGecko Demo API SDK for .NET provides access to the CoinGecko Demo API REST APIs from .NET applications.
+The Coin Gecko SDK for .NET provides access to the Coin Gecko REST APIs from .NET applications.
 
 > [!TIP]
 > **Looking for a specific signature, model, enum, or error type?** This SDK ships a generated,
@@ -17,7 +17,7 @@ The CoinGecko Demo API SDK for .NET provides access to the CoinGecko Demo API RE
 Add the .NET SDK as a project reference into your solution:
 
 ```bash
-dotnet add reference <path-to-sdk>/CoinGeckoDemoApi.csproj
+dotnet add reference <path-to-sdk>/CoinGecko.csproj
 ```
 
 ---
@@ -26,33 +26,32 @@ dotnet add reference <path-to-sdk>/CoinGeckoDemoApi.csproj
 
 ### Dependency Injection
 
-Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [CoinGeckoDemoApiClientOptions](CoinGeckoDemoApiClientOptions.cs).
+Register the client with `IServiceCollection` and resolve it from the container. The `HttpClient` is managed by `IHttpClientFactory`. Configure the client's behavior through [CoinGeckoClientOptions](CoinGeckoClientOptions.cs).
 
 ```csharp
-services.AddCoinGeckoDemoApiClient(options =>
-    {
-        options.HeaderAuth = "YOUR_API_KEY";
-        options.QueryAuth = "YOUR_API_KEY";
-        options.Environment = ServerEnvironment.Production;
-        // TODO: configure more client options here
-    });
+services.AddCoinGeckoClient(options =>
+{
+    options.HeaderAuth = "YOUR_API_KEY";
+    options.QueryAuth = "YOUR_API_KEY";
+    options.Environment = ServerEnvironment.Production;
+    // TODO: configure more client options here
+});
 ```
 
 ### Direct Instantiation
 
-Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [CoinGeckoDemoApiClientOptions](CoinGeckoDemoApiClientOptions.cs).
+Create the client by passing an `HttpClient` you manage yourself. Configure the client's behavior through [CoinGeckoClientOptions](CoinGeckoClientOptions.cs).
 
 ```csharp
 var httpClient = new HttpClient();
 // TODO: configure more client options here
-var options =
-    new CoinGeckoDemoApiClientOptions
-    {
-        HeaderAuth = "YOUR_API_KEY",
-        QueryAuth = "YOUR_API_KEY",
-        Environment = ServerEnvironment.Production,
-    };
-var client = new CoinGeckoDemoApiClient(httpClient, options);
+var options = new CoinGeckoClientOptions
+{
+    HeaderAuth = "YOUR_API_KEY",
+    QueryAuth = "YOUR_API_KEY",
+    Environment = ServerEnvironment.Production,
+};
+var client = new CoinGeckoClient(httpClient, options);
 ```
 
 ---
@@ -60,6 +59,20 @@ var client = new CoinGeckoDemoApiClient(httpClient, options);
 ## Usage
 
 For code examples and error responses, see [API Reference](api-reference.md).
+
+## Enums
+
+Every enum the spec declares is a sealed record with one `public static readonly` member per value (`Filter.Nft`), a JSON converter, and a `Match` that makes handling exhaustive: one `on{Member}` arm per known value, then `otherwise`, which receives the raw wire value the server sent when it is one this SDK does not declare.
+
+```csharp
+var label = received.Match(onNft: () => "Nft", otherwise: raw => $"undeclared ({raw})");
+```
+
+Prefer named arguments as above. The arms are positional, in the order the spec lists its values, and a regenerated SDK that adds or moves a value changes the `Match` signature: a positional call site compiled against the old shape either stops compiling or, if the assembly is not rebuilt, throws `MissingMethodException` at the first call, and a reordered value can rebind a positional argument to a different member without any diagnostic. Treat an added or moved enum value as a breaking change of that enum. Code that must survive regeneration untouched compares instead of matching: `received == Filter.Nft` or `received.Is(rawValue)` against a raw wire value; neither reopens construction.
+
+A value the SDK does not declare still round-trips: `IsKnownValue()` tells you whether it is one of the generated members, and sending the instance back echoes the server's own casing. You cannot construct an undeclared value yourself — there is no public factory — so a typo cannot compile; resolve a raw value with `Filter.TryGetKnownValue("nft", out var known)`.
+
+A spec value whose name would collide with the enum's own name, with a member every enum inherits or generates (such as `Value`, `Match` or `IsKnownValue`), or with a member of `object` takes a `Member` suffix — a value `value` becomes `ValueMember` — and the other members keep their plain names.
 
 ## SDK map
 
@@ -84,15 +97,66 @@ The map and the [API Reference](api-reference.md) answer different questions, an
 
 | Use | For |
 | --- | --- |
-| **[`sdk-map.md`](sdk-map.md) + [`map/`](map/)** | Traversing the SDK and working out its surface — locating the operation you need (this SDK exposes **61 operations**), its exact signature and parameter order, the shape and JSON wire names of the models it takes and returns, which error type it throws and how to read it, and the source file behind any of it. This is the index to consume the SDK from, and the one to reach for first. |
-| **[`api-reference.md`](api-reference.md)** | Usage guidance for a single operation once you know which one you want — a runnable code sample, per-parameter descriptions, and the error responses it can return. |
+| **[`sdk-map.md`](sdk-map.md) + [`map/`](map/)** | Traversing the SDK and working out its surface — locating the operation you need (this SDK exposes **61 operations**), its exact signature and request record, the shape and JSON wire names of the models it takes and returns, which error type it throws and how to read it, and the source file behind any of it. This is the index to consume the SDK from, and the one to reach for first. |
+| **[`api-reference.md`](api-reference.md)** | Usage guidance for a single operation once you know which one you want — a runnable code sample, a link to its request record, and the error responses it can return. |
+
+## Error Handling
+
+Operations throw when the server answers with an error status. `TError` is the operation's error type from the spec — `RawError` (the status code plus the raw body) when the spec declares none.
+
+```csharp
+using CoinGecko.Core.Exceptions;   // the exception family
+using CoinGecko.Requests.Coins;    // request records such as CoinsCategoriesRequest
+
+try
+{
+    var response = await client.Coins.CoinsCategories(new CoinsCategoriesRequest());
+}
+catch (ApiException<RawError> ex)
+{
+    // "GET <server>/coins/categories returned 400 (BadRequest)."
+    Console.Error.WriteLine(ex.Message);
+    Console.Error.WriteLine(ex.Error.ReadAsString());
+}
+```
+
+Everything the SDK raises for a call derives from `SdkException`, which carries the failed call's `Method` and `RequestUri`. Every message starts with that call, and the underlying cause is always `InnerException`.
+
+| Exception | When | Extra members |
+| --- | --- | --- |
+| `ApiException<TError>` | The server answered with an error status | `Error`, plus `StatusCode`, `Headers` and `ContentType` from `ApiException` |
+| `ResponseDeserializationException` | A response body did not match the type the spec declares | `TargetType`, plus the `ApiException` members |
+| `SdkConnectionException` | The request could not be sent, or the response body could not be read |  |
+| `SdkTimeoutException` | An attempt, the transport, or a Server-Sent Events stream went silent (derives from `SdkConnectionException`) | `Timeout` |
+| `AuthSchemeException` | A credential could not be applied — for example the OAuth2 token endpoint refused it | `SchemeFailures` |
+
+Catch from specific to general: `ApiException` means the server answered, `SdkConnectionException` means it did not, and `SdkException` is everything the SDK raises. Your own cancellation surfaces as the usual `OperationCanceledException`, never wrapped.
+
+---
 
 ## Best Practices
 
 > [!TIP]
-> Use a **single `CoinGeckoDemoApiClient` instance** for the lifetime of your application and
+> Use a **single `CoinGeckoClient` instance** for the lifetime of your application and
 > reuse it across all requests. Creating a new instance per request might exhaust the
 > connection pool.
+
+> [!TIP]
+> Let the SDK own timeouts. `RetryOptions.Timeout` bounds **each attempt** (default 100 s)
+> and a timed-out attempt is retried under the configured retry policy before it surfaces as
+> `SdkTimeoutException`; `Retry-After` response headers are honored when the server sends them.
+> Set `HttpClient.Timeout` to `Timeout.InfiniteTimeSpan` (or comfortably above
+> `RetryOptions.Timeout`) so the transport does not race the SDK — a transport-level timeout
+> surfaces as the same `SdkTimeoutException` but cannot be retried.
+
+> [!TIP]
+> The SDK reads time only through `CoinGeckoClientOptions.TimeProvider` (default
+> `TimeProvider.System`): retry backoff, `Retry-After`, the SSE idle timeout, OAuth2 token
+> expiry and the logged request durations all follow it. Under `AddCoinGeckoClient` a
+> `TimeProvider` registered in the container is picked up automatically, and setting the
+> option explicitly wins. To fake time in your own tests use a provider that implements
+> timers, such as `FakeTimeProvider` from `Microsoft.Extensions.TimeProvider.Testing`, so
+> retries and idle timeouts advance with it.
 
 ## License
 

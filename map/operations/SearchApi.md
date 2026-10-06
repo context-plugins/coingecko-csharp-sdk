@@ -9,21 +9,23 @@ Accessor: `client.SearchApi` · Source: `Api/SearchApi.cs` · 2 operations
 ### SearchData
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `SearchData(string query, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-- **Query params (wire ← C#)**: `query` ← `query`
+- **Signature**: `SearchData(SearchDataRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Query`
+- **Query params (wire ← C#)**: `query` ← `Query`
 - **Returns**: `Search`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `SearchDataRequest` | `Requests/SearchApi/SearchDataRequest.cs` |
 | `Search` | `Models/Search.cs` |
 
 ### TrendingSearch
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `TrendingSearch(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `TrendingSearch(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `TrendingSearch`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |

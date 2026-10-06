@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace CoinGeckoDemoApi.Core.Request;
+namespace CoinGecko.Core.Request;
 
 internal interface IRequest
 {

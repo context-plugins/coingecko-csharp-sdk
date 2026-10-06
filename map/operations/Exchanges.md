@@ -9,9 +9,9 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 ### ExchangeRates
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ExchangeRates(RequestOptions? requestOptions = null, CancellationToken ct = default)`
+- **Signature**: `ExchangeRates(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Returns**: `ExchangeRates`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
@@ -20,30 +20,28 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 ### ExchangesId
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ExchangesId(DexPairFormat? dexPairFormat, string id = "binance", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `dexPairFormat` — nullable, no default → **must pass explicitly**
-  - defaults: `id` = `"binance"`
-- **Query params (wire ← C#)**: `dex_pair_format` ← `dexPairFormat`
+- **Signature**: `ExchangesId(ExchangesIdRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `dex_pair_format` ← `DexPairFormat`
 - **Returns**: `ExchangesId`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ExchangesIdRequest` | `Requests/Exchanges/ExchangesIdRequest.cs` |
 | `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
 | `ExchangesId` | `Models/ExchangesId.cs` |
 
 ### ExchangesIdTickers
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ExchangesIdTickers(string? coinIds, bool? includeExchangeLogo, double? page, bool? depth, Order3? order, DexPairFormat? dexPairFormat, string id = "binance", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - 6 params (`coinIds` … `dexPairFormat`) — nullable, no default → **must pass explicitly** (pass `null` to skip)
-  - defaults: `id` = `"binance"`
-- **Query params (wire ← C#)**: `coin_ids` ← `coinIds`, `include_exchange_logo` ← `includeExchangeLogo`, `page` ← `page`, `depth` ← `depth`, `order` ← `order`, `dex_pair_format` ← `dexPairFormat`
+- **Signature**: `ExchangesIdTickers(ExchangesIdTickersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `coin_ids` ← `CoinIds`, `include_exchange_logo` ← `IncludeExchangeLogo`, `page` ← `Page`, `depth` ← `Depth`, `order` ← `Order`, `dex_pair_format` ← `DexPairFormat`
 - **Returns**: `CoinsIdTickers`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ExchangesIdTickersRequest` | `Requests/Exchanges/ExchangesIdTickersRequest.cs` |
 | `Order3` | `Models/Enums/Order3.cs` |
 | `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
 | `CoinsIdTickers` | `Models/CoinsIdTickers.cs` |
@@ -51,42 +49,41 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 ### ExchangesIdVolumeChart
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ExchangesIdVolumeChart(Days days, string id = "binance", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - defaults: `id` = `"binance"`
-- **Query params (wire ← C#)**: `days` ← `days`
+- **Signature**: `ExchangesIdVolumeChart(ExchangesIdVolumeChartRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `days` ← `Days`
 - **Returns**: `IReadOnlyList<IReadOnlyList<ExchangeVolumeChart>>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ExchangesIdVolumeChartRequest` | `Requests/Exchanges/ExchangesIdVolumeChartRequest.cs` |
 | `Days` | `Models/Enums/Days.cs` |
 | `ExchangeVolumeChart` | `Models/AnyOf/ExchangeVolumeChart.cs` |
 
 ### ExchangesInvoke
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ExchangesInvoke(double? perPage, double? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `perPage` — nullable, no default → **must pass explicitly**
-  - `page` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `per_page` ← `perPage`, `page` ← `page`
+- **Signature**: `ExchangesInvoke(ExchangesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `per_page` ← `PerPage`, `page` ← `Page`
 - **Returns**: `IReadOnlyList<Exchange1>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ExchangesRequest` | `Requests/Exchanges/ExchangesRequest.cs` |
 | `Exchange1` | `Models/Exchange1.cs` |
 
 ### ExchangesList
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `ExchangesList(Status? status, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `status` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `status` ← `status`
+- **Signature**: `ExchangesList(ExchangesListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `status` ← `Status`
 - **Returns**: `IReadOnlyList<ExchangesList>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `ExchangesListRequest` | `Requests/Exchanges/ExchangesListRequest.cs` |
 | `Status` | `Models/Enums/Status.cs` |
 | `ExchangesList` | `Models/ExchangesList.cs` |
 

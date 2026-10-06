@@ -9,17 +9,14 @@ Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
 ### CompaniesPublicTreasury
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `CompaniesPublicTreasury(Entity entity, int? perPage, int? page, Order5? order, string coinId = "bitcoin", RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `perPage` — nullable, no default → **must pass explicitly**
-  - `page` — nullable, no default → **must pass explicitly**
-  - `order` — nullable, no default → **must pass explicitly**
-  - defaults: `coinId` = `"bitcoin"`
-- **Query params (wire ← C#)**: `per_page` ← `perPage`, `page` ← `page`, `order` ← `order`
+- **Signature**: `CompaniesPublicTreasury(CompaniesPublicTreasuryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `per_page` ← `PerPage`, `page` ← `Page`, `order` ← `Order`
 - **Returns**: `PublicTreasury`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `CompaniesPublicTreasuryRequest` | `Requests/Entities/CompaniesPublicTreasuryRequest.cs` |
 | `Entity` | `Models/Enums/Entity.cs` |
 | `Order5` | `Models/Enums/Order5.cs` |
 | `PublicTreasury` | `Models/AnyOf/PublicTreasury.cs` |
@@ -27,16 +24,14 @@ Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
 ### EntitiesList
 
 - **Auth**: `options.HeaderAuth` OR `options.QueryAuth`
-- **Signature**: `EntitiesList(EntityType? entityType, int? perPage, int? page, RequestOptions? requestOptions = null, CancellationToken ct = default)`
-  - `entityType` — nullable, no default → **must pass explicitly**
-  - `perPage` — nullable, no default → **must pass explicitly**
-  - `page` — nullable, no default → **must pass explicitly**
-- **Query params (wire ← C#)**: `entity_type` ← `entityType`, `per_page` ← `perPage`, `page` ← `page`
+- **Signature**: `EntitiesList(EntitiesListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `entity_type` ← `EntityType`, `per_page` ← `PerPage`, `page` ← `Page`
 - **Returns**: `IReadOnlyList<EntitiesList>`
-- **Error**: `SdkException<RawError>` — **Case B**
+- **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
+| `EntitiesListRequest` | `Requests/Entities/EntitiesListRequest.cs` |
 | `EntityType` | `Models/Enums/EntityType.cs` |
 | `EntitiesList` | `Models/EntitiesList.cs` |
 

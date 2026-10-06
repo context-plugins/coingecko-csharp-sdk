@@ -1,10 +1,11 @@
+using System;
 using System.Text.Json.Serialization;
-using CoinGeckoDemoApi.Core.Enum;
+using CoinGecko.Core.Enum;
 
-namespace CoinGeckoDemoApi.Models.Enums;
+namespace CoinGecko.Models.Enums;
 
 [JsonConverter(typeof(StringEnumConverter<Sort>))]
-public sealed record Sort : StringEnum<Sort>
+public sealed record Sort : OpenStringEnum<Sort>
 {
     private Sort(string value) : base(value)
     {
@@ -14,5 +15,20 @@ public sealed record Sort : StringEnum<Sort>
 
     public static readonly Sort H24VolumeUsdDesc = new("h24_volume_usd_desc");
 
-    public static Sort FromValue(string value) => FromValueCore(value);
+    public TResult Match<TResult>(Func<TResult> onH24TxCountDesc,
+        Func<TResult> onH24VolumeUsdDesc,
+        Func<string, TResult> otherwise) =>
+        this switch
+        {
+            _ when this == H24TxCountDesc => onH24TxCountDesc(),
+            _ when this == H24VolumeUsdDesc => onH24VolumeUsdDesc(),
+            _ => otherwise(Value)
+        };
+
+    public void Match(Action onH24TxCountDesc, Action onH24VolumeUsdDesc, Action<string> otherwise)
+    {
+        if (this == H24TxCountDesc) onH24TxCountDesc();
+        else if (this == H24VolumeUsdDesc) onH24VolumeUsdDesc();
+        else otherwise(Value);
+    }
 }
