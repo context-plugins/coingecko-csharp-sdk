@@ -2,7 +2,7 @@
 
 # GlobalApi — operations
 
-Accessor: `client.GlobalApi` · Source: `Api/GlobalApi.cs` · 2 operations
+Accessor: `client.GlobalApi` · Source: `src/CoinGecko/Api/GlobalApi.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,7 +15,7 @@ Accessor: `client.GlobalApi` · Source: `Api/GlobalApi.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `Global` | `Models/Global.cs` |
+| `Global` | `src/CoinGecko/Models/Global.cs` |
 
 ### GlobalDefi
 
@@ -26,5 +26,5 @@ Accessor: `client.GlobalApi` · Source: `Api/GlobalApi.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `GlobalDeFi` | `Models/GlobalDeFi.cs` |
+| `GlobalDeFi` | `src/CoinGecko/Models/GlobalDeFi.cs` |
 

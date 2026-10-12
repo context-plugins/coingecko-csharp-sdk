@@ -2,7 +2,7 @@
 
 # Coins — operations
 
-Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
+Accessor: `client.Coins` · Source: `src/CoinGecko/Api/Coins.cs` · 13 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -16,9 +16,9 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsCategoriesRequest` | `Requests/Coins/CoinsCategoriesRequest.cs` |
-| `Order2` | `Models/Enums/Order2.cs` |
-| `Category1` | `Models/Category1.cs` |
+| `CoinsCategoriesRequest` | `src/CoinGecko/Requests/Coins/CoinsCategoriesRequest.cs` |
+| `Order2` | `src/CoinGecko/Models/Enums/Order2.cs` |
+| `Category1` | `src/CoinGecko/Models/Category1.cs` |
 
 ### CoinsCategoriesList
 
@@ -29,7 +29,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CategoriesList` | `Models/CategoriesList.cs` |
+| `CategoriesList` | `src/CoinGecko/Models/CategoriesList.cs` |
 
 ### CoinsContractAddress
 
@@ -40,8 +40,8 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsContractAddressRequest` | `Requests/Coins/CoinsContractAddressRequest.cs` |
-| `CoinsContractAddress` | `Models/CoinsContractAddress.cs` |
+| `CoinsContractAddressRequest` | `src/CoinGecko/Requests/Coins/CoinsContractAddressRequest.cs` |
+| `CoinsContractAddress` | `src/CoinGecko/Models/CoinsContractAddress.cs` |
 
 ### CoinsId
 
@@ -53,9 +53,9 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsIdRequest` | `Requests/Coins/CoinsIdRequest.cs` |
-| `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
-| `CoinsId` | `Models/CoinsId.cs` |
+| `CoinsIdRequest` | `src/CoinGecko/Requests/Coins/CoinsIdRequest.cs` |
+| `DexPairFormat` | `src/CoinGecko/Models/Enums/DexPairFormat.cs` |
+| `CoinsId` | `src/CoinGecko/Models/CoinsId.cs` |
 
 ### CoinsIdHistory
 
@@ -67,8 +67,8 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsIdHistoryRequest` | `Requests/Coins/CoinsIdHistoryRequest.cs` |
-| `CoinsIdHistory` | `Models/CoinsIdHistory.cs` |
+| `CoinsIdHistoryRequest` | `src/CoinGecko/Requests/Coins/CoinsIdHistoryRequest.cs` |
+| `CoinsIdHistory` | `src/CoinGecko/Models/CoinsIdHistory.cs` |
 
 ### CoinsIdMarketChart
 
@@ -80,10 +80,10 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsIdMarketChartRequest` | `Requests/Coins/CoinsIdMarketChartRequest.cs` |
-| `Interval` | `Models/Enums/Interval.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
+| `CoinsIdMarketChartRequest` | `src/CoinGecko/Requests/Coins/CoinsIdMarketChartRequest.cs` |
+| `Interval` | `src/CoinGecko/Models/Enums/Interval.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `CoinsMarketChart` | `src/CoinGecko/Models/CoinsMarketChart.cs` |
 
 ### CoinsIdMarketChartRange
 
@@ -95,9 +95,9 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsIdMarketChartRangeRequest` | `Requests/Coins/CoinsIdMarketChartRangeRequest.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
+| `CoinsIdMarketChartRangeRequest` | `src/CoinGecko/Requests/Coins/CoinsIdMarketChartRangeRequest.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `CoinsMarketChart` | `src/CoinGecko/Models/CoinsMarketChart.cs` |
 
 ### CoinsIdOhlc
 
@@ -109,9 +109,9 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsIdOhlcRequest` | `Requests/Coins/CoinsIdOhlcRequest.cs` |
-| `Days` | `Models/Enums/Days.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
+| `CoinsIdOhlcRequest` | `src/CoinGecko/Requests/Coins/CoinsIdOhlcRequest.cs` |
+| `Days` | `src/CoinGecko/Models/Enums/Days.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
 
 ### CoinsIdTickers
 
@@ -123,10 +123,10 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsIdTickersRequest` | `Requests/Coins/CoinsIdTickersRequest.cs` |
-| `Order1` | `Models/Enums/Order1.cs` |
-| `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
-| `CoinsIdTickers` | `Models/CoinsIdTickers.cs` |
+| `CoinsIdTickersRequest` | `src/CoinGecko/Requests/Coins/CoinsIdTickersRequest.cs` |
+| `Order1` | `src/CoinGecko/Models/Enums/Order1.cs` |
+| `DexPairFormat` | `src/CoinGecko/Models/Enums/DexPairFormat.cs` |
+| `CoinsIdTickers` | `src/CoinGecko/Models/CoinsIdTickers.cs` |
 
 ### CoinsList
 
@@ -138,9 +138,9 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsListRequest` | `Requests/Coins/CoinsListRequest.cs` |
-| `Status` | `Models/Enums/Status.cs` |
-| `CoinsList` | `Models/CoinsList.cs` |
+| `CoinsListRequest` | `src/CoinGecko/Requests/Coins/CoinsListRequest.cs` |
+| `Status` | `src/CoinGecko/Models/Enums/Status.cs` |
+| `CoinsList` | `src/CoinGecko/Models/CoinsList.cs` |
 
 ### CoinsMarkets
 
@@ -152,12 +152,12 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `CoinsMarketsRequest` | `Requests/Coins/CoinsMarketsRequest.cs` |
-| `IncludeTokens` | `Models/Enums/IncludeTokens.cs` |
-| `Order` | `Models/Enums/Order.cs` |
-| `Locale` | `Models/Enums/Locale.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `CoinsMarket` | `Models/CoinsMarket.cs` |
+| `CoinsMarketsRequest` | `src/CoinGecko/Requests/Coins/CoinsMarketsRequest.cs` |
+| `IncludeTokens` | `src/CoinGecko/Models/Enums/IncludeTokens.cs` |
+| `Order` | `src/CoinGecko/Models/Enums/Order.cs` |
+| `Locale` | `src/CoinGecko/Models/Enums/Locale.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `CoinsMarket` | `src/CoinGecko/Models/CoinsMarket.cs` |
 
 ### ContractAddressMarketChart
 
@@ -169,10 +169,10 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `ContractAddressMarketChartRequest` | `Requests/Coins/ContractAddressMarketChartRequest.cs` |
-| `Interval` | `Models/Enums/Interval.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
+| `ContractAddressMarketChartRequest` | `src/CoinGecko/Requests/Coins/ContractAddressMarketChartRequest.cs` |
+| `Interval` | `src/CoinGecko/Models/Enums/Interval.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `CoinsMarketChart` | `src/CoinGecko/Models/CoinsMarketChart.cs` |
 
 ### ContractAddressMarketChartRange
 
@@ -184,7 +184,7 @@ Accessor: `client.Coins` · Source: `Api/Coins.cs` · 13 operations
 
 | Type | Source |
 | --- | --- |
-| `ContractAddressMarketChartRangeRequest` | `Requests/Coins/ContractAddressMarketChartRangeRequest.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `CoinsMarketChart` | `Models/CoinsMarketChart.cs` |
+| `ContractAddressMarketChartRangeRequest` | `src/CoinGecko/Requests/Coins/ContractAddressMarketChartRangeRequest.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `CoinsMarketChart` | `src/CoinGecko/Models/CoinsMarketChart.cs` |
 

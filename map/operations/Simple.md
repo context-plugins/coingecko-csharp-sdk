@@ -2,7 +2,7 @@
 
 # Simple — operations
 
-Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
+Accessor: `client.Simple` · Source: `src/CoinGecko/Api/Simple.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -16,10 +16,10 @@ Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `SimplePriceRequest` | `Requests/Simple/SimplePriceRequest.cs` |
-| `IncludeTokens` | `Models/Enums/IncludeTokens.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `SimplePrice` | `Models/SimplePrice.cs` |
+| `SimplePriceRequest` | `src/CoinGecko/Requests/Simple/SimplePriceRequest.cs` |
+| `IncludeTokens` | `src/CoinGecko/Models/Enums/IncludeTokens.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `SimplePrice` | `src/CoinGecko/Models/SimplePrice.cs` |
 
 ### SimpleSupportedCurrencies
 
@@ -38,7 +38,7 @@ Accessor: `client.Simple` · Source: `Api/Simple.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `SimpleTokenPriceRequest` | `Requests/Simple/SimpleTokenPriceRequest.cs` |
-| `Precision` | `Models/Enums/Precision.cs` |
-| `SimplePrice` | `Models/SimplePrice.cs` |
+| `SimpleTokenPriceRequest` | `src/CoinGecko/Requests/Simple/SimpleTokenPriceRequest.cs` |
+| `Precision` | `src/CoinGecko/Models/Enums/Precision.cs` |
+| `SimplePrice` | `src/CoinGecko/Models/SimplePrice.cs` |
 

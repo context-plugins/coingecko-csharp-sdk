@@ -2,7 +2,7 @@
 
 # Entities — operations
 
-Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
+Accessor: `client.Entities` · Source: `src/CoinGecko/Api/Entities.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -16,10 +16,10 @@ Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `CompaniesPublicTreasuryRequest` | `Requests/Entities/CompaniesPublicTreasuryRequest.cs` |
-| `Entity` | `Models/Enums/Entity.cs` |
-| `Order5` | `Models/Enums/Order5.cs` |
-| `PublicTreasury` | `Models/AnyOf/PublicTreasury.cs` |
+| `CompaniesPublicTreasuryRequest` | `src/CoinGecko/Requests/Entities/CompaniesPublicTreasuryRequest.cs` |
+| `Entity` | `src/CoinGecko/Models/Enums/Entity.cs` |
+| `Order5` | `src/CoinGecko/Models/Enums/Order5.cs` |
+| `PublicTreasury` | `src/CoinGecko/Models/AnyOf/PublicTreasury.cs` |
 
 ### EntitiesList
 
@@ -31,7 +31,7 @@ Accessor: `client.Entities` · Source: `Api/Entities.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `EntitiesListRequest` | `Requests/Entities/EntitiesListRequest.cs` |
-| `EntityType` | `Models/Enums/EntityType.cs` |
-| `EntitiesList` | `Models/EntitiesList.cs` |
+| `EntitiesListRequest` | `src/CoinGecko/Requests/Entities/EntitiesListRequest.cs` |
+| `EntityType` | `src/CoinGecko/Models/Enums/EntityType.cs` |
+| `EntitiesList` | `src/CoinGecko/Models/EntitiesList.cs` |
 

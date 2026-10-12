@@ -2,7 +2,7 @@
 
 # SearchApi — operations
 
-Accessor: `client.SearchApi` · Source: `Api/SearchApi.cs` · 2 operations
+Accessor: `client.SearchApi` · Source: `src/CoinGecko/Api/SearchApi.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -17,8 +17,8 @@ Accessor: `client.SearchApi` · Source: `Api/SearchApi.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `SearchDataRequest` | `Requests/SearchApi/SearchDataRequest.cs` |
-| `Search` | `Models/Search.cs` |
+| `SearchDataRequest` | `src/CoinGecko/Requests/SearchApi/SearchDataRequest.cs` |
+| `Search` | `src/CoinGecko/Models/Search.cs` |
 
 ### TrendingSearch
 
@@ -29,5 +29,5 @@ Accessor: `client.SearchApi` · Source: `Api/SearchApi.cs` · 2 operations
 
 | Type | Source |
 | --- | --- |
-| `TrendingSearch` | `Models/TrendingSearch.cs` |
+| `TrendingSearch` | `src/CoinGecko/Models/TrendingSearch.cs` |
 

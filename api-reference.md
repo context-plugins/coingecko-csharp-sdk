@@ -2,11 +2,11 @@
 
 Every operation below is shown in its throwing form. On an error status it throws `ApiException<TError>` — the status code, headers, content type and the operation's error type, `RawError` (the raw body) when the spec declares none — and where an operation offers an `…AsResult` sibling, that sibling returns `ApiResult<TResponse, TError>` instead. A request that produces no usable response surfaces as `SdkConnectionException` or `SdkTimeoutException`, a body that does not match the documented response type as `ResponseDeserializationException`, and a credential that cannot be applied as `AuthSchemeException`; all of them derive from `SdkException` and name the failed call. See [README → Error Handling](README.md#error-handling).
 
-> Source: [CoinGeckoClient](CoinGeckoClient.cs)
+> Source: [CoinGeckoClient](src/CoinGecko/CoinGeckoClient.cs)
 
 ## Coins
 
-> Source: [Coins](Api/Coins.cs)
+> Source: [Coins](src/CoinGecko/Api/Coins.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyList&lt;Category1&gt;&gt; CoinsCategories(CoinsCategoriesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -49,7 +49,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsCategoriesRequest](Requests/Coins/CoinsCategoriesRequest.cs)</code>
+<code>[CoinsCategoriesRequest](src/CoinGecko/Requests/Coins/CoinsCategoriesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -59,9 +59,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[Category1](Models/Category1.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[Category1](src/CoinGecko/Models/Category1.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -112,9 +112,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[CategoriesList](Models/CategoriesList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[CategoriesList](src/CoinGecko/Models/CategoriesList.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -169,7 +169,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsContractAddressRequest](Requests/Coins/CoinsContractAddressRequest.cs)</code>
+<code>[CoinsContractAddressRequest](src/CoinGecko/Requests/Coins/CoinsContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -179,9 +179,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsContractAddress](Models/CoinsContractAddress.cs)</code>
+**OnSuccess**: <code>[CoinsContractAddress](src/CoinGecko/Models/CoinsContractAddress.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -232,7 +232,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsIdRequest](Requests/Coins/CoinsIdRequest.cs)</code>
+<code>[CoinsIdRequest](src/CoinGecko/Requests/Coins/CoinsIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -242,9 +242,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsId](Models/CoinsId.cs)</code>
+**OnSuccess**: <code>[CoinsId](src/CoinGecko/Models/CoinsId.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -299,7 +299,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsIdHistoryRequest](Requests/Coins/CoinsIdHistoryRequest.cs)</code>
+<code>[CoinsIdHistoryRequest](src/CoinGecko/Requests/Coins/CoinsIdHistoryRequest.cs)</code>
 
 </dd>
 </dl>
@@ -309,9 +309,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsIdHistory](Models/CoinsIdHistory.cs)</code>
+**OnSuccess**: <code>[CoinsIdHistory](src/CoinGecko/Models/CoinsIdHistory.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -367,7 +367,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsIdMarketChartRequest](Requests/Coins/CoinsIdMarketChartRequest.cs)</code>
+<code>[CoinsIdMarketChartRequest](src/CoinGecko/Requests/Coins/CoinsIdMarketChartRequest.cs)</code>
 
 </dd>
 </dl>
@@ -377,9 +377,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsMarketChart](Models/CoinsMarketChart.cs)</code>
+**OnSuccess**: <code>[CoinsMarketChart](src/CoinGecko/Models/CoinsMarketChart.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -436,7 +436,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsIdMarketChartRangeRequest](Requests/Coins/CoinsIdMarketChartRangeRequest.cs)</code>
+<code>[CoinsIdMarketChartRangeRequest](src/CoinGecko/Requests/Coins/CoinsIdMarketChartRangeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -446,9 +446,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsMarketChart](Models/CoinsMarketChart.cs)</code>
+**OnSuccess**: <code>[CoinsMarketChart](src/CoinGecko/Models/CoinsMarketChart.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -504,7 +504,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsIdOhlcRequest](Requests/Coins/CoinsIdOhlcRequest.cs)</code>
+<code>[CoinsIdOhlcRequest](src/CoinGecko/Requests/Coins/CoinsIdOhlcRequest.cs)</code>
 
 </dd>
 </dl>
@@ -516,7 +516,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;IReadOnlyList&lt;double&gt;&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -567,7 +567,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsIdTickersRequest](Requests/Coins/CoinsIdTickersRequest.cs)</code>
+<code>[CoinsIdTickersRequest](src/CoinGecko/Requests/Coins/CoinsIdTickersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -577,9 +577,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsIdTickers](Models/CoinsIdTickers.cs)</code>
+**OnSuccess**: <code>[CoinsIdTickers](src/CoinGecko/Models/CoinsIdTickers.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -630,7 +630,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsListRequest](Requests/Coins/CoinsListRequest.cs)</code>
+<code>[CoinsListRequest](src/CoinGecko/Requests/Coins/CoinsListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -640,9 +640,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[CoinsList](Models/CoinsList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[CoinsList](src/CoinGecko/Models/CoinsList.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -693,7 +693,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CoinsMarketsRequest](Requests/Coins/CoinsMarketsRequest.cs)</code>
+<code>[CoinsMarketsRequest](src/CoinGecko/Requests/Coins/CoinsMarketsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -703,9 +703,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[CoinsMarket](Models/CoinsMarket.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[CoinsMarket](src/CoinGecko/Models/CoinsMarket.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -762,7 +762,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ContractAddressMarketChartRequest](Requests/Coins/ContractAddressMarketChartRequest.cs)</code>
+<code>[ContractAddressMarketChartRequest](src/CoinGecko/Requests/Coins/ContractAddressMarketChartRequest.cs)</code>
 
 </dd>
 </dl>
@@ -772,9 +772,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsMarketChart](Models/CoinsMarketChart.cs)</code>
+**OnSuccess**: <code>[CoinsMarketChart](src/CoinGecko/Models/CoinsMarketChart.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -832,7 +832,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ContractAddressMarketChartRangeRequest](Requests/Coins/ContractAddressMarketChartRangeRequest.cs)</code>
+<code>[ContractAddressMarketChartRangeRequest](src/CoinGecko/Requests/Coins/ContractAddressMarketChartRangeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -842,9 +842,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsMarketChart](Models/CoinsMarketChart.cs)</code>
+**OnSuccess**: <code>[CoinsMarketChart](src/CoinGecko/Models/CoinsMarketChart.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -856,7 +856,7 @@ catch (ApiException<RawError> ex)
 
 ## Derivatives
 
-> Source: [Derivatives](Api/Derivatives.cs)
+> Source: [Derivatives](src/CoinGecko/Api/Derivatives.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyList&lt;DerivativesExchange&gt;&gt; DerivativesExchanges(DerivativesExchangesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -899,7 +899,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DerivativesExchangesRequest](Requests/Derivatives/DerivativesExchangesRequest.cs)</code>
+<code>[DerivativesExchangesRequest](src/CoinGecko/Requests/Derivatives/DerivativesExchangesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -909,9 +909,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[DerivativesExchange](Models/DerivativesExchange.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[DerivativesExchange](src/CoinGecko/Models/DerivativesExchange.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -965,7 +965,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DerivativesExchangesIdRequest](Requests/Derivatives/DerivativesExchangesIdRequest.cs)</code>
+<code>[DerivativesExchangesIdRequest](src/CoinGecko/Requests/Derivatives/DerivativesExchangesIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -975,9 +975,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DerivativesExchangesId](Models/DerivativesExchangesId.cs)</code>
+**OnSuccess**: <code>[DerivativesExchangesId](src/CoinGecko/Models/DerivativesExchangesId.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1028,9 +1028,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[DerivativesExchangesList](Models/DerivativesExchangesList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[DerivativesExchangesList](src/CoinGecko/Models/DerivativesExchangesList.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1081,9 +1081,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[DerivativesTicker](Models/DerivativesTicker.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[DerivativesTicker](src/CoinGecko/Models/DerivativesTicker.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1095,7 +1095,7 @@ catch (ApiException<RawError> ex)
 
 ## Entities
 
-> Source: [Entities](Api/Entities.cs)
+> Source: [Entities](src/CoinGecko/Api/Entities.cs)
 
 <details>
 <summary><code>Task&lt;PublicTreasury&gt; CompaniesPublicTreasury(CompaniesPublicTreasuryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1142,7 +1142,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[CompaniesPublicTreasuryRequest](Requests/Entities/CompaniesPublicTreasuryRequest.cs)</code>
+<code>[CompaniesPublicTreasuryRequest](src/CoinGecko/Requests/Entities/CompaniesPublicTreasuryRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1152,9 +1152,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PublicTreasury](Models/AnyOf/PublicTreasury.cs)</code>
+**OnSuccess**: <code>[PublicTreasury](src/CoinGecko/Models/AnyOf/PublicTreasury.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1205,7 +1205,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[EntitiesListRequest](Requests/Entities/EntitiesListRequest.cs)</code>
+<code>[EntitiesListRequest](src/CoinGecko/Requests/Entities/EntitiesListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1215,9 +1215,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[EntitiesList](Models/EntitiesList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[EntitiesList](src/CoinGecko/Models/EntitiesList.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1229,7 +1229,7 @@ catch (ApiException<RawError> ex)
 
 ## Exchanges
 
-> Source: [Exchanges](Api/Exchanges.cs)
+> Source: [Exchanges](src/CoinGecko/Api/Exchanges.cs)
 
 <details>
 <summary><code>Task&lt;ExchangeRates&gt; ExchangeRates(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1272,9 +1272,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ExchangeRates](Models/ExchangeRates.cs)</code>
+**OnSuccess**: <code>[ExchangeRates](src/CoinGecko/Models/ExchangeRates.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1325,7 +1325,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ExchangesRequest](Requests/Exchanges/ExchangesRequest.cs)</code>
+<code>[ExchangesRequest](src/CoinGecko/Requests/Exchanges/ExchangesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1335,9 +1335,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[Exchange1](Models/Exchange1.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[Exchange1](src/CoinGecko/Models/Exchange1.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1388,7 +1388,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ExchangesIdRequest](Requests/Exchanges/ExchangesIdRequest.cs)</code>
+<code>[ExchangesIdRequest](src/CoinGecko/Requests/Exchanges/ExchangesIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1398,9 +1398,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ExchangesId](Models/ExchangesId.cs)</code>
+**OnSuccess**: <code>[ExchangesId](src/CoinGecko/Models/ExchangesId.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1454,7 +1454,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ExchangesIdTickersRequest](Requests/Exchanges/ExchangesIdTickersRequest.cs)</code>
+<code>[ExchangesIdTickersRequest](src/CoinGecko/Requests/Exchanges/ExchangesIdTickersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1464,9 +1464,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CoinsIdTickers](Models/CoinsIdTickers.cs)</code>
+**OnSuccess**: <code>[CoinsIdTickers](src/CoinGecko/Models/CoinsIdTickers.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1521,7 +1521,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ExchangesIdVolumeChartRequest](Requests/Exchanges/ExchangesIdVolumeChartRequest.cs)</code>
+<code>[ExchangesIdVolumeChartRequest](src/CoinGecko/Requests/Exchanges/ExchangesIdVolumeChartRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1531,9 +1531,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;IReadOnlyList&lt;[ExchangeVolumeChart](Models/AnyOf/ExchangeVolumeChart.cs)&gt;&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;IReadOnlyList&lt;[ExchangeVolumeChart](src/CoinGecko/Models/AnyOf/ExchangeVolumeChart.cs)&gt;&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1584,7 +1584,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ExchangesListRequest](Requests/Exchanges/ExchangesListRequest.cs)</code>
+<code>[ExchangesListRequest](src/CoinGecko/Requests/Exchanges/ExchangesListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1594,9 +1594,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[ExchangesList](Models/ExchangesList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[ExchangesList](src/CoinGecko/Models/ExchangesList.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1608,7 +1608,7 @@ catch (ApiException<RawError> ex)
 
 ## GlobalApi
 
-> Source: [GlobalApi](Api/GlobalApi.cs)
+> Source: [GlobalApi](src/CoinGecko/Api/GlobalApi.cs)
 
 <details>
 <summary><code>Task&lt;Global&gt; CryptoGlobal(RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1651,9 +1651,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Global](Models/Global.cs)</code>
+**OnSuccess**: <code>[Global](src/CoinGecko/Models/Global.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1704,9 +1704,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GlobalDeFi](Models/GlobalDeFi.cs)</code>
+**OnSuccess**: <code>[GlobalDeFi](src/CoinGecko/Models/GlobalDeFi.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1718,7 +1718,7 @@ catch (ApiException<RawError> ex)
 
 ## Misc
 
-> Source: [Misc](Api/Misc.cs)
+> Source: [Misc](src/CoinGecko/Api/Misc.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyList&lt;AssetPlatform&gt;&gt; AssetPlatformsList(AssetPlatformsListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1761,7 +1761,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[AssetPlatformsListRequest](Requests/Misc/AssetPlatformsListRequest.cs)</code>
+<code>[AssetPlatformsListRequest](src/CoinGecko/Requests/Misc/AssetPlatformsListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1771,9 +1771,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[AssetPlatform](Models/AssetPlatform.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[AssetPlatform](src/CoinGecko/Models/AssetPlatform.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1824,9 +1824,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PingServer](Models/PingServer.cs)</code>
+**OnSuccess**: <code>[PingServer](src/CoinGecko/Models/PingServer.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1877,7 +1877,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TokenListsRequest](Requests/Misc/TokenListsRequest.cs)</code>
+<code>[TokenListsRequest](src/CoinGecko/Requests/Misc/TokenListsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1887,9 +1887,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TokenLists](Models/TokenLists.cs)</code>
+**OnSuccess**: <code>[TokenLists](src/CoinGecko/Models/TokenLists.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -1901,7 +1901,7 @@ catch (ApiException<RawError> ex)
 
 ## Nfts
 
-> Source: [Nfts](Api/Nfts.cs)
+> Source: [Nfts](src/CoinGecko/Api/Nfts.cs)
 
 <details>
 <summary><code>Task&lt;NftData&gt; NftsContractAddress(NftsContractAddressRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -1948,7 +1948,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[NftsContractAddressRequest](Requests/Nfts/NftsContractAddressRequest.cs)</code>
+<code>[NftsContractAddressRequest](src/CoinGecko/Requests/Nfts/NftsContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1958,9 +1958,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
+**OnSuccess**: <code>[NftData](src/CoinGecko/Models/NftData.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2011,7 +2011,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[NftsIdRequest](Requests/Nfts/NftsIdRequest.cs)</code>
+<code>[NftsIdRequest](src/CoinGecko/Requests/Nfts/NftsIdRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2021,9 +2021,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[NftData](Models/NftData.cs)</code>
+**OnSuccess**: <code>[NftData](src/CoinGecko/Models/NftData.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2074,7 +2074,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[NftsListRequest](Requests/Nfts/NftsListRequest.cs)</code>
+<code>[NftsListRequest](src/CoinGecko/Requests/Nfts/NftsListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2084,9 +2084,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyList&lt;[NfTsList](Models/NfTsList.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyList&lt;[NfTsList](src/CoinGecko/Models/NfTsList.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2098,7 +2098,7 @@ catch (ApiException<RawError> ex)
 
 ## Onchain
 
-> Source: [Onchain](Api/Onchain.cs)
+> Source: [Onchain](src/CoinGecko/Api/Onchain.cs)
 
 <details>
 <summary><code>Task&lt;DexesList&gt; DexesList(DexesListRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -2141,7 +2141,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DexesListRequest](Requests/Onchain/DexesListRequest.cs)</code>
+<code>[DexesListRequest](src/CoinGecko/Requests/Onchain/DexesListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2151,9 +2151,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[DexesList](Models/DexesList.cs)</code>
+**OnSuccess**: <code>[DexesList](src/CoinGecko/Models/DexesList.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2204,7 +2204,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[LatestPoolsListRequest](Requests/Onchain/LatestPoolsListRequest.cs)</code>
+<code>[LatestPoolsListRequest](src/CoinGecko/Requests/Onchain/LatestPoolsListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2214,9 +2214,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2270,7 +2270,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[LatestPoolsNetworkRequest](Requests/Onchain/LatestPoolsNetworkRequest.cs)</code>
+<code>[LatestPoolsNetworkRequest](src/CoinGecko/Requests/Onchain/LatestPoolsNetworkRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2280,9 +2280,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2333,7 +2333,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[NetworksListRequest](Requests/Onchain/NetworksListRequest.cs)</code>
+<code>[NetworksListRequest](src/CoinGecko/Requests/Onchain/NetworksListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2343,9 +2343,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[NetworksList](Models/NetworksList.cs)</code>
+**OnSuccess**: <code>[NetworksList](src/CoinGecko/Models/NetworksList.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2400,7 +2400,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[OnchainSimplePriceRequest](Requests/Onchain/OnchainSimplePriceRequest.cs)</code>
+<code>[OnchainSimplePriceRequest](src/CoinGecko/Requests/Onchain/OnchainSimplePriceRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2410,9 +2410,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[OnchainSimplePrice](Models/OnchainSimplePrice.cs)</code>
+**OnSuccess**: <code>[OnchainSimplePrice](src/CoinGecko/Models/OnchainSimplePrice.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2467,7 +2467,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PoolAddressRequest](Requests/Onchain/PoolAddressRequest.cs)</code>
+<code>[PoolAddressRequest](src/CoinGecko/Requests/Onchain/PoolAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2477,9 +2477,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PoolAddressData](Models/PoolAddressData.cs)</code>
+**OnSuccess**: <code>[PoolAddressData](src/CoinGecko/Models/PoolAddressData.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2535,7 +2535,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PoolOhlcvContractAddressRequest](Requests/Onchain/PoolOhlcvContractAddressRequest.cs)</code>
+<code>[PoolOhlcvContractAddressRequest](src/CoinGecko/Requests/Onchain/PoolOhlcvContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2545,9 +2545,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Ohlcv](Models/Ohlcv.cs)</code>
+**OnSuccess**: <code>[Ohlcv](src/CoinGecko/Models/Ohlcv.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2602,7 +2602,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PoolTokenInfoContractAddressRequest](Requests/Onchain/PoolTokenInfoContractAddressRequest.cs)</code>
+<code>[PoolTokenInfoContractAddressRequest](src/CoinGecko/Requests/Onchain/PoolTokenInfoContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2612,9 +2612,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PoolTokensInfo](Models/PoolTokensInfo.cs)</code>
+**OnSuccess**: <code>[PoolTokensInfo](src/CoinGecko/Models/PoolTokensInfo.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2669,7 +2669,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PoolTradesContractAddressRequest](Requests/Onchain/PoolTradesContractAddressRequest.cs)</code>
+<code>[PoolTradesContractAddressRequest](src/CoinGecko/Requests/Onchain/PoolTradesContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2679,9 +2679,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Trades](Models/Trades.cs)</code>
+**OnSuccess**: <code>[Trades](src/CoinGecko/Models/Trades.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2736,7 +2736,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PoolsAddressesRequest](Requests/Onchain/PoolsAddressesRequest.cs)</code>
+<code>[PoolsAddressesRequest](src/CoinGecko/Requests/Onchain/PoolsAddressesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2746,9 +2746,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[MultiPoolAddressData](Models/MultiPoolAddressData.cs)</code>
+**OnSuccess**: <code>[MultiPoolAddressData](src/CoinGecko/Models/MultiPoolAddressData.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2799,7 +2799,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SearchPoolsRequest](Requests/Onchain/SearchPoolsRequest.cs)</code>
+<code>[SearchPoolsRequest](src/CoinGecko/Requests/Onchain/SearchPoolsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2809,9 +2809,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PoolSearch](Models/PoolSearch.cs)</code>
+**OnSuccess**: <code>[PoolSearch](src/CoinGecko/Models/PoolSearch.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2866,7 +2866,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TokenDataContractAddressRequest](Requests/Onchain/TokenDataContractAddressRequest.cs)</code>
+<code>[TokenDataContractAddressRequest](src/CoinGecko/Requests/Onchain/TokenDataContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2876,9 +2876,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TokenData](Models/TokenData.cs)</code>
+**OnSuccess**: <code>[TokenData](src/CoinGecko/Models/TokenData.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2933,7 +2933,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TokenInfoContractAddressRequest](Requests/Onchain/TokenInfoContractAddressRequest.cs)</code>
+<code>[TokenInfoContractAddressRequest](src/CoinGecko/Requests/Onchain/TokenInfoContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2943,9 +2943,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TokenInfo](Models/TokenInfo.cs)</code>
+**OnSuccess**: <code>[TokenInfo](src/CoinGecko/Models/TokenInfo.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3000,7 +3000,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TokensDataContractAddressesRequest](Requests/Onchain/TokensDataContractAddressesRequest.cs)</code>
+<code>[TokensDataContractAddressesRequest](src/CoinGecko/Requests/Onchain/TokensDataContractAddressesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3010,9 +3010,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[MultiTokenData](Models/MultiTokenData.cs)</code>
+**OnSuccess**: <code>[MultiTokenData](src/CoinGecko/Models/MultiTokenData.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3063,7 +3063,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TokensInfoRecentUpdatedRequest](Requests/Onchain/TokensInfoRecentUpdatedRequest.cs)</code>
+<code>[TokensInfoRecentUpdatedRequest](src/CoinGecko/Requests/Onchain/TokensInfoRecentUpdatedRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3073,9 +3073,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TokenInfoRecentlyUpdated](Models/TokenInfoRecentlyUpdated.cs)</code>
+**OnSuccess**: <code>[TokenInfoRecentlyUpdated](src/CoinGecko/Models/TokenInfoRecentlyUpdated.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3130,7 +3130,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TopPoolsContractAddressRequest](Requests/Onchain/TopPoolsContractAddressRequest.cs)</code>
+<code>[TopPoolsContractAddressRequest](src/CoinGecko/Requests/Onchain/TopPoolsContractAddressRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3140,9 +3140,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3197,7 +3197,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TopPoolsDexRequest](Requests/Onchain/TopPoolsDexRequest.cs)</code>
+<code>[TopPoolsDexRequest](src/CoinGecko/Requests/Onchain/TopPoolsDexRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3207,9 +3207,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3260,7 +3260,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TopPoolsNetworkRequest](Requests/Onchain/TopPoolsNetworkRequest.cs)</code>
+<code>[TopPoolsNetworkRequest](src/CoinGecko/Requests/Onchain/TopPoolsNetworkRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3270,9 +3270,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3323,7 +3323,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TrendingPoolsListRequest](Requests/Onchain/TrendingPoolsListRequest.cs)</code>
+<code>[TrendingPoolsListRequest](src/CoinGecko/Requests/Onchain/TrendingPoolsListRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3333,9 +3333,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3389,7 +3389,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[TrendingPoolsNetworkRequest](Requests/Onchain/TrendingPoolsNetworkRequest.cs)</code>
+<code>[TrendingPoolsNetworkRequest](src/CoinGecko/Requests/Onchain/TrendingPoolsNetworkRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3399,9 +3399,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Pool](Models/Pool.cs)</code>
+**OnSuccess**: <code>[Pool](src/CoinGecko/Models/Pool.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3413,7 +3413,7 @@ catch (ApiException<RawError> ex)
 
 ## PublicTreasuryApi
 
-> Source: [PublicTreasuryApi](Api/PublicTreasuryApi.cs)
+> Source: [PublicTreasuryApi](src/CoinGecko/Api/PublicTreasuryApi.cs)
 
 <details>
 <summary><code>Task&lt;PublicTreasuryEntity&gt; PublicTreasuryEntity(PublicTreasuryEntityRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3459,7 +3459,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PublicTreasuryEntityRequest](Requests/PublicTreasuryApi/PublicTreasuryEntityRequest.cs)</code>
+<code>[PublicTreasuryEntityRequest](src/CoinGecko/Requests/PublicTreasuryApi/PublicTreasuryEntityRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3469,9 +3469,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PublicTreasuryEntity](Models/PublicTreasuryEntity.cs)</code>
+**OnSuccess**: <code>[PublicTreasuryEntity](src/CoinGecko/Models/PublicTreasuryEntity.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3527,7 +3527,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PublicTreasuryEntityChartRequest](Requests/PublicTreasuryApi/PublicTreasuryEntityChartRequest.cs)</code>
+<code>[PublicTreasuryEntityChartRequest](src/CoinGecko/Requests/PublicTreasuryApi/PublicTreasuryEntityChartRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3537,9 +3537,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PublicTreasuryEntityChart](Models/PublicTreasuryEntityChart.cs)</code>
+**OnSuccess**: <code>[PublicTreasuryEntityChart](src/CoinGecko/Models/PublicTreasuryEntityChart.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3591,7 +3591,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[PublicTreasuryTransactionHistoryRequest](Requests/PublicTreasuryApi/PublicTreasuryTransactionHistoryRequest.cs)</code>
+<code>[PublicTreasuryTransactionHistoryRequest](src/CoinGecko/Requests/PublicTreasuryApi/PublicTreasuryTransactionHistoryRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3601,9 +3601,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PublicTreasuryTransactionHistory](Models/PublicTreasuryTransactionHistory.cs)</code>
+**OnSuccess**: <code>[PublicTreasuryTransactionHistory](src/CoinGecko/Models/PublicTreasuryTransactionHistory.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3615,7 +3615,7 @@ catch (ApiException<RawError> ex)
 
 ## SearchApi
 
-> Source: [SearchApi](Api/SearchApi.cs)
+> Source: [SearchApi](src/CoinGecko/Api/SearchApi.cs)
 
 <details>
 <summary><code>Task&lt;Search&gt; SearchData(SearchDataRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3658,7 +3658,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SearchDataRequest](Requests/SearchApi/SearchDataRequest.cs)</code>
+<code>[SearchDataRequest](src/CoinGecko/Requests/SearchApi/SearchDataRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3668,9 +3668,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[Search](Models/Search.cs)</code>
+**OnSuccess**: <code>[Search](src/CoinGecko/Models/Search.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3721,9 +3721,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[TrendingSearch](Models/TrendingSearch.cs)</code>
+**OnSuccess**: <code>[TrendingSearch](src/CoinGecko/Models/TrendingSearch.cs)</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3735,7 +3735,7 @@ catch (ApiException<RawError> ex)
 
 ## Simple
 
-> Source: [Simple](Api/Simple.cs)
+> Source: [Simple](src/CoinGecko/Api/Simple.cs)
 
 <details>
 <summary><code>Task&lt;IReadOnlyDictionary&lt;string, SimplePrice&gt;&gt; SimplePrice(SimplePriceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
@@ -3778,7 +3778,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SimplePriceRequest](Requests/Simple/SimplePriceRequest.cs)</code>
+<code>[SimplePriceRequest](src/CoinGecko/Requests/Simple/SimplePriceRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3788,9 +3788,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyDictionary&lt;string, [SimplePrice](Models/SimplePrice.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyDictionary&lt;string, [SimplePrice](src/CoinGecko/Models/SimplePrice.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3843,7 +3843,7 @@ catch (ApiException<RawError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;string&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -3899,7 +3899,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[SimpleTokenPriceRequest](Requests/Simple/SimpleTokenPriceRequest.cs)</code>
+<code>[SimpleTokenPriceRequest](src/CoinGecko/Requests/Simple/SimpleTokenPriceRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3909,9 +3909,9 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>IReadOnlyDictionary&lt;string, [SimplePrice](Models/SimplePrice.cs)&gt;</code>
+**OnSuccess**: <code>IReadOnlyDictionary&lt;string, [SimplePrice](src/CoinGecko/Models/SimplePrice.cs)&gt;</code>
 
-**OnError**: <code>[ApiException](Core/Exceptions/ApiException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
+**OnError**: <code>[ApiException](src/CoinGecko/Core/Exceptions/ApiException.cs)&lt;[RawError](src/CoinGecko/Core/ErrorResponse/RawError.cs)&gt;</code>
 
 </dd>
 </dl>

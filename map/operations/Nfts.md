@@ -2,7 +2,7 @@
 
 # Nfts — operations
 
-Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
+Accessor: `client.Nfts` · Source: `src/CoinGecko/Api/Nfts.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,8 +15,8 @@ Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `NftsContractAddressRequest` | `Requests/Nfts/NftsContractAddressRequest.cs` |
-| `NftData` | `Models/NftData.cs` |
+| `NftsContractAddressRequest` | `src/CoinGecko/Requests/Nfts/NftsContractAddressRequest.cs` |
+| `NftData` | `src/CoinGecko/Models/NftData.cs` |
 
 ### NftsId
 
@@ -27,8 +27,8 @@ Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `NftsIdRequest` | `Requests/Nfts/NftsIdRequest.cs` |
-| `NftData` | `Models/NftData.cs` |
+| `NftsIdRequest` | `src/CoinGecko/Requests/Nfts/NftsIdRequest.cs` |
+| `NftData` | `src/CoinGecko/Models/NftData.cs` |
 
 ### NftsList
 
@@ -40,7 +40,7 @@ Accessor: `client.Nfts` · Source: `Api/Nfts.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `NftsListRequest` | `Requests/Nfts/NftsListRequest.cs` |
-| `Order7` | `Models/Enums/Order7.cs` |
-| `NfTsList` | `Models/NfTsList.cs` |
+| `NftsListRequest` | `src/CoinGecko/Requests/Nfts/NftsListRequest.cs` |
+| `Order7` | `src/CoinGecko/Models/Enums/Order7.cs` |
+| `NfTsList` | `src/CoinGecko/Models/NfTsList.cs` |
 

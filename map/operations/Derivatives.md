@@ -2,7 +2,7 @@
 
 # Derivatives — operations
 
-Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
+Accessor: `client.Derivatives` · Source: `src/CoinGecko/Api/Derivatives.cs` · 4 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -16,9 +16,9 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `DerivativesExchangesRequest` | `Requests/Derivatives/DerivativesExchangesRequest.cs` |
-| `Order4` | `Models/Enums/Order4.cs` |
-| `DerivativesExchange` | `Models/DerivativesExchange.cs` |
+| `DerivativesExchangesRequest` | `src/CoinGecko/Requests/Derivatives/DerivativesExchangesRequest.cs` |
+| `Order4` | `src/CoinGecko/Models/Enums/Order4.cs` |
+| `DerivativesExchange` | `src/CoinGecko/Models/DerivativesExchange.cs` |
 
 ### DerivativesExchangesId
 
@@ -30,9 +30,9 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `DerivativesExchangesIdRequest` | `Requests/Derivatives/DerivativesExchangesIdRequest.cs` |
-| `IncludeTickers` | `Models/Enums/IncludeTickers.cs` |
-| `DerivativesExchangesId` | `Models/DerivativesExchangesId.cs` |
+| `DerivativesExchangesIdRequest` | `src/CoinGecko/Requests/Derivatives/DerivativesExchangesIdRequest.cs` |
+| `IncludeTickers` | `src/CoinGecko/Models/Enums/IncludeTickers.cs` |
+| `DerivativesExchangesId` | `src/CoinGecko/Models/DerivativesExchangesId.cs` |
 
 ### DerivativesExchangesList
 
@@ -43,7 +43,7 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `DerivativesExchangesList` | `Models/DerivativesExchangesList.cs` |
+| `DerivativesExchangesList` | `src/CoinGecko/Models/DerivativesExchangesList.cs` |
 
 ### DerivativesTickers
 
@@ -54,5 +54,5 @@ Accessor: `client.Derivatives` · Source: `Api/Derivatives.cs` · 4 operations
 
 | Type | Source |
 | --- | --- |
-| `DerivativesTicker` | `Models/DerivativesTicker.cs` |
+| `DerivativesTicker` | `src/CoinGecko/Models/DerivativesTicker.cs` |
 

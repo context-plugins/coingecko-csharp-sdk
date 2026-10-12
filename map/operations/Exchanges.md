@@ -2,7 +2,7 @@
 
 # Exchanges — operations
 
-Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
+Accessor: `client.Exchanges` · Source: `src/CoinGecko/Api/Exchanges.cs` · 6 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -15,7 +15,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ExchangeRates` | `Models/ExchangeRates.cs` |
+| `ExchangeRates` | `src/CoinGecko/Models/ExchangeRates.cs` |
 
 ### ExchangesId
 
@@ -27,9 +27,9 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ExchangesIdRequest` | `Requests/Exchanges/ExchangesIdRequest.cs` |
-| `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
-| `ExchangesId` | `Models/ExchangesId.cs` |
+| `ExchangesIdRequest` | `src/CoinGecko/Requests/Exchanges/ExchangesIdRequest.cs` |
+| `DexPairFormat` | `src/CoinGecko/Models/Enums/DexPairFormat.cs` |
+| `ExchangesId` | `src/CoinGecko/Models/ExchangesId.cs` |
 
 ### ExchangesIdTickers
 
@@ -41,10 +41,10 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ExchangesIdTickersRequest` | `Requests/Exchanges/ExchangesIdTickersRequest.cs` |
-| `Order3` | `Models/Enums/Order3.cs` |
-| `DexPairFormat` | `Models/Enums/DexPairFormat.cs` |
-| `CoinsIdTickers` | `Models/CoinsIdTickers.cs` |
+| `ExchangesIdTickersRequest` | `src/CoinGecko/Requests/Exchanges/ExchangesIdTickersRequest.cs` |
+| `Order3` | `src/CoinGecko/Models/Enums/Order3.cs` |
+| `DexPairFormat` | `src/CoinGecko/Models/Enums/DexPairFormat.cs` |
+| `CoinsIdTickers` | `src/CoinGecko/Models/CoinsIdTickers.cs` |
 
 ### ExchangesIdVolumeChart
 
@@ -56,9 +56,9 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ExchangesIdVolumeChartRequest` | `Requests/Exchanges/ExchangesIdVolumeChartRequest.cs` |
-| `Days` | `Models/Enums/Days.cs` |
-| `ExchangeVolumeChart` | `Models/AnyOf/ExchangeVolumeChart.cs` |
+| `ExchangesIdVolumeChartRequest` | `src/CoinGecko/Requests/Exchanges/ExchangesIdVolumeChartRequest.cs` |
+| `Days` | `src/CoinGecko/Models/Enums/Days.cs` |
+| `ExchangeVolumeChart` | `src/CoinGecko/Models/AnyOf/ExchangeVolumeChart.cs` |
 
 ### ExchangesInvoke
 
@@ -70,8 +70,8 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ExchangesRequest` | `Requests/Exchanges/ExchangesRequest.cs` |
-| `Exchange1` | `Models/Exchange1.cs` |
+| `ExchangesRequest` | `src/CoinGecko/Requests/Exchanges/ExchangesRequest.cs` |
+| `Exchange1` | `src/CoinGecko/Models/Exchange1.cs` |
 
 ### ExchangesList
 
@@ -83,7 +83,7 @@ Accessor: `client.Exchanges` · Source: `Api/Exchanges.cs` · 6 operations
 
 | Type | Source |
 | --- | --- |
-| `ExchangesListRequest` | `Requests/Exchanges/ExchangesListRequest.cs` |
-| `Status` | `Models/Enums/Status.cs` |
-| `ExchangesList` | `Models/ExchangesList.cs` |
+| `ExchangesListRequest` | `src/CoinGecko/Requests/Exchanges/ExchangesListRequest.cs` |
+| `Status` | `src/CoinGecko/Models/Enums/Status.cs` |
+| `ExchangesList` | `src/CoinGecko/Models/ExchangesList.cs` |
 

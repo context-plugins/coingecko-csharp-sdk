@@ -2,7 +2,7 @@
 
 # Misc — operations
 
-Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
+Accessor: `client.Misc` · Source: `src/CoinGecko/Api/Misc.cs` · 3 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -16,9 +16,9 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `AssetPlatformsListRequest` | `Requests/Misc/AssetPlatformsListRequest.cs` |
-| `Filter` | `Models/Enums/Filter.cs` |
-| `AssetPlatform` | `Models/AssetPlatform.cs` |
+| `AssetPlatformsListRequest` | `src/CoinGecko/Requests/Misc/AssetPlatformsListRequest.cs` |
+| `Filter` | `src/CoinGecko/Models/Enums/Filter.cs` |
+| `AssetPlatform` | `src/CoinGecko/Models/AssetPlatform.cs` |
 
 ### PingServer
 
@@ -29,7 +29,7 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `PingServer` | `Models/PingServer.cs` |
+| `PingServer` | `src/CoinGecko/Models/PingServer.cs` |
 
 ### TokenLists
 
@@ -40,6 +40,6 @@ Accessor: `client.Misc` · Source: `Api/Misc.cs` · 3 operations
 
 | Type | Source |
 | --- | --- |
-| `TokenListsRequest` | `Requests/Misc/TokenListsRequest.cs` |
-| `TokenLists` | `Models/TokenLists.cs` |
+| `TokenListsRequest` | `src/CoinGecko/Requests/Misc/TokenListsRequest.cs` |
+| `TokenLists` | `src/CoinGecko/Models/TokenLists.cs` |
 

@@ -2,7 +2,7 @@
 
 # Onchain — operations
 
-Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
+Accessor: `client.Onchain` · Source: `src/CoinGecko/Api/Onchain.cs` · 20 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -16,8 +16,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `DexesListRequest` | `Requests/Onchain/DexesListRequest.cs` |
-| `DexesList` | `Models/DexesList.cs` |
+| `DexesListRequest` | `src/CoinGecko/Requests/Onchain/DexesListRequest.cs` |
+| `DexesList` | `src/CoinGecko/Models/DexesList.cs` |
 
 ### LatestPoolsList
 
@@ -29,8 +29,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `LatestPoolsListRequest` | `Requests/Onchain/LatestPoolsListRequest.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `LatestPoolsListRequest` | `src/CoinGecko/Requests/Onchain/LatestPoolsListRequest.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
 ### LatestPoolsNetwork
 
@@ -42,8 +42,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `LatestPoolsNetworkRequest` | `Requests/Onchain/LatestPoolsNetworkRequest.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `LatestPoolsNetworkRequest` | `src/CoinGecko/Requests/Onchain/LatestPoolsNetworkRequest.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
 ### NetworksList
 
@@ -55,8 +55,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `NetworksListRequest` | `Requests/Onchain/NetworksListRequest.cs` |
-| `NetworksList` | `Models/NetworksList.cs` |
+| `NetworksListRequest` | `src/CoinGecko/Requests/Onchain/NetworksListRequest.cs` |
+| `NetworksList` | `src/CoinGecko/Models/NetworksList.cs` |
 
 ### OnchainSimplePrice
 
@@ -68,8 +68,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `OnchainSimplePriceRequest` | `Requests/Onchain/OnchainSimplePriceRequest.cs` |
-| `OnchainSimplePrice` | `Models/OnchainSimplePrice.cs` |
+| `OnchainSimplePriceRequest` | `src/CoinGecko/Requests/Onchain/OnchainSimplePriceRequest.cs` |
+| `OnchainSimplePrice` | `src/CoinGecko/Models/OnchainSimplePrice.cs` |
 
 ### PoolAddress
 
@@ -81,8 +81,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `PoolAddressRequest` | `Requests/Onchain/PoolAddressRequest.cs` |
-| `PoolAddressData` | `Models/PoolAddressData.cs` |
+| `PoolAddressRequest` | `src/CoinGecko/Requests/Onchain/PoolAddressRequest.cs` |
+| `PoolAddressData` | `src/CoinGecko/Models/PoolAddressData.cs` |
 
 ### PoolOhlcvContractAddress
 
@@ -94,10 +94,10 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `PoolOhlcvContractAddressRequest` | `Requests/Onchain/PoolOhlcvContractAddressRequest.cs` |
-| `Timeframe` | `Models/Enums/Timeframe.cs` |
-| `Currency` | `Models/Enums/Currency.cs` |
-| `Ohlcv` | `Models/Ohlcv.cs` |
+| `PoolOhlcvContractAddressRequest` | `src/CoinGecko/Requests/Onchain/PoolOhlcvContractAddressRequest.cs` |
+| `Timeframe` | `src/CoinGecko/Models/Enums/Timeframe.cs` |
+| `Currency` | `src/CoinGecko/Models/Enums/Currency.cs` |
+| `Ohlcv` | `src/CoinGecko/Models/Ohlcv.cs` |
 
 ### PoolTokenInfoContractAddress
 
@@ -109,9 +109,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `PoolTokenInfoContractAddressRequest` | `Requests/Onchain/PoolTokenInfoContractAddressRequest.cs` |
-| `Include2` | `Models/Enums/Include2.cs` |
-| `PoolTokensInfo` | `Models/PoolTokensInfo.cs` |
+| `PoolTokenInfoContractAddressRequest` | `src/CoinGecko/Requests/Onchain/PoolTokenInfoContractAddressRequest.cs` |
+| `Include2` | `src/CoinGecko/Models/Enums/Include2.cs` |
+| `PoolTokensInfo` | `src/CoinGecko/Models/PoolTokensInfo.cs` |
 
 ### PoolTradesContractAddress
 
@@ -123,8 +123,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `PoolTradesContractAddressRequest` | `Requests/Onchain/PoolTradesContractAddressRequest.cs` |
-| `Trades` | `Models/Trades.cs` |
+| `PoolTradesContractAddressRequest` | `src/CoinGecko/Requests/Onchain/PoolTradesContractAddressRequest.cs` |
+| `Trades` | `src/CoinGecko/Models/Trades.cs` |
 
 ### PoolsAddresses
 
@@ -136,8 +136,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `PoolsAddressesRequest` | `Requests/Onchain/PoolsAddressesRequest.cs` |
-| `MultiPoolAddressData` | `Models/MultiPoolAddressData.cs` |
+| `PoolsAddressesRequest` | `src/CoinGecko/Requests/Onchain/PoolsAddressesRequest.cs` |
+| `MultiPoolAddressData` | `src/CoinGecko/Models/MultiPoolAddressData.cs` |
 
 ### SearchPools
 
@@ -149,8 +149,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `SearchPoolsRequest` | `Requests/Onchain/SearchPoolsRequest.cs` |
-| `PoolSearch` | `Models/PoolSearch.cs` |
+| `SearchPoolsRequest` | `src/CoinGecko/Requests/Onchain/SearchPoolsRequest.cs` |
+| `PoolSearch` | `src/CoinGecko/Models/PoolSearch.cs` |
 
 ### TokenDataContractAddress
 
@@ -162,9 +162,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TokenDataContractAddressRequest` | `Requests/Onchain/TokenDataContractAddressRequest.cs` |
-| `Include` | `Models/Enums/Include.cs` |
-| `TokenData` | `Models/TokenData.cs` |
+| `TokenDataContractAddressRequest` | `src/CoinGecko/Requests/Onchain/TokenDataContractAddressRequest.cs` |
+| `Include` | `src/CoinGecko/Models/Enums/Include.cs` |
+| `TokenData` | `src/CoinGecko/Models/TokenData.cs` |
 
 ### TokenInfoContractAddress
 
@@ -175,8 +175,8 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TokenInfoContractAddressRequest` | `Requests/Onchain/TokenInfoContractAddressRequest.cs` |
-| `TokenInfo` | `Models/TokenInfo.cs` |
+| `TokenInfoContractAddressRequest` | `src/CoinGecko/Requests/Onchain/TokenInfoContractAddressRequest.cs` |
+| `TokenInfo` | `src/CoinGecko/Models/TokenInfo.cs` |
 
 ### TokensDataContractAddresses
 
@@ -188,9 +188,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TokensDataContractAddressesRequest` | `Requests/Onchain/TokensDataContractAddressesRequest.cs` |
-| `Include` | `Models/Enums/Include.cs` |
-| `MultiTokenData` | `Models/MultiTokenData.cs` |
+| `TokensDataContractAddressesRequest` | `src/CoinGecko/Requests/Onchain/TokensDataContractAddressesRequest.cs` |
+| `Include` | `src/CoinGecko/Models/Enums/Include.cs` |
+| `MultiTokenData` | `src/CoinGecko/Models/MultiTokenData.cs` |
 
 ### TokensInfoRecentUpdated
 
@@ -202,9 +202,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TokensInfoRecentUpdatedRequest` | `Requests/Onchain/TokensInfoRecentUpdatedRequest.cs` |
-| `Include3` | `Models/Enums/Include3.cs` |
-| `TokenInfoRecentlyUpdated` | `Models/TokenInfoRecentlyUpdated.cs` |
+| `TokensInfoRecentUpdatedRequest` | `src/CoinGecko/Requests/Onchain/TokensInfoRecentUpdatedRequest.cs` |
+| `Include3` | `src/CoinGecko/Models/Enums/Include3.cs` |
+| `TokenInfoRecentlyUpdated` | `src/CoinGecko/Models/TokenInfoRecentlyUpdated.cs` |
 
 ### TopPoolsContractAddress
 
@@ -216,9 +216,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TopPoolsContractAddressRequest` | `Requests/Onchain/TopPoolsContractAddressRequest.cs` |
-| `Sort2` | `Models/Enums/Sort2.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `TopPoolsContractAddressRequest` | `src/CoinGecko/Requests/Onchain/TopPoolsContractAddressRequest.cs` |
+| `Sort2` | `src/CoinGecko/Models/Enums/Sort2.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
 ### TopPoolsDex
 
@@ -230,9 +230,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TopPoolsDexRequest` | `Requests/Onchain/TopPoolsDexRequest.cs` |
-| `Sort` | `Models/Enums/Sort.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `TopPoolsDexRequest` | `src/CoinGecko/Requests/Onchain/TopPoolsDexRequest.cs` |
+| `Sort` | `src/CoinGecko/Models/Enums/Sort.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
 ### TopPoolsNetwork
 
@@ -244,9 +244,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TopPoolsNetworkRequest` | `Requests/Onchain/TopPoolsNetworkRequest.cs` |
-| `Sort` | `Models/Enums/Sort.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `TopPoolsNetworkRequest` | `src/CoinGecko/Requests/Onchain/TopPoolsNetworkRequest.cs` |
+| `Sort` | `src/CoinGecko/Models/Enums/Sort.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
 ### TrendingPoolsList
 
@@ -258,9 +258,9 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TrendingPoolsListRequest` | `Requests/Onchain/TrendingPoolsListRequest.cs` |
-| `Duration` | `Models/Enums/Duration.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `TrendingPoolsListRequest` | `src/CoinGecko/Requests/Onchain/TrendingPoolsListRequest.cs` |
+| `Duration` | `src/CoinGecko/Models/Enums/Duration.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
 ### TrendingPoolsNetwork
 
@@ -272,7 +272,7 @@ Accessor: `client.Onchain` · Source: `Api/Onchain.cs` · 20 operations
 
 | Type | Source |
 | --- | --- |
-| `TrendingPoolsNetworkRequest` | `Requests/Onchain/TrendingPoolsNetworkRequest.cs` |
-| `Duration` | `Models/Enums/Duration.cs` |
-| `Pool` | `Models/Pool.cs` |
+| `TrendingPoolsNetworkRequest` | `src/CoinGecko/Requests/Onchain/TrendingPoolsNetworkRequest.cs` |
+| `Duration` | `src/CoinGecko/Models/Enums/Duration.cs` |
+| `Pool` | `src/CoinGecko/Models/Pool.cs` |
 
